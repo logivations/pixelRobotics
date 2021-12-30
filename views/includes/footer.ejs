@@ -1,0 +1,81 @@
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <section class="cookieElement clearfix">
+                    <div class="cookie_text">
+                        <p>By continuing to browse our site you agree to our use of cookies, web analytics, Privacy Policy and Terms of Service. <a href="../pdf/DatenschutzerklärungBMS.pdf">More information</a></p>
+                    </div>
+                    <div class="ck_btn">
+                        <button class="setCookieBtn">I agree</button>
+                    </div>
+                </section>
+                <div class="container-fluid">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-6 col-12">
+                            <ul class="d-flex flex-row justify-content-md-start justify-content-center">
+                                <li><a href="impressum.php">Impressum</a></li>
+                                <li><a href="pdf/DatenschutzerklaerungPR.pdf" target="_blank">Privacy</a></li>
+                                <li><a href="pdf/rechtliche_hinweise_PixelRobotics.pdf" target="_blank">Legal</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
+                            <strong class="logo"><a href=".">Pixel Robotics</a></strong>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="text-center">
+                                        <small>&copy; 2021 Pixel Robotics GmbH. All rights reserved</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#header" class="arrow-up scroll-to">Arrow Up!</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /footer -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script src="js/scrollreveal.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/mmore.js"></script>
+<script>
+    var cookieCheck = function cookieCheck() {
+        var cookieName = arguments.length <= 0 || arguments[0] === undefined ? 'defaultName' : arguments[0];
+        var daysUntilExpire = arguments.length <= 1 || arguments[1] === undefined ? 365 : arguments[1];
+
+        var cookieElement = document.querySelector('.cookieElement');
+        var acceptBtn = document.querySelector('.setCookieBtn');
+
+        var showCookieMessage = true;
+
+        var cookies = document.cookie.split(';').map(function (cookie) {
+            if (cookie.replace(/ /g, '') == cookieName + '=true') {
+                showCookieMessage = false;
+            }
+        });
+        if (showCookieMessage) {
+            cookieElement.classList.add('is-visible');
+            acceptBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                setCookie();
+                cookieElement.classList.remove('is-visible');
+            });
+        }
+        function setCookie() {
+            var expireInDays = new Date();
+            expireInDays.setDate(expireInDays.getDate() + daysUntilExpire);
+            document.cookie = cookieName + '=true; expires=' + expireInDays + ' path=/';
+        }
+    };
+    // Set cookie with name and days until expire
+    cookieCheck('bms_cookies', 100);
+</script>

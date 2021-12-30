@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel Robotics - Development of AI and robotics systems</title>
+  <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico">
+  <link type="image/png" sizes="16x16" rel="icon" href="images/favicon-16x16.png">
+  <link type="image/png" sizes="32x32" rel="icon" href="images/favicon-32x32.png">
+  <link type="image/png" sizes="192x192" rel="icon" href="images/android-chrome-192x192.png">
+  <link type="image/png" sizes="512x512" rel="icon" href="images/android-chrome-512x512.png">
+  <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/player@latest/dist/clappr.min.js"></script>
+</head>
+<body>
+<section id="first-screen">
+  <%- include('includes/header'); -%>
+  <div class="banner banner d-flex align-items-center">
+    <div class="container ">
+      <div class="row d-flex flex-lg-row flex-column-reverse">
+        <div class="col-lg-6 col-8 offset-lg-0 offset-2">
+          <img src="images/banner-img2.png" class="img-responsive agv-image" alt="AGV">
+        </div>
+        <div class="col-lg-6 col-md-12 d-flex align-items-center">
+          <div class="main-heading clearfix">
+            <h1>DEVELOPMENT OF AI AND ROBOTICS SYSTEMS</h1>
+            <p>Innovative and very reliable autonomous guided vehicles (AGVs).<br>AI object recognition and
+              tracking
+              for all kind of applications<br>Link Digital Twin with reality.</p>
+            <a href="about" class="btn-custom">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="main">
+  <section id="services" class="services">
+    <div class="container">
+      <h2>OUR SERVICES</h2>
+      <div class="row fg-1ist">
+        <div class="col-md-12 col-lg">
+          <div class="fg-item">
+            <figure>
+              <div class="figure-holder figure-1">
+                <img src="images/ml-icon.svg" alt="Machine Learning">
+              </div>
+              <figcaption>
+                <h3 style="color:#fcb92a;">Machine Learning</h3>
+                <p>Application development technology consulting</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg">
+          <div class="fg-item">
+            <figure>
+              <div class="figure-holder figure-2">
+                <img src="images/cv-icon.svg" alt="Machine Learning">
+              </div>
+              <figcaption>
+                <h3 style="color: #E25303;">Computer Vision</h3>
+                <p>Wide range of image processing technologies</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg">
+          <div class="fg-item">
+            <figure>
+              <div class="figure-holder figure-3">
+                <img src="images/oa-icon.svg" alt="Machine Learning">
+              </div>
+              <figcaption>
+                <h3 style="color: #2955EF;">Optimization Algorithms</h3>
+                <p>Innovative methods for handling mission management</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="article">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="article-text b-red">
+            <p><span>Technical concepts of our AGVs</span> include 3D-cameras, very precise navigation,
+              NVIDIA
+              XAVIER, Lithium Ion battery, CFR-drive and safety scanner </p>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="article-text b-green">
+            <p><span>Complex driving algorithms</span> assist with optimal routes calculation, predictive
+              control, traffic regulation and the interaction of the AGVs. Co-operative working of > 100
+              AGVs and forklifts</p>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="article-text b-emerald">
+            <p><span>Neural networks</span> technology usage for efficient tracking and navigation of any
+              objects
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="article-text b-blue">
+            <p><span>Object recognition</span> helps to determine the exact position of pallets, predict the
+              possible bottlenecks and avoid various obstacles with millimeter accuracy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="bms-video">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="video-holder">
+            <div id="player-wrapper"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="gallery">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 mt-sm-4 mb-3">
+          <img src="images/img-1.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-sm-4 mb-sm-0 mb-3">
+          <img src="images/img-2.png" class="img-responsive" alt="">
+        </div>
+        <div class="col-sm-4 mt-sm-5 mb-3">
+          <img src="images/img-3.png" class="img-responsive" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="bms-video" class="social-distancing">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 mb-3">
+          <h3>The sophisticated combination of neural networks technologies and complex driving algorithms can
+            help to achieve the effective <span class="highlight">social distancing</span> during the working process</h3>
+        </div>
+        <div class="col-lg-8 offset-lg-2">
+          <div class="video-holder">
+            <div id="player-wrapper-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="cta-section">
+    <div class="container">
+      <div class="row">
+        <div class="col ">
+          <div class="row">
+            <div class="col-md-6">
+              <h2>GO FOR THE BEST SOLUTION FOR YOUR MOBILE ROBOTS AND TRACKING!</h2>
+              <a href="contact" class="btn-custom">Contact us</a>
+            </div>
+            <div class="col-md-6 img-object">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%- include('includes/footer'); -%>
+</div>
+<script>
+  // Video
+  var playerElement = document.getElementById("player-wrapper");
+  var player = new Clappr.Player({
+    source: '../video/AGV.mp4',
+    poster: 'images/AGV_Moment.jpg',
+    mute: true,
+    height: 411,
+    width: '100%'
+  });
+  player.attachTo(playerElement);
+  // Video 2
+  var playerElement = document.getElementById("player-wrapper-2");
+  var player = new Clappr.Player({
+    source: '../video/Logivations-PR-Social-distancing.mp4',
+    poster: 'images/Logivations-PR-Social-distancing_poster.jpg',
+    mute: true,
+    height: 411,
+    width: '100%'
+  });
+  player.attachTo(playerElement);
+</script>
+</body>
+</html>
