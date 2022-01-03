@@ -3,32 +3,44 @@ import { EjsAdapter } from '@nestjs-modules/mailer/dist/adapters/ejs.adapter';
 import { Module } from '@nestjs/common';
 import { MailService } from './mail.service';
 import { join } from 'path';
+import { EnvironmentConfigModule } from '../infrastructure/config/environment-config/environment-config.module';
+import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
+import { MailerOptions } from '@nestjs-modules/mailer/dist/interfaces/mailer-options.interface';
 
 @Module({
   imports: [
-    MailerModule.forRoot({
-      transport: {
-        host: 'wp1169253.mailout.server-he.de',
-        port: 587,
-        secure: false,
-        auth: {
-          user: 'wp1169253-w2motest',
-          pass: '13.test.T.79',
-        },
+    MailerModule.forRootAsync({
+      imports: [EnvironmentConfigModule],
+      inject: [EnvironmentConfigService],
+      useFactory: async (
+        config: EnvironmentConfigService,
+      ): Promise<MailerOptions> => {
+        console.log('config', config);
+        return {
+          transport: {
+            host: config.getMailHost(),
+            port: config.getMailPort(),
+            secure: false,
+            auth: {
+              user: config.getMailUser(),
+              pass: config.getMailPassword(),
+            },
+          },
+          defaults: {
+            from: `"No Reply" <${config.getMailFrom()}>`,
+          },
+          template: {
+            dir: join(__dirname, '../../../src/mail', 'templates'),
+            adapter: new EjsAdapter({ inlineCssEnabled: true }),
+            options: {
+              strict: true,
+            },
+          },
+        };
       },
-      defaults: {
-        from: '"No Reply" <noreply@pixel-robotics.eu>',
-      },
-      template: {
-        dir: join(__dirname, '../../../src/mail', 'templates'),
-        adapter: new EjsAdapter({inlineCssEnabled: true}),
-        options: {
-          strict: true,
-        },
-      }
     }),
   ],
   providers: [MailService],
-  exports: [MailService]
+  exports: [MailService],
 })
 export class MailModule {}

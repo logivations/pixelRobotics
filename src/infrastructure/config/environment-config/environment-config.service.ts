@@ -33,4 +33,28 @@ export class EnvironmentConfigService implements DatabaseConfig {
   getDatabaseSync(): boolean {
     return this.configService.get<boolean>('DATABASE_SYNCHRONIZE');
   }
+
+  getSecretCaptchaKey(): string {
+    return this.configService.get<string>('SECRET_CAPTCHA_KEY');
+  }
+
+  getMailHost(): string {
+    return this.configService.get<string>('MAIL_HOST');
+  }
+
+  getMailPort(): number {
+    return this.configService.get<number>('MAIL_PORT');
+  }
+
+  getMailUser(): string {
+    return this.configService.get<string>('MAIL_USER');
+  }
+
+  getMailPassword(): string {
+    return this.configService.get<string>('MAIL_PASSWORD');
+  }
+
+  getMailFrom(): string {
+    return this.configService.get<string>('MAIL_FROM');
+  }
 }

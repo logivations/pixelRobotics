@@ -38,6 +38,7 @@ $(window).ready(function(){
                 inputDataObject[prop].value = inputDataObject[prop].value.replace(/(\s|s{1}c{1}r{1}i{1}p{1}t{1}|&{1}&{1}|\${1}\({1}|\^{1}\s)/g, ' ');
             }
             var formData = $("form").serialize();
+            // g-recaptcha-response=03AGdBq27zjoS5gQIVrbS4cuHYoKHFVn7JjOMzPvqNtb16orwIGzAvxx7OMSVgGTlVMZDJa6SA79KeSZhPoW9W4TgK5qCoNaiFEoqUX9rrzUgrKFY_F7p2EDg6hdPDFmM5rTtiPeNAfr42yq6f60HRGSQzPU2JiOISLFUJGaoz0irq7BEx8hqvdHLr-vSlqjphOrcSaHgQAEACN_YHm9N4tox4Qrv5POZDZChnYPEJ5xhghFaiCTQkyHEp1KyjUHyU8nxjrbtUWiAMFxYZibf2_nDF4-dUCg3qFoUUT3vpiTp0OHQRnHUOh4IIPtxt6apRl59tFtIe4JUj5wrAF0P0LqsVSP_qt2RJeeVLlmpWBuT-7LowRnF59yBfCC4ztWScxKzUZq9O14-CtaGS5xdHa1n-AwHSylR8AHvL6nLZxjFk2SUgv4Yi775GD9BLaei9TKQy1Z_Aq36R`;
             $.ajax({
                 method: "POST",
                 url: 'api/mail/sendMail',

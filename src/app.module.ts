@@ -3,7 +3,6 @@ import { EnvironmentConfigModule } from './infrastructure/config/environment-con
 import { LoggerModule } from './infrastructure/logger/logger.module';
 import { ExceptionsModule } from './infrastructure/exceptions/exceptions.module';
 import { ControllersModule } from './infrastructure/controllers/controllers.module';
-import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [

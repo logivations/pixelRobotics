@@ -1,8 +1,8 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
-  NestFastifyApplication,
   FastifyAdapter,
+  NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { join } from 'path';
 
@@ -29,7 +29,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseInterceptor());
 
   app.useStaticAssets({ root: join(__dirname, '../..', 'public') });
-  console.log('123', join(__dirname, '..', 'views'));
+
   app.setViewEngine({
     engine: { ejs: require('ejs') },
     templates: join(__dirname, '../..', 'views'),
