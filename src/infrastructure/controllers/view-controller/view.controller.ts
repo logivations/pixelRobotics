@@ -6,13 +6,13 @@ export class ViewController {
   @Get('')
   @Render('index.ejs')
   root() {
-    return { message: 'Hello world!' };
+    return {};
   }
 
   @Get('about')
   @Render('about.ejs')
   about() {
-    return { message: 'Hello world!' };
+    return {};
   }
 
   @Get('careers')
@@ -23,6 +23,11 @@ export class ViewController {
   @Get('contact')
   @Render('contact.ejs')
   contact() {
-    return { message: 'Hello world!' };
+    return {};
+  }
+  @Get('impressum')
+  @Render('impressum.ejs')
+  impressum() {
+    return {};
   }
 }

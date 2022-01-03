@@ -1,3 +1,4 @@
+<%- include('popup-card'); -%>
 <footer id="footer">
     <div class="container">
         <div class="row">
@@ -14,7 +15,7 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-md-6 col-12">
                             <ul class="d-flex flex-row justify-content-md-start justify-content-center">
-                                <li><a href="impressum.php">Impressum</a></li>
+                                <li><a href="impressum">Impressum</a></li>
                                 <li><a href="pdf/DatenschutzerklaerungPR.pdf" target="_blank">Privacy</a></li>
                                 <li><a href="pdf/rechtliche_hinweise_PixelRobotics.pdf" target="_blank">Legal</a>
                                 </li>
@@ -79,3 +80,4 @@
     // Set cookie with name and days until expire
     cookieCheck('bms_cookies', 100);
 </script>
+<script src="js/popup-card.js"></script>

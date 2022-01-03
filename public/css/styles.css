@@ -103,7 +103,7 @@ select:focus {
 	/*width: 100%;*/
 /*}*/
 #main {
-	height: 100%;
+	height: auto;
 	margin: 0 auto;
 	position: relative;
 	z-index: 3;
@@ -187,7 +187,7 @@ select:focus {
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 5;
+	z-index: 3;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1990,14 +1990,14 @@ textarea.form-control {
 #contactModal h2:after {
 	display: none;
 }
-.modal-backdrop.fade.show {
+#contactModal .modal-backdrop.fade.show {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	border: 0;
 	background: rgba(0, 0, 0, 0.6);
-	z-index: 999;
+	z-index: 1;
 	content: '';
 	height: 100%;
 	width: 100%;
@@ -2098,4 +2098,18 @@ textarea.form-control {
 	animation: fadeSmall 1.5s;
 	color: #fff;
 	max-width: 100%;
+}
+/*popup card*/
+#popupCard .modal-dialog {
+	max-width: max-content;
+}
+
+#popupCardClose {
+	border: none;
+	min-width: 120px;
+	margin-bottom: 0;
+	animation: none;
+}
+.card-img-top {
+	max-width: 400px;
 }
