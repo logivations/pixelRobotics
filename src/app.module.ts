@@ -3,6 +3,9 @@ import { EnvironmentConfigModule } from './infrastructure/config/environment-con
 import { LoggerModule } from './infrastructure/logger/logger.module';
 import { ExceptionsModule } from './infrastructure/exceptions/exceptions.module';
 import { ControllersModule } from './infrastructure/controllers/controllers.module';
+import { UserActivityModule } from './infrastructure/modules/user-activity/user-activity.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import config from './infrastructure/config/typeorm/typeorm.config';
 
 @Module({
   imports: [
@@ -10,6 +13,8 @@ import { ControllersModule } from './infrastructure/controllers/controllers.modu
     ExceptionsModule,
     ControllersModule,
     EnvironmentConfigModule,
+    TypeOrmModule.forRoot(config),
+    UserActivityModule,
   ],
   controllers: [],
   providers: [],

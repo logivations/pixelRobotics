@@ -4,6 +4,11 @@ export interface DatabaseConfig {
   getDatabaseUser(): string;
   getDatabasePassword(): string;
   getDatabaseName(): string;
-  getDatabaseSchema(): string;
   getDatabaseSync(): boolean;
+  getSecretCaptchaKey(): string;
+  getMailHost(): string;
+  getMailPort(): number;
+  getMailUser(): string;
+  getMailPassword(): string;
+  getMailFrom(): string;
 }

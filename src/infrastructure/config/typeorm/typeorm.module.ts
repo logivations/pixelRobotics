@@ -13,17 +13,12 @@ export const getTypeOrmModuleOptions = (
     username: config.getDatabaseUser(),
     password: config.getDatabasePassword(),
     database: config.getDatabaseName(),
-    entities: [__dirname + './../../**/*.entity{.ts,.js}'],
+    entities: [__dirname + '/../../**/*.entity{.ts,.js}'],
     synchronize: false,
     schema: process.env.DATABASE_SCHEMA,
     migrationsRun: true,
-    migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
-    cli: {
-      migrationsDir: 'src/migrations',
-    },
-    // ssl: {
-    //   rejectUnauthorized: false,
-    // },
+    keepConnectionAlive: true,
+    name: 'pixel_robotics'
   } as TypeOrmModuleOptions);
 
 @Module({

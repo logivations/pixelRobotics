@@ -26,10 +26,6 @@ export class EnvironmentConfigService implements DatabaseConfig {
     return this.configService.get<string>('DATABASE_NAME');
   }
 
-  getDatabaseSchema(): string {
-    return this.configService.get<string>('DATABASE_SCHEMA');
-  }
-
   getDatabaseSync(): boolean {
     return this.configService.get<boolean>('DATABASE_SYNCHRONIZE');
   }
