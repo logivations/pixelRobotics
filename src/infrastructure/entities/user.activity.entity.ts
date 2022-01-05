@@ -9,7 +9,7 @@ import {
 @Entity({ name: 'user_activity' })
 @Index(['userIP', 'browserDetail'])
 export class UserActivity {
-  @PrimaryGeneratedColumn('rowid', { name: 'ID' })
+  @PrimaryGeneratedColumn('increment', { name: 'ID' })
   id: number;
 
   @Column('text', { name: 'user_IP', nullable: false })
@@ -19,7 +19,7 @@ export class UserActivity {
   visitedPage: string;
 
   @CreateDateColumn({ name: 'date_time', type: 'datetime' })
-  dateTime: string;
+  dateTime: Date;
 
   @Column('mediumtext', { name: 'cookie_detail', nullable: false })
   cookieDetail: string;

@@ -17,9 +17,9 @@ export class UserActivityService {
       .then((items) => items.map((e) => UserActivityDto.fromEntity(e)));
   }
 
-  public async create(dto: UserActivityDto): Promise<UserActivityDto> {
+  public async create(entity: UserActivity): Promise<UserActivityDto> {
     return this.userActivityEntityRepository
-      .save(dto.toEntity())
+      .save(entity)
       .then((e) => UserActivityDto.fromEntity(e));
   }
 }

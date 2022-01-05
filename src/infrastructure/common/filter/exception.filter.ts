@@ -49,7 +49,7 @@ export class AllExceptionFilter implements ExceptionFilter {
     status: number,
     exception: any,
   ) {
-    if (status === 500) {
+    if (status >= 500) {
       this.logger.error(
         `End Request for ${request.path}`,
         `method=${request.method} status=${status} code_error=${

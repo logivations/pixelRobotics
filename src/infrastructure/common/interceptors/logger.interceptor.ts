@@ -20,21 +20,21 @@ export class LoggingInterceptor implements NestInterceptor {
     const ip = LoggingInterceptor.getIP(request);
 
     this.logger.log(
-      `Incoming Request on ${request.path}`,
+      `Incoming Request on ${request.path || request.url}`,
       `method=${request.method} ip=${ip}`,
     );
 
     return next.handle().pipe(
       tap(() => {
         this.logger.log(
-          `End Request for ${request.path}`,
+          `End Request for ${request.path || request.url}`,
           `method=${request.method} ip=${ip} duration=${Date.now() - now}ms`,
         );
       }),
     );
   }
 
-  private static getIP(request: any): string {
+  public static getIP(request: any): string {
     let ip: string;
     const ipAddr = request.headers['x-forwarded-for'];
     if (ipAddr) {

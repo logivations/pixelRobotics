@@ -9,6 +9,6 @@ import { TypeOrmConfigModule } from '../../config/typeorm/typeorm.module';
   imports: [TypeOrmConfigModule, TypeOrmModule.forFeature([UserActivity])],
   providers: [UserActivityService],
   controllers: [UserActivityController],
-  exports: [],
+  exports: [UserActivityService],
 })
 export class UserActivityModule {}

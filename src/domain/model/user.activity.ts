@@ -1,8 +1,8 @@
 export class UserActivityModel {
-  id: number;
+  id?: number;
   userIP: string;
   visitedPage: string;
-  dateTime: string;
+  dateTime?: string;
   cookieDetail: string;
   browser: string;
   browserDetail: string;

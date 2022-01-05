@@ -15,7 +15,6 @@ import { MailerOptions } from '@nestjs-modules/mailer/dist/interfaces/mailer-opt
       useFactory: async (
         config: EnvironmentConfigService,
       ): Promise<MailerOptions> => {
-        console.log('config', config);
         return {
           transport: {
             host: config.getMailHost(),

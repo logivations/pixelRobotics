@@ -5,7 +5,7 @@ export class UserActivityDto implements Readonly<UserActivityDto> {
   id: number;
   userIP: string;
   visitedPage: string;
-  dateTime: string;
+  dateTime: Date;
   cookieDetail: string;
   browser: string;
   browserDetail: string;
@@ -13,13 +13,16 @@ export class UserActivityDto implements Readonly<UserActivityDto> {
   providerDetail: string;
   referer: string;
 
+  public static toEntity(activityModel: UserActivityModel = null): UserActivity {
+    const userActivityDto = new UserActivityDto();
+    return userActivityDto.toEntity(activityModel);
+  }
+
   public static from(dto: Partial<UserActivityDto>) {
     const userActivityDto = new UserActivityDto();
 
-    userActivityDto.id = dto.id;
     userActivityDto.userIP = dto.userIP;
     userActivityDto.visitedPage = dto.visitedPage;
-    userActivityDto.dateTime = dto.dateTime;
     userActivityDto.cookieDetail = dto.cookieDetail;
     userActivityDto.browser = dto.browser;
     userActivityDto.browserDetail = dto.browserDetail;
@@ -45,14 +48,13 @@ export class UserActivityDto implements Readonly<UserActivityDto> {
     });
   }
 
-  public toEntity(activityModel: UserActivityModel = null) {
+  public toEntity(activityModel: UserActivityModel = null): UserActivity {
     const userActivity = new UserActivity();
+    // @ts-ignore
     activityModel = activityModel || this;
 
-    userActivity.id = activityModel.id;
     userActivity.userIP = activityModel.userIP;
     userActivity.visitedPage = activityModel.visitedPage;
-    userActivity.dateTime = activityModel.dateTime;
     userActivity.cookieDetail = activityModel.cookieDetail;
     userActivity.browser = activityModel.browser;
     userActivity.browserDetail = activityModel.browserDetail;
