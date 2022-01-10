@@ -1,7 +1,7 @@
-import { Body, Controller, Get, Post, Req } from "@nestjs/common";
+import { Body, Controller, Get, Post, Req } from '@nestjs/common';
 import { UserActivityService } from './user-activity.service';
 import { UserActivityDto } from './user-activity.dto';
-import { Resolution } from "./resulutionDto";
+import { Resolution } from './resulutionDto';
 import { Request } from 'express';
 
 @Controller('api/user-activity')
@@ -16,7 +16,7 @@ export class UserActivityController {
   @Post('setResolution')
   public async setResolution(
     @Req() request: Request,
-    @Body() resolution: Resolution
+    @Body() resolution: Resolution,
   ): Promise<void> {
     await this.userActivityService.setResolution(request, resolution);
   }

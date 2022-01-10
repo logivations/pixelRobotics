@@ -18,7 +18,7 @@ export const getTypeOrmModuleOptions = (
     schema: process.env.DATABASE_SCHEMA,
     migrationsRun: true,
     keepConnectionAlive: true,
-    name: 'pixel_robotics'
+    name: 'pixel_robotics',
   } as TypeOrmModuleOptions);
 
 @Module({

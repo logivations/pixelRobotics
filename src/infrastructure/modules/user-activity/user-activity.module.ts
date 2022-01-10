@@ -4,13 +4,13 @@ import { UserActivityController } from './user-activity.controller';
 import { UserActivity } from '../../entities/user.activity.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigModule } from '../../config/typeorm/typeorm.module';
-import { HttpModule } from "@nestjs/axios";
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
     TypeOrmConfigModule,
     TypeOrmModule.forFeature([UserActivity]),
-    HttpModule
+    HttpModule,
   ],
   providers: [UserActivityService],
   controllers: [UserActivityController],

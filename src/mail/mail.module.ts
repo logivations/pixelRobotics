@@ -6,6 +6,7 @@ import { join } from 'path';
 import { EnvironmentConfigModule } from '../infrastructure/config/environment-config/environment-config.module';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
 import { MailerOptions } from '@nestjs-modules/mailer/dist/interfaces/mailer-options.interface';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
@@ -38,6 +39,8 @@ import { MailerOptions } from '@nestjs-modules/mailer/dist/interfaces/mailer-opt
         };
       },
     }),
+    HttpModule,
+    EnvironmentConfigModule,
   ],
   providers: [MailService],
   exports: [MailService],

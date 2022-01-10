@@ -1,6 +1,6 @@
 import { UserActivityModel } from '../../../domain/model/user.activity';
 import { UserActivity } from '../../entities/user.activity.entity';
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid';
 
 export class UserActivityDto implements Readonly<UserActivityDto> {
   public id: string;
@@ -15,7 +15,9 @@ export class UserActivityDto implements Readonly<UserActivityDto> {
   public providerDetail: string;
   public referer: string;
 
-  public static toEntity(activityModel: UserActivityModel = null): UserActivity {
+  public static toEntity(
+    activityModel: UserActivityModel = null,
+  ): UserActivity {
     const userActivityDto = new UserActivityDto();
     return userActivityDto.toEntity(activityModel);
   }

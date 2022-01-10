@@ -1,6 +1,6 @@
-import { Controller, Get, Render, UseInterceptors } from "@nestjs/common";
+import { Controller, Get, Render, UseInterceptors } from '@nestjs/common';
 import * as careers from '../../../../public/json/vacancies.json';
-import { UserActivityInterceptor } from "../../common/interceptors/user.activity.interceptor";
+import { UserActivityInterceptor } from '../../common/interceptors/user.activity.interceptor';
 
 @UseInterceptors(UserActivityInterceptor)
 @Controller()
