@@ -4,9 +4,10 @@ export class UserActivityModel {
   visitedPage: string;
   dateTime?: string;
   cookieDetail: string;
-  browser: string;
-  browserDetail: string;
-  userInfo: string;
-  providerDetail: string;
+  userAgent: string;
+  plugins?: string;
+  numberOfVisits?: number;
+  resolution?: string;
+  providerDetail?: string;
   referer: string;
 }

@@ -7,11 +7,12 @@ import { UserActivityDto } from "../../modules/user-activity/user-activity.dto";
 @Injectable()
 export class UserActivityInterceptor implements NestInterceptor {
   constructor(private userActivityService: UserActivityService) {}
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+
+  async intercept(context: ExecutionContext, next: CallHandler): Promise<Observable<any>> {
     const httpContext = context.switchToHttp();
     const request = httpContext.getRequest();
 
-    this.storeUserActivityFromRequest(request);
+    await this.storeUserActivityFromRequest(request);
     return next.handle().pipe();
   }
   
@@ -19,14 +20,12 @@ export class UserActivityInterceptor implements NestInterceptor {
     const ip = LoggingInterceptor.getIP(request);
     const userActivityDto = UserActivityDto.toEntity({
         userIP: ip,
-        visitedPage: request.url,
+        visitedPage: request.path || request.url,
         cookieDetail: request.headers.cookie,
-        browser: request.headers['user-agent'],
-        browserDetail: request.headers['user-agent'],
-        userInfo: request.headers['user-agent'],
-        providerDetail: request.socket.remoteAddress,
+        userAgent: request.headers['user-agent'],
         referer: request.headers.referer,
     });
+
     await this.userActivityService.create(userActivityDto);
   }
 }

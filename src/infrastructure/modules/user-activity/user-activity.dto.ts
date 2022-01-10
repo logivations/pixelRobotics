@@ -1,17 +1,19 @@
 import { UserActivityModel } from '../../../domain/model/user.activity';
 import { UserActivity } from '../../entities/user.activity.entity';
+import { v4 as uuidv4 } from 'uuid'
 
 export class UserActivityDto implements Readonly<UserActivityDto> {
-  id: number;
-  userIP: string;
-  visitedPage: string;
-  dateTime: Date;
-  cookieDetail: string;
-  browser: string;
-  browserDetail: string;
-  userInfo: string;
-  providerDetail: string;
-  referer: string;
+  public id: string;
+  public userIP: string;
+  public visitedPage: string;
+  public dateTime: Date;
+  public cookieDetail: string;
+  public userAgent: string;
+  public plugins: string;
+  public numberOfVisits: number;
+  public resolution: string;
+  public providerDetail: string;
+  public referer: string;
 
   public static toEntity(activityModel: UserActivityModel = null): UserActivity {
     const userActivityDto = new UserActivityDto();
@@ -24,9 +26,10 @@ export class UserActivityDto implements Readonly<UserActivityDto> {
     userActivityDto.userIP = dto.userIP;
     userActivityDto.visitedPage = dto.visitedPage;
     userActivityDto.cookieDetail = dto.cookieDetail;
-    userActivityDto.browser = dto.browser;
-    userActivityDto.browserDetail = dto.browserDetail;
-    userActivityDto.userInfo = dto.userInfo;
+    userActivityDto.userAgent = dto.userAgent;
+    userActivityDto.numberOfVisits = dto.numberOfVisits;
+    userActivityDto.plugins = dto.plugins;
+    userActivityDto.resolution = dto.resolution;
     userActivityDto.providerDetail = dto.providerDetail;
     userActivityDto.referer = dto.referer;
 
@@ -40,9 +43,10 @@ export class UserActivityDto implements Readonly<UserActivityDto> {
       visitedPage: entity.visitedPage,
       dateTime: entity.dateTime,
       cookieDetail: entity.cookieDetail,
-      browser: entity.browser,
-      browserDetail: entity.browserDetail,
-      userInfo: entity.userInfo,
+      userAgent: entity.userAgent,
+      plugins: entity.plugins,
+      numberOfVisits: entity.numberOfVisits,
+      resolution: entity.resolution,
       providerDetail: entity.providerDetail,
       referer: entity.referer,
     });
@@ -53,12 +57,14 @@ export class UserActivityDto implements Readonly<UserActivityDto> {
     // @ts-ignore
     activityModel = activityModel || this;
 
+    userActivity.id = uuidv4();
     userActivity.userIP = activityModel.userIP;
     userActivity.visitedPage = activityModel.visitedPage;
     userActivity.cookieDetail = activityModel.cookieDetail;
-    userActivity.browser = activityModel.browser;
-    userActivity.browserDetail = activityModel.browserDetail;
-    userActivity.userInfo = activityModel.userInfo;
+    userActivity.userAgent = activityModel.userAgent;
+    userActivity.numberOfVisits = activityModel.numberOfVisits;
+    userActivity.plugins = activityModel.plugins;
+    userActivity.resolution = activityModel.resolution;
     userActivity.providerDetail = activityModel.providerDetail;
     userActivity.referer = activityModel.referer;
 

@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^1.6.0",
+    "@nestjs/axios": "^0.0.4",
     "@nestjs/common": "^8.2.4",
     "@nestjs/config": "^1.1.5",
     "@nestjs/core": "^8.2.4",
@@ -37,8 +38,6 @@
     "@nestjs/platform-fastify": "^8.2.4",
     "@nestjs/swagger": "^5.1.5",
     "@nestjs/typeorm": "^8.0.2",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.13.2",
     "ejs": "^3.1.6",
     "fastify-static": "^4.5.0",
     "handlebars": "^4.7.7",
@@ -50,7 +49,8 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.5.1",
     "swagger-ui-express": "^4.3.0",
-    "typeorm": "^0.2.41"
+    "typeorm": "^0.2.41",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.1.6",
