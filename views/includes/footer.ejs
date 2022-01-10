@@ -48,7 +48,6 @@
         crossorigin="anonymous"></script>
 <script src="js/scrollreveal.min.js"></script>
 <script src="js/scripts.js"></script>
-<script src="js/mmore.js"></script>
 <script>
     var cookieCheck = function cookieCheck() {
         var cookieName = arguments.length <= 0 || arguments[0] === undefined ? 'defaultName' : arguments[0];
@@ -78,6 +77,15 @@
             document.cookie = cookieName + '=true; expires=' + expireInDays + ' path=/';
         }
     };
+    const browserDimensions = {
+      width: screen.width,
+      height: screen.height,
+    };
+    $.ajax({
+      url: 'api/user-activity/setResolution',
+      type: 'POST',
+      data: { width: screen.width, height: screen.height }
+    });
     // Set cookie with name and days until expire
     cookieCheck('bms_cookies', 100);
 </script>
