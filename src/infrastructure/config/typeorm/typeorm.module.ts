@@ -5,8 +5,9 @@ import { EnvironmentConfigService } from '../environment-config/environment-conf
 
 export const getTypeOrmModuleOptions = (
   config: EnvironmentConfigService,
-): TypeOrmModuleOptions =>
-  ({
+): TypeOrmModuleOptions => {
+  console.log("configService", config);
+  return ({
     type: 'mysql',
     host: config.getDatabaseHost(),
     port: config.getDatabasePort(),
@@ -20,6 +21,7 @@ export const getTypeOrmModuleOptions = (
     keepConnectionAlive: true,
     name: 'pixel_robotics',
   } as TypeOrmModuleOptions);
+};
 
 @Module({
   imports: [
