@@ -1,8 +1,17 @@
-<div class="col-md-4 col-12 career-col">
-    <div class="career-holder">
-        <h3><%= title %></h3>
-        <div class="d-flex justify-content-center">
-            <a target="_blank" class="btn-custom" href="<%= pdfLink %>">Details</a>
+<div class="col-md-6 col-12 careers-mb">
+    <div class="careers-holder">
+        <div class="d-flex careers-top">
+            <div class="country">
+                <img src="images/location-icon.svg" class="country-icon" alt="">
+                <span class="country-name"><%= country %></span>
+            </div>
+            <a target="_blank" href="<%= pdfLink %>" class="read-more">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.01 11H4V13H16.01V16L20 12L16.01 8V11Z" fill="#E25303"/>
+                </svg>
+            </a>
         </div>
+        <h3 class="position"><%= title %></h3>
+        <p class="description"><%= description %></p>
     </div>
 </div>

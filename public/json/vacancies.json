@@ -2,39 +2,33 @@
   "vacancies": [
     {
       "title": "Betriebswirt (m/w/d)",
+      "description": "description",
+      "country": "Germany",
+      "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
+    },
+    {
+      "title": "Betriebswirt (m/w/d)",
+      "description": "description",
+      "country": "Germany",
+      "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
+    },
+    {
+      "title": "Betriebswirt (m/w/d)",
+      "description": "description",
+      "country": "Germany",
+      "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
+    },
+    {
+      "title": "Betriebswirt (m/w/d)",
+      "description": "description",
+      "country": "Germany",
       "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
     },
     {
       "title": "Kaufmännische Angestellte - Buchhaltung (m/w/d)",
+      "description": "description",
+      "country": "Germany",
       "pdfLink": "/pdf/202108_Accounting_PR.pdf"
-    },
-    {
-      "title": "Consultant Logistics Solutions (m/w/d)",
-      "pdfLink": "/pdf/202107_Combined_Consultant_PR.pdf"
-    },
-    {
-      "title": "Mathematiker als Logistik-Consultant (m/w/d)",
-      "pdfLink": "/pdf/202107_Mathematiker_Consultant_PR.pdf"
-    },
-    {
-      "title": "Ingenieure als Logistik-Consultant (m/w/d)",
-      "pdfLink": "/pdf/202107_Ingenieur_Consultant_PR.pdf"
-    },
-    {
-      "title": "Unterstützung für die Montage von Robotik-Komponenten",
-      "pdfLink": "/pdf/202106_Montage_PR.pdf"
-    },
-    {
-      "title": "Robotics Engineer: Motion Planning, Vehicle control and Navigation (m/w/d)",
-      "pdfLink": "/pdf/202105_Robotics-Engineer_PR.pdf"
-    },
-        {
-      "title": "Autonomous Mobile Robots Systems & Safety engineer (m/w/d)",
-      "pdfLink": "/pdf/202105_AMR-Engineer_PR.pdf"
-    },
-        {
-      "title": "Werkstudent/in für den Bereich Office-/ Event-Management (m/w/d)",
-      "pdfLink": "/pdf/202104_Werkstudent_OfficeManagement.pdf"
     }
   ]
 }

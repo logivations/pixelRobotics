@@ -1,11 +1,10 @@
-<%- include('popup-card'); -%>
 <footer id="footer">
     <div class="container">
         <div class="row">
             <div class="col">
                 <section class="cookieElement clearfix">
                     <div class="cookie_text">
-                        <p>By continuing to browse our site you agree to our use of cookies, web analytics, Privacy Policy and Terms of Service. <a href="../pdf/DatenschutzerklärungBMS.pdf">More information</a></p>
+                        <p>By continuing to browse our site you agree to our use of cookies, web analytics, Privacy Policy and Terms of Service. <a href="../../pdf/DatenschutzerklärungBMS.pdf">More information</a></p>
                     </div>
                     <div class="ck_btn">
                         <button class="setCookieBtn">I agree</button>
@@ -22,71 +21,21 @@
                             </ul>
                         </div>
                         <div class="col-md-6 col-12 d-flex justify-content-md-end justify-content-center">
-                            <strong class="logo"><a href=".">Pixel Robotics</a></strong>
+                            <img class="footer-logo" src="images/pixel-robotics-logo.png" alt="Pixel Robotics">
                         </div>
                         <div class="col-12">
                             <div class="row">
                                 <div class="col">
                                     <div class="text-center">
-                                        <small>&copy; 2021 Pixel Robotics GmbH. All rights reserved</small>
+                                        <small>&copy; 2022 Pixel Robotics GmbH. All rights reserved</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="#header" class="arrow-up scroll-to">Arrow Up!</a>
+                <!--                <a href="#header" class="arrow-up scroll-to">Arrow Up!</a>-->
             </div>
         </div>
     </div>
 </footer>
-<!-- /footer -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-<script src="js/scrollreveal.min.js"></script>
-<script src="js/scripts.js"></script>
-<script>
-    var cookieCheck = function cookieCheck() {
-        var cookieName = arguments.length <= 0 || arguments[0] === undefined ? 'defaultName' : arguments[0];
-        var daysUntilExpire = arguments.length <= 1 || arguments[1] === undefined ? 365 : arguments[1];
-
-        var cookieElement = document.querySelector('.cookieElement');
-        var acceptBtn = document.querySelector('.setCookieBtn');
-
-        var showCookieMessage = true;
-
-        var cookies = document.cookie.split(';').map(function (cookie) {
-            if (cookie.replace(/ /g, '') == cookieName + '=true') {
-                showCookieMessage = false;
-            }
-        });
-        if (showCookieMessage) {
-            cookieElement.classList.add('is-visible');
-            acceptBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                setCookie();
-                cookieElement.classList.remove('is-visible');
-            });
-        }
-        function setCookie() {
-            var expireInDays = new Date();
-            expireInDays.setDate(expireInDays.getDate() + daysUntilExpire);
-            document.cookie = cookieName + '=true; expires=' + expireInDays + ' path=/';
-        }
-    };
-    const browserDimensions = {
-      width: screen.width,
-      height: screen.height,
-    };
-    $.ajax({
-      url: 'api/user-activity/setResolution',
-      type: 'POST',
-      data: { width: screen.width, height: screen.height }
-    });
-    // Set cookie with name and days until expire
-    cookieCheck('bms_cookies', 100);
-</script>
-<script src="js/popup-card.js"></script>
