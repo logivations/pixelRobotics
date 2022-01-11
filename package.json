@@ -5,7 +5,8 @@
   "author": "Pixel Robotics",
   "private": true,
   "engine": {
-    "node": "16.3.0"
+    "node": "16.x",
+    "npm": "8.x"
   },
   "license": "UNLICENSED",
   "scripts": {
