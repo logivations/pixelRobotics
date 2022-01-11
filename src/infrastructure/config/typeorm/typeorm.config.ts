@@ -4,7 +4,6 @@ import * as dotenv from 'dotenv';
 if (process.env.NODE_ENV === 'local') {
   dotenv.config({ path: './env/local.env' });
 }
-console.log("process.env", process.env);
 const config: ConnectionOptions = {
   type: 'mysql',
   host: process.env.DATABASE_HOST,

@@ -37,8 +37,7 @@ async function bootstrap() {
   const serverHost = process.env.YOUR_HOST || '0.0.0.0';
   const serverPort = parseInt(process.env.PORT, 10) || 80;
   await app.listen(serverPort, serverHost, (err, address) => {
-    console.log("err", err);
-    console.log("address", address);
+    console.error(`Running error on ${address}, Error: ${err}`);
   });
   console.log(`Application is running on: ${await app.getUrl()}`);
 }

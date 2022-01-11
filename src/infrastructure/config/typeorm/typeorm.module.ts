@@ -6,7 +6,6 @@ import { EnvironmentConfigService } from '../environment-config/environment-conf
 export const getTypeOrmModuleOptions = (
   config: EnvironmentConfigService,
 ): TypeOrmModuleOptions => {
-  console.log("configService", config);
   return ({
     type: 'mysql',
     host: config.getDatabaseHost(),
