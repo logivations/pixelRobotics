@@ -34,7 +34,7 @@ async function bootstrap() {
     engine: { ejs: require('ejs') },
     templates: join(__dirname, '../..', 'views'),
   });
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 8080);
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 
