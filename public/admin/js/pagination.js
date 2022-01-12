@@ -29,7 +29,7 @@ const getItems = (pageNumber) => {
 const clickHandler = (event) => {
     const container = document.getElementById('pagination');
     const activePage = parseInt(event.currentTarget.dataset.page);
-    container.querySelector('.page-item.active').classList.remove('active-page');
+    container.querySelector('.page-item.active-page').classList.remove('active-page');
     container.dataset.activePage = activePage.toString();
     event.currentTarget.classList.add('active-page');
     getItems(activePage);
