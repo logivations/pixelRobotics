@@ -1,0 +1,33 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Host</th>
+            <th scope="col">Zielseite</th>
+            <th scope="col">Datum</th>
+            <th scope="col">Provider</th>
+            <th scope="col">Number of visits</th>
+            <th scope="col">Browser</th>
+            <th scope="col">Kommt von</th>
+            <th scope="col">Resolution</th>
+            <th scope="col">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% userActivity.forEach(function(activity) { %>
+            <%- include('statistic.block.ejs',
+            {
+                itemNumber: activity.itemNumber,
+                userIp: activity.userIP,
+                visitedPage: activity.visitedPage,
+                dateTime: activity.dateTime,
+                provider: activity.provider,
+                browser: activity.browser,
+                numberOfVisits: activity.numberOfVisits,
+                resolution: activity.resolution,
+                referer: activity.referer,
+                userAgent: activity.userAgent
+            }); %>
+        <% }); %>
+    </tbody>
+</table>

@@ -1,12 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { UserActivity } from '../../entities/user.activity.entity';
-import { Repository } from 'typeorm';
-import { UserActivityDto } from './user-activity.dto';
-import { HttpService } from '@nestjs/axios';
-import { Resolution } from './resulutionDto';
-import { Request } from 'express';
-import { LoggingInterceptor } from '../../common/interceptors/logger.interceptor';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {UserActivity} from '../../entities/user.activity.entity';
+import {Repository} from 'typeorm';
+import {UserActivityDto} from './user-activity.dto';
+import {HttpService} from '@nestjs/axios';
+import {Resolution} from './resulutionDto';
+import {Request} from 'express';
+import {LoggingInterceptor} from '../../common/interceptors/logger.interceptor';
+import {IPaginationOptions, paginate, Pagination,} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class UserActivityService {
@@ -55,6 +56,14 @@ export class UserActivityService {
       .then((e) => UserActivityDto.fromEntity(e));
   }
 
+  async paginate(options: IPaginationOptions): Promise<Pagination<UserActivity>> {
+    return await paginate<UserActivity>(this.userActivityEntityRepository, options);
+  }
+
+  async getNumberOfRow() {
+    return await this.userActivityEntityRepository.count();
+  }
+
   private async getEntityFromDB(entity: UserActivity) {
     const providerDetail = await this.getProviderDetail(entity.userIP);
     const entityFromDb = await this.userActivityEntityRepository.findOne(
@@ -70,12 +79,14 @@ export class UserActivityService {
     return { entityFromDb, providerDetail };
   }
 
-  private async getProviderDetail(userIP: string) {
+  async getProviderDetail(userIP: string) {
+    console.log(userIP)
     const providerData = await this.httpService
       .get(`http://ip-api.com/json/${userIP}`)
       .toPromise();
+    console.log(providerData.data)
     // @ts-ignore
-    return providerData.status === 'success'
+    return providerData.data.status === 'success'
       ? JSON.stringify(providerData.data)
       : '{}';
   }

@@ -11,6 +11,8 @@ import { AllExceptionFilter } from './infrastructure/common/filter/exception.fil
 import { LoggingInterceptor } from './infrastructure/common/interceptors/logger.interceptor';
 import { ResponseInterceptor } from './infrastructure/common/interceptors/response.interceptor';
 import { LoggerService } from './infrastructure/logger/logger.service';
+import fastifyCookie from "fastify-cookie";
+import * as cookieParser from 'cookie-parser';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -34,11 +36,16 @@ async function bootstrap() {
     engine: { ejs: require('ejs') },
     templates: join(__dirname, '../..', 'views'),
   });
+  await app.register(fastifyCookie, {
+    secret: 'pixelRobotics',
+  });
+
   const serverHost = process.env.HOST || '0.0.0.0';
-  const serverPort = parseInt(process.env.PORT, 10) || 80;
-  await app.listen(serverPort, serverHost, (err, address) => {
+  const serverPort = parseInt(process.env.PORT, 10) || 3000;
+  await app.listen(serverPort, null, (err, address) => {
     console.error(`Running error on ${address}, Error: ${err}`);
   });
+
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('./../includes/metadata'); -%>
+    <link rel="stylesheet/less" type="text/css" href="css/statistics.style.less" />
+    <link rel="stylesheet/less" type="text/css" href="css/common.style.less" />
+</head>
+<body>
+<div id="statistics" class="container-fluid">
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row d-flex">
+                <div class="col">
+                    <strong class="logo lg-small"><a href=".">Pixel Robotics</a></strong>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <button type="button" class="btn btn-custom mr-3">Log out</button>
+                    <button type="button" class="btn btn-custom">Refresh</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="row container-fluid" id="statistics-list"></div>
+    <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+    <footer id="footer">
+        <div class="pagination-statistics container-fluid d-flex justify-content-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination" id="pagination"></ul>
+            </nav>
+        </div>
+        <div class="container-fluid">
+            <div class="text-center">
+                <small>&copy; 2022 Pixel Robotics GmbH. All rights reserved</small>
+            </div>
+        </div>
+    </footer>
+</div>
+<%- include('./../includes/cdn-libs'); -%>
+<script src="./../js/libs/less.js" type="text/javascript"></script>
+<script src="js/pagination.js"></script>
+</body>
+</html>
+

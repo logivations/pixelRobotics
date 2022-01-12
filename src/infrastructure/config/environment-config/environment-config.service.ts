@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { DatabaseConfig } from '../../../domain/config/database.interface';
+import { EnvironmentConfig } from '../../../domain/config/environment.interface';
 
 @Injectable()
-export class EnvironmentConfigService implements DatabaseConfig {
+export class EnvironmentConfigService implements EnvironmentConfig {
   constructor(private configService: ConfigService) {}
 
   getDatabaseHost(): string {
@@ -52,5 +52,9 @@ export class EnvironmentConfigService implements DatabaseConfig {
 
   getMailFrom(): string {
     return this.configService.get<string>('MAIL_FROM');
+  }
+
+  getAdminPassword(): string {
+    return this.configService.get<string>('ADMIN_PASSWORD');
   }
 }

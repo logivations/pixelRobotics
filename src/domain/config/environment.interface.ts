@@ -1,4 +1,4 @@
-export interface DatabaseConfig {
+export interface EnvironmentConfig {
   getDatabaseHost(): string;
   getDatabasePort(): number;
   getDatabaseUser(): string;
@@ -11,4 +11,5 @@ export interface DatabaseConfig {
   getMailUser(): string;
   getMailPassword(): string;
   getMailFrom(): string;
+  getAdminPassword(): string;
 }

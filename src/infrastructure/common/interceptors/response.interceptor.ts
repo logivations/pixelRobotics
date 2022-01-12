@@ -33,14 +33,6 @@ export class ResponseInterceptor<T>
     const httpContext = context.switchToHttp();
     const request = httpContext.getRequest();
 
-    return next.handle().pipe(
-      map((data) => ({
-        ...data,
-        isArray: Array.isArray(data),
-        path: request.path,
-        duration: `${Date.now() - now}ms`,
-        method: request.method,
-      })),
-    );
+    return next.handle().pipe();
   }
 }

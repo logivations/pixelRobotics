@@ -1,0 +1,17 @@
+<tr>
+    <th scope="row"><%= itemNumber %></th>
+    <td><a><%= userIp %></a></td>
+    <td><%= visitedPage %></td>
+    <td><%= dateTime %></td>
+    <td><%= provider %></td>
+    <td><%= numberOfVisits %></td>
+    <td><%= browser %></td>
+    <td><%= referer %></td>
+    <td><%= resolution %></td>
+    <td><button
+                type="button"
+                class="btn btn-custom"
+                onclick="showDetailedIP(`<%= userIp%>`, `<%= userAgent%>`)"
+        >Show details</button></td>
+
+</tr>
