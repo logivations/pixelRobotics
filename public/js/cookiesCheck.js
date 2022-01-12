@@ -26,7 +26,7 @@ function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
 
 fetch('api/user-activity/setResolution', {
   method: 'POST',
-  body: { width: screen.width, height: screen.height }
+  body: JSON.stringify({ width: screen.width, height: screen.height })
 });
 
 // Set cookie with name and days until expire

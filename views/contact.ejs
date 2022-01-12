@@ -4,7 +4,8 @@
 <head>
     <%- include('includes/metadata'); -%>
     <link rel="stylesheet/less" type="text/css" href="css/contacts.less" />
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="js/contactForm.js"></script>
 </head>
 <body>
 <header id="header" class="header">
@@ -53,13 +54,13 @@
                         <div class="col">
                             <div class="check-box-holder">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="check-box" id="sales-representative" checked>
+                                    <input class="form-check-input" type="radio" name="mailTo" id="sales-representative" value="volodymyr.boichuk@logivations.com" checked>
                                     <label class="form-check-label" for="sales-representative">
                                         Sales representative
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="check-box" id="technical-expert" >
+                                    <input class="form-check-input" type="radio" name="mailTo" id="technical-expert"  value="volodymyr.boichuk@logivations.com" >
                                     <label class="form-check-label" for="technical-expert">
                                         Technical Expert
                                     </label>
@@ -91,7 +92,7 @@
                         </div>
                         <div class="col-12">
                             <div class="d-flex">
-                                <button id="submit" class="btn btn-submit btn-custom" name="submit" type="button">Send message</button>
+                                <button id="submit" class="btn btn-submit btn-custom" name="submit" type="submit">Send message</button>
                             </div>
                         </div>
                     </div>
