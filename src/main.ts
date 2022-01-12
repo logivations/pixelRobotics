@@ -42,7 +42,7 @@ async function bootstrap() {
 
   const serverHost = process.env.HOST || '0.0.0.0';
   const serverPort = parseInt(process.env.PORT, 10) || 3000;
-  await app.listen(serverPort, null, (err, address) => {
+  await app.listen(serverPort, serverHost, (err, address) => {
     console.error(`Running error on ${address}, Error: ${err}`);
   });
 
