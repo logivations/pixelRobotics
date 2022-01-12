@@ -82,11 +82,11 @@ export class UserActivityService {
   }
 
   async getProviderDetail(userIP: string) {
-    console.log(userIP)
+    console.log("USER IP", userIP)
     const providerData = await this.httpService
       .get(`http://ip-api.com/json/${userIP}`)
       .toPromise();
-    console.log(providerData.data)
+    console.log(JSON.stringify(providerData.data))
     // @ts-ignore
     return providerData.data.status === 'success'
       ? JSON.stringify(providerData.data)

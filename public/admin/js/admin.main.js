@@ -1,6 +1,5 @@
 const submitted = () => {
     let password = document.getElementById('password').value;
-    console.log(password);
     if (password) {
         fetch('admin/checkPassword', {method: 'POST', body: password})
             .then((res) => res.json())

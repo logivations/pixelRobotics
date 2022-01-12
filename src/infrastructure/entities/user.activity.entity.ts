@@ -14,7 +14,7 @@ export class UserActivity {
   @CreateDateColumn({ name: 'date_time', type: 'datetime' })
   dateTime: Date;
 
-  @Column('mediumtext', { name: 'cookie_detail', nullable: false })
+  @Column('text', { name: 'cookie_detail', nullable: false })
   cookieDetail: string;
 
   @PrimaryColumn('text', { name: 'user_agent', nullable: false })
@@ -29,7 +29,7 @@ export class UserActivity {
   @Column('mediumtext', { name: 'resolution', nullable: false })
   resolution: string;
 
-  @PrimaryColumn('mediumtext', { name: 'provider_detail', nullable: false })
+  @PrimaryColumn('text', { name: 'provider_detail', nullable: false })
   providerDetail: string;
 
   @Column('text', { name: 'referer', nullable: false })

@@ -8,7 +8,7 @@ create table if not exists user_activity
     user_IP             varchar(48)    not null,
     visited_page        varchar(48)    not null,
     user_agent          varchar(255)   not null,
-    provider_detail     varchar(64)    not null,
+    provider_detail     varchar(255)    not null,
     date_time           datetime       not null default CURRENT_TIMESTAMP,
     cookie_detail       varchar(255)   not null default '',
     number_of_visits    int            not null default 0,

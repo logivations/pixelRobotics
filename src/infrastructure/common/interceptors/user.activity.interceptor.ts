@@ -26,7 +26,6 @@ export class UserActivityInterceptor implements NestInterceptor {
 
   private async storeUserActivityFromRequest(request: any) {
     const ip = LoggingInterceptor.getIP(request);
-      console.log(request.headers)
     const userActivityDto = UserActivityDto.toEntity({
       userIP: ip,
       visitedPage: request.path || request.url,
@@ -34,7 +33,6 @@ export class UserActivityInterceptor implements NestInterceptor {
       userAgent: request.headers['user-agent'],
       referer: request.headers.referer || "bla",
     });
-    console.log("userActivityDto", userActivityDto);
     await this.userActivityService.create(userActivityDto);
   }
 }

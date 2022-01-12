@@ -28,7 +28,6 @@ export class AdminController {
     @Get('statistics')
     @Render('admin/statistics.ejs')
     async renderPageStatistics(@Req() request: FastifyRequest, @Res({ passthrough: true }) response: FastifyReply) {
-        console.log("!!request.cookies['isLoggedIn']", request.cookies['isLoggedIn']);
         return { redirectToAuthPageNeeded: request.cookies['isLoggedIn'] }
     }
 
