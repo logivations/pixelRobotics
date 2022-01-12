@@ -57,7 +57,9 @@ export class UserActivityService {
   }
 
   async paginate(options: IPaginationOptions): Promise<Pagination<UserActivity>> {
-    return await paginate<UserActivity>(this.userActivityEntityRepository, options);
+    return await paginate<UserActivity>(
+      this.userActivityEntityRepository.createQueryBuilder().orderBy({date_time: "DESC"}),
+      options);
   }
 
   async getNumberOfRow() {

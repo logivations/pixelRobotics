@@ -34,7 +34,7 @@ export class UserActivityInterceptor implements NestInterceptor {
       userAgent: request.headers['user-agent'],
       referer: request.headers.referer || "bla",
     });
-
+    console.log("userActivityDto", userActivityDto);
     await this.userActivityService.create(userActivityDto);
   }
 }

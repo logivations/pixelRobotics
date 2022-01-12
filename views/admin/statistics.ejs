@@ -4,6 +4,13 @@
     <%- include('./../includes/metadata'); -%>
     <link rel="stylesheet/less" type="text/css" href="css/statistics.style.less" />
     <link rel="stylesheet/less" type="text/css" href="css/common.style.less" />
+
+    <% if (!redirectToAuthPageNeeded) { %>
+        <script type="text/javascript">
+          window.location.replace('/admin')
+        </script>
+    <% } %>
+
 </head>
 <body>
 <div id="statistics" class="container-fluid">
@@ -14,8 +21,8 @@
                     <strong class="logo lg-small"><a href=".">Pixel Robotics</a></strong>
                 </div>
                 <div class="col d-flex justify-content-end">
-                    <button type="button" class="btn btn-custom mr-3">Log out</button>
-                    <button type="button" class="btn btn-custom">Refresh</button>
+                    <button onclick="logout(); return false;" type="button" class="btn btn-custom">Log out</button>
+                    <button onclick="refresh(); return false;" type="button" class="btn btn-custom">Refresh</button>
                 </div>
             </div>
         </div>

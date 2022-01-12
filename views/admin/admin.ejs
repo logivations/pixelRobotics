@@ -4,6 +4,12 @@
     <%- include('./../includes/metadata'); -%>
     <link rel="stylesheet/less" type="text/css" href="admin/css/admin.style.less" />
     <link rel="stylesheet/less" type="text/css" href="admin/css/common.style.less" />
+    <% if (redirectToStatisticsPageNeeded) { %>
+        <script type="text/javascript">
+          window.location.replace('/admin/statistics')
+        </script>
+    <% } %>
+
 </head>
 <body>
     <header id="header" class="header">

@@ -15,7 +15,7 @@ const createLiElement = (content, ariaAttr) => {
     }
     li.appendChild(a);
     return li;
-}
+};
 
 const getItems = (pageNumber) => {
     return fetch(`userActivity?page=${pageNumber}`)
@@ -24,7 +24,7 @@ const getItems = (pageNumber) => {
             const container = document.getElementById('statistics-list');
             container.innerHTML = data;
         })
-}
+};
 
 const clickHandler = (event) => {
     const container = document.getElementById('pagination');
@@ -34,7 +34,7 @@ const clickHandler = (event) => {
     event.currentTarget.classList.add('active');
     getItems(activePage);
     togglePagination(container, activePage);
-}
+};
 
 const togglePagination = (container, activePage) => {
     const countOfElements = container.querySelectorAll("[data-page]").length;
@@ -51,7 +51,7 @@ const togglePagination = (container, activePage) => {
         const page = container.querySelector(`[data-page = '${index}']`)
         page && (page.style.display = "block");
     })
-}
+};
 
 const arrowClickHandler = (increment) => {
     const container = document.getElementById('pagination');
@@ -59,7 +59,7 @@ const arrowClickHandler = (increment) => {
     const nextPage = container.querySelector(`[data-page = '${activePage + increment}']`);
     nextPage && nextPage.click();
 
-}
+};
 
 window.onload = () => {
     const container = document.getElementById('pagination');
@@ -83,7 +83,7 @@ window.onload = () => {
             togglePagination(container, 1);
             getItems(1);
         });
-}
+};
 
 const showDetailedIP = (userIp, userAgent) => {
     fetch(`detailIP?userIP=${userIp}&userAgent=${userAgent}`)
@@ -91,7 +91,18 @@ const showDetailedIP = (userIp, userAgent) => {
         .then((data) => {
             const container = document.getElementById('exampleModal');
             container.innerHTML = data;
-            var myModal = new bootstrap.Modal(container, {});
+            const myModal = new bootstrap.Modal(container, {});
             myModal.show();
-        })
-}
+        });
+};
+
+const logout = () => {
+    document.cookie = 'isLoggedIn=true; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    window.location.reload();
+};
+
+const refresh = () => {
+    const container = document.getElementById('pagination');
+    const firstPage = container.querySelector(`[data-page = '1']`);
+    firstPage && firstPage.click();
+};

@@ -21,14 +21,15 @@ export class AdminController {
                 private readonly userActivityService: UserActivityService) {}
     @Get()
     @Render('admin/admin.ejs')
-    root(@Res() res) {
-        return { message: 'Hello!' }
+    root(@Req() request: FastifyRequest) {
+        return { redirectToStatisticsPageNeeded: request.cookies['isLoggedIn'] }
     }
 
     @Get('statistics')
     @Render('admin/statistics.ejs')
     async renderPageStatistics(@Req() request: FastifyRequest, @Res({ passthrough: true }) response: FastifyReply) {
-        return { message: 'Hello!' }
+        console.log("!!request.cookies['isLoggedIn']", request.cookies['isLoggedIn']);
+        return { redirectToAuthPageNeeded: request.cookies['isLoggedIn'] }
     }
 
     @Get('numberOfPages')
@@ -63,8 +64,6 @@ export class AdminController {
     @Render('admin/details.modal.ejs')
     async getDetailsIP(@Query('userIP') userIP: string, @Query('userAgent') userAgent: string) {
         const detailedIP = await this.userActivityService.getProviderDetail(userIP);
-        console.log(userAgent)
-        console.log({detailedIP: {...JSON.parse(detailedIP), userAgent}})
         return {detailedIP: {...JSON.parse(detailedIP), userAgent}};
     }
 }

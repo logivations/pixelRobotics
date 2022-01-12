@@ -13,4 +13,4 @@ const submitted = () => {
                 console.error(err)
             });
     }
-}
+};
