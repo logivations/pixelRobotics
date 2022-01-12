@@ -14,33 +14,33 @@ export class MailService {
 
   async sendMail(mailData: MailDataDto) {
     const checkCaptchaResponse: { [key: string]: any } = await this.httpService
-      .post('https://www.google.com/recaptcha/api/siteverify', null, {
+      .request({
+        url: 'https://www.google.com/recaptcha/api/siteverify',
+        method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         params: {
           secret: this.config.getSecretCaptchaKey(),
           response: mailData['g-recaptcha-response'],
         },
-      })
-      .toPromise();
+      }).toPromise();
 
-    if (checkCaptchaResponse.success) {
-      const { email, name, firma, titel, message } = mailData;
+    if (checkCaptchaResponse.data.success) {
+      const { email, name, mailTo, message } = mailData;
 
       await this.mailerService.sendMail({
-        // to: 'info@pixel-robotics.eu',
+        // to: mailTo,
         to: 'volodymyr.boichuk@logivations.com',
-        from: `${name}<info@pixel-robotics.eu>`,
+        from: `<info@pixel-robotics.eu>`,
         subject: 'Kontakt | Pixel Robotics',
         template: 'mailToPixelInfoTemplate',
         headers: [
           { key: 'Mime-Version', value: '1.0' },
           { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
         ],
-        context: { name, email, firma, titel, message },
+        context: { name, email, message },
       });
 
       await this.mailerService.sendMail({
-        // to: 'info@pixel-robotics.eu',
         to: email,
         from: `<info@pixel-robotics.eu>`,
         subject: 'Kontakt | Pixel Robotics',
@@ -49,9 +49,7 @@ export class MailService {
           { key: 'Mime-Version', value: '1.0' },
           { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
         ],
-        context: {
-          name: name,
-        },
+        context: { name: name },
       });
     }
   }
