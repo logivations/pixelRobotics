@@ -29,9 +29,9 @@ const getItems = (pageNumber) => {
 const clickHandler = (event) => {
     const container = document.getElementById('pagination');
     const activePage = parseInt(event.currentTarget.dataset.page);
-    container.querySelector('.page-item.active').classList.remove('active');
+    container.querySelector('.page-item.active').classList.remove('active-page');
     container.dataset.activePage = activePage.toString();
-    event.currentTarget.classList.add('active');
+    event.currentTarget.classList.add('active-page');
     getItems(activePage);
     togglePagination(container, activePage);
 };
@@ -76,7 +76,7 @@ window.onload = () => {
                 const li = createLiElement(i, null);
                 li.dataset.page = i.toString();
                 li.addEventListener('click', clickHandler);
-                i === 1 && li.classList.add('active');
+                i === 1 && li.classList.add('active-page');
                 container.append(li);
             }
             container.append(rightArrow);

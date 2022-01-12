@@ -4,48 +4,61 @@
 #statistics {
   header {
     width: 100%;
-    height: 65px;
+    height: 80px;
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
     display: flex;
     align-items: center;
     position: static;
+
+    button:first-child {
+      margin-right: 8px;
+    }
   }
 
   #statistics-list {
-    height: ~"calc(100vh - 65px - 133px)";
+    height: ~"calc(100vh - 80px - 123px)";
     overflow: auto;
 
     table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    thead {
-      background: @white-color;
-      th {
-        position: sticky;
-        top: 0;
-        z-index: 1;
+      tbody {
+        tr td {
+          &:last-child {
+            padding: 7px 0;
+          }
+        }
       }
     }
 
 
+
+
   }
-  .pagination-statistics {
-    .page-link {
-      color: @main-orange-color;
-      &:focus {
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem rgb(234 118 51 / 25%);
+
+  #footer {
+    padding-top: 20px;
+    .pagination{
+      margin-bottom: 20px;
+      .page-link {
+        color: @main-orange-color;
+        margin: 0;
+        &:focus {
+          outline: 0;
+          box-shadow: 0 0 0 0.25rem rgb(234 118 51 / 25%);
+        }
+      }
+      .page-item.active-page .page-link {
+        background-color: @main-orange-color;
+        border-color: @main-orange-color;
+        color: @white-color;
       }
     }
-    .page-item.active .page-link {
-      background-color: @main-orange-color;
-      border-color: @main-orange-color;
+    ul li {
+      margin: 0;
     }
   }
+
 
   .btn-custom {
     display: flex;
@@ -53,9 +66,9 @@
     border-radius: 6px;
     width: max-content;
     min-width: 120px;
-    height: 48px;
-    padding: 0 32px;
-    line-height: 48px;
+    height: 32px;
+    padding: 0 16px;
+    line-height: 32px;
     margin: 0;
     color: @main-orange-color;
     background: @white-color;
