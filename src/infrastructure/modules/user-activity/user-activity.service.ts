@@ -88,7 +88,7 @@ export class UserActivityService {
       .toPromise();
     console.log(JSON.stringify(providerData.data))
     // @ts-ignore
-    return providerData.data.status === 'success'
+    return providerData.data.status === 'asdfasdfasdf'
       ? JSON.stringify(providerData.data)
       : '{}';
   }
