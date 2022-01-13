@@ -12,34 +12,42 @@
 
 </head>
 <body>
-    <header id="header" class="header">
-        <div class="container-fluid">
-            <div class="row">
+    <div class="container-fluid">
+        <header id="header">
+            <div class="col">
                 <strong class="logo lg-small"><a href=".">Pixel Robotics</a></strong>
             </div>
-        </div>
-    </header>
-    <div id="authorization" class="container-fluid">
-        <div class="row">
-            <h3> Welcome to Pixel Robotics admin console</h3>
+            <div class="container-fluid">
+                <div class="row d-flex">
+                    <div class="col d-flex justify-content-end">
+                        <button onclick="window.location.replace('/'); return false;" type="button" class="btn btn-custom">Home</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="authorization">
+            <h5> Welcome to Pixel Robotics admin console</h5>
             <form class="row g-3" onsubmit="submitted();return false;">
-                <div class="mb-3">
+                <div>
                     <label for="password" class="form-label">Enter your password</label>
                     <input type="password" id="password" class="form-control" placeholder="Password" required>
+                    <div class="invalid-feedback">
+                        Wrong password!
+                    </div>
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-primary mb-3">Enter</button>
                 </div>
             </form>
         </div>
-    </div>
-    <footer id="footer">
-        <div class="container-fluid">
-            <div class="text-center">
-                <small>&copy; 2022 Pixel Robotics GmbH. All rights reserved</small>
+        <footer id="footer">
+            <div class="container-fluid">
+                <div class="text-center">
+                    <small>&copy; 2022 Pixel Robotics GmbH. All rights reserved</small>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
     <%- include('./../includes/cdn-libs'); -%>
     <script src="./../js/libs/less.js" type="text/javascript"></script>
     <script src="admin/js/admin.main.js"></script>

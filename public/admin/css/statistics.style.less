@@ -11,29 +11,62 @@
     display: flex;
     align-items: center;
     position: static;
-
+    border-bottom: 1px solid #d3d3d3;
     button:first-child {
       margin-right: 8px;
     }
   }
 
-  #statistics-list {
-    height: ~"calc(100vh - 80px - 123px)";
-    overflow: auto;
-
-    table {
-      tbody {
-        tr td {
-          &:last-child {
-            padding: 7px 0;
-          }
-        }
+  thead tr th, tbody tr td {
+    word-break: break-all;
+      &:nth-child(1) {
+        width: 3%
       }
-    }
-
-
-
-
+      &:nth-child(2) {
+        width: 10%
+      }
+      &:nth-child(3) {
+        width: 8%
+      }
+      &:nth-child(4) {
+        width: 12%
+      }
+      &:nth-child(5) {
+        width: 15%
+      }
+      &:nth-child(6) {
+        width: 7%;
+      }
+      &:nth-child(7) {
+        width: 12%;
+      }
+      &:nth-child(8) {
+        width: 17%;
+      }
+      &:nth-child(9) {
+        width: 9%;
+      }
+      &:nth-child(10) {
+        width: 10%;
+        padding: 7px;
+      }
+  }
+  tbody {
+    display: block;
+    height: ~"calc(100vh - 80px - 212px)";
+    overflow:auto;
+  }
+  thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  thead {
+    width: calc( 100% - 1em )
+  }
+  table {
+    width: 100%;
+    font-size: 14px;
   }
 
   #footer {
@@ -56,29 +89,6 @@
     }
     ul li {
       margin: 0;
-    }
-  }
-
-
-  .btn-custom {
-    display: flex;
-    justify-content: center;
-    border-radius: 6px;
-    width: max-content;
-    min-width: 120px;
-    height: 32px;
-    padding: 0 16px;
-    line-height: 32px;
-    margin: 0;
-    color: @main-orange-color;
-    background: @white-color;
-    border: 1px solid @main-orange-color;
-    background-size: 200%;
-    animation: appear 3s;
-    box-shadow: none;
-    &:hover {
-      background: @main-orange-color;
-      color: @white-color;
     }
   }
 }

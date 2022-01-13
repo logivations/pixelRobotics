@@ -32,15 +32,28 @@
   animation: appear 1s;
 }
 
-.btn {
-  background-color: @main-orange-color;
-  border-color: @main-orange-color;
-  color: white;
+.btn-custom {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  width: max-content;
+  min-width: 120px;
+  height: 32px;
+  padding: 0 16px;
+  line-height: 32px;
+  margin: 0;
+  color: @main-orange-color;
+  background: @white-color;
+  border: 1px solid @main-orange-color;
+  background-size: 200%;
+  animation: appear 3s;
+  box-shadow: none;
   &:focus {
     box-shadow: 0 0 0 0.25rem rgba(226, 83, 3, 0.25)
   }
   &:hover {
-    cursor: pointer;
+    background: @main-orange-color;
+    color: @white-color;
   }
 }
-

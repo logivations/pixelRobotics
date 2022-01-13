@@ -34,13 +34,13 @@ export class AdminController {
     @Get('numberOfPages')
     async getNumberOfPages() {
         const numOfPages = await this.userActivityService.getNumberOfRow()
-        return Math.ceil(numOfPages / 15);
+        return Math.ceil(numOfPages / 50);
     }
 
     @Get('userActivity')
     @Render('admin/table.statistic.ejs')
     async getUserActivity(@Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number = 1) {
-        const paginateItems = await this.userActivityService.paginate({limit: 15, page: page})
+        const paginateItems = await this.userActivityService.paginate({limit: 50, page: page})
         const data = this.adminService.modifyData(paginateItems.items, paginateItems.meta);
         return {userActivity: data};
     }

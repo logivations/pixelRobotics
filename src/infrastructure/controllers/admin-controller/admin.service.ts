@@ -11,12 +11,19 @@ export class AdminService {
     }
 
     modifyData(items, meta): void {
+        const padZero2 = (d) => {
+            let s = d.toString();
+            if (s.length < 2) {
+                s = "0" + s;
+            }
+            return s;
+        };
         return items.map((item, index) => {
             const {name, version} = parse(item.userAgent);
             const {isp} = JSON.parse(item.providerDetail);
             const date = new Date(item.dateTime)
-            const parsedData = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}
-                ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+            const parsedData = `${date.getFullYear()}-${padZero2(date.getMonth() + 1)}-${padZero2(date.getDay())}
+                ${padZero2(date.getHours())}:${padZero2(date.getMinutes())}:${padZero2(date.getSeconds())}`
             return {
                 ...item,
                 provider: isp || "Provider not found",
