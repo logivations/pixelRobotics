@@ -4,6 +4,14 @@ interface IResolution {
 }
 
 export class Resolution implements IResolution {
-  width: number;
-  height: number;
+  public width?: number;
+  public height?: number;
+  constructor(resolution: IResolution) {
+    this.width = resolution.width;
+    this.height = resolution.height;
+  }
+
+  public getResolution(): string {
+    return `${this.width}x${this.height}`
+  }
 }

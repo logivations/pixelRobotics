@@ -16,9 +16,10 @@ export class UserActivityController {
   @Post('setResolution')
   public async setResolution(
     @Req() request: Request,
-    @Body() resolution: Resolution,
+    @Body() resolution: string,
   ): Promise<void> {
-    await this.userActivityService.setResolution(request, resolution);
+    const parsedResolution = new Resolution(resolution ? JSON.parse(resolution) : {});
+    await this.userActivityService.setResolution(request, parsedResolution);
   }
 
   @Post()

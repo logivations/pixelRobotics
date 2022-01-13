@@ -24,10 +24,13 @@ function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
   }
 }
 
-fetch('api/user-activity/setResolution', {
-  method: 'POST',
-  body: JSON.stringify({ width: screen.width, height: screen.height })
-});
 
 // Set cookie with name and days until expire
 cookieCheck('pixel_robotics_cookies', 100);
+
+window.onload = async function () {
+  await fetch('api/user-activity/setResolution', {
+    method: 'POST',
+    body: JSON.stringify({ width: screen.width, height: screen.height })
+  });
+};

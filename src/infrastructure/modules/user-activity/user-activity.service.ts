@@ -34,7 +34,7 @@ export class UserActivityService {
     await this.userActivityEntityRepository
       .createQueryBuilder()
       .update(UserActivity)
-      .set({ resolution: `${resolution.width}x${resolution.height}` })
+      .set({ resolution: resolution.getResolution() })
       .andWhere({
         userIP: ip,
         providerDetail,
@@ -81,12 +81,10 @@ export class UserActivityService {
     return { entityFromDb, providerDetail };
   }
 
-  async getProviderDetail(userIP: string) {
-    console.log("USER IP", userIP)
+  async getProviderDetail(userIP: string): Promise<string> {
     const providerData = await this.httpService
       .get(`http://ip-api.com/json/${userIP}`)
       .toPromise();
-    console.log('Provider Data: ', JSON.stringify(providerData.data))
     // @ts-ignore
     return providerData.data.status === 'success'
       ? JSON.stringify(providerData.data)
