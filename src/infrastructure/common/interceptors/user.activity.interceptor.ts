@@ -31,7 +31,7 @@ export class UserActivityInterceptor implements NestInterceptor {
       visitedPage: request.path || request.url,
       cookieDetail: request.headers.cookie,
       userAgent: request.headers['user-agent'],
-      referer: request.headers.referer || "bla",
+      referer: request.headers.referer || "No referer",
     });
     await this.userActivityService.create(userActivityDto);
   }
