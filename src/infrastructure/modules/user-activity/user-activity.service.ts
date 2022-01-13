@@ -53,6 +53,7 @@ export class UserActivityService {
     Object.assign(entity, {
       numberOfVisits: (entityFromDb ? entityFromDb.numberOfVisits : 0) + 1,
       providerDetail: providerDetail,
+      dateTime: new Date(Date.now())
     });
 
     return this.userActivityEntityRepository
