@@ -12,6 +12,8 @@ export class Resolution implements IResolution {
   }
 
   public getResolution(): string {
-    return `${this.width}x${this.height}`
+    return this.width && this.height
+      ? `${this.width}x${this.height}`
+      : '0x0';
   }
 }
