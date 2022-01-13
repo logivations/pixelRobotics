@@ -29,6 +29,18 @@ function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
 cookieCheck('pixel_robotics_cookies', 100);
 
 window.onload = async function () {
+  const contactForm = document.getElementById('contact');
+
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const data = new FormData(event.target);
+
+    await fetch('api/mail/sendMail', {
+      method: 'POST',
+      body: JSON.stringify(Object.fromEntries(data))
+    })
+  });
   await fetch('api/user-activity/setResolution', {
     method: 'POST',
     body: JSON.stringify({ width: screen.width, height: screen.height })
