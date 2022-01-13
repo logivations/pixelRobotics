@@ -6,7 +6,7 @@ import { EnvironmentConfigService } from '../environment-config/environment-conf
 export const getTypeOrmModuleOptions = (
   config: EnvironmentConfigService,
 ): TypeOrmModuleOptions => {
-  return ({
+  return {
     type: 'mysql',
     host: config.getDatabaseHost(),
     port: config.getDatabasePort(),
@@ -19,7 +19,7 @@ export const getTypeOrmModuleOptions = (
     migrationsRun: true,
     keepConnectionAlive: true,
     name: 'pixel_robotics',
-  } as TypeOrmModuleOptions);
+  } as TypeOrmModuleOptions;
 };
 
 @Module({

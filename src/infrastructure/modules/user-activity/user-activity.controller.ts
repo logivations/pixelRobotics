@@ -18,7 +18,9 @@ export class UserActivityController {
     @Req() request: Request,
     @Body() resolution: string,
   ): Promise<void> {
-    const parsedResolution = new Resolution(resolution ? JSON.parse(resolution) : {});
+    const parsedResolution = new Resolution(
+      resolution ? JSON.parse(resolution) : {},
+    );
     await this.userActivityService.setResolution(request, parsedResolution);
   }
 

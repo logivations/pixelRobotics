@@ -11,8 +11,7 @@ import { AllExceptionFilter } from './infrastructure/common/filter/exception.fil
 import { LoggingInterceptor } from './infrastructure/common/interceptors/logger.interceptor';
 import { ResponseInterceptor } from './infrastructure/common/interceptors/response.interceptor';
 import { LoggerService } from './infrastructure/logger/logger.service';
-import fastifyCookie from "fastify-cookie";
-import * as cookieParser from 'cookie-parser';
+import fastifyCookie from 'fastify-cookie';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(

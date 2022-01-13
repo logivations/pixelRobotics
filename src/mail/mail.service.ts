@@ -22,7 +22,8 @@ export class MailService {
           secret: this.config.getSecretCaptchaKey(),
           response: mailData['g-recaptcha-response'],
         },
-      }).toPromise();
+      })
+      .toPromise();
 
     if (checkCaptchaResponse.data.success) {
       const { email, name, mailTo, message } = mailData;

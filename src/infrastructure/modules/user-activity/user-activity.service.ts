@@ -1,13 +1,17 @@
-import {Injectable} from '@nestjs/common';
-import {InjectRepository} from '@nestjs/typeorm';
-import {UserActivity} from '../../entities/user.activity.entity';
-import {Repository} from 'typeorm';
-import {UserActivityDto} from './user-activity.dto';
-import {HttpService} from '@nestjs/axios';
-import {Resolution} from './resulutionDto';
-import {Request} from 'express';
-import {LoggingInterceptor} from '../../common/interceptors/logger.interceptor';
-import {IPaginationOptions, paginate, Pagination,} from 'nestjs-typeorm-paginate';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { UserActivity } from '../../entities/user.activity.entity';
+import { Repository } from 'typeorm';
+import { UserActivityDto } from './user-activity.dto';
+import { HttpService } from '@nestjs/axios';
+import { Resolution } from './resulutionDto';
+import { Request } from 'express';
+import { LoggingInterceptor } from '../../common/interceptors/logger.interceptor';
+import {
+  IPaginationOptions,
+  paginate,
+  Pagination,
+} from 'nestjs-typeorm-paginate';
 
 @Injectable()
 export class UserActivityService {
@@ -56,10 +60,15 @@ export class UserActivityService {
       .then((e) => UserActivityDto.fromEntity(e));
   }
 
-  async paginate(options: IPaginationOptions): Promise<Pagination<UserActivity>> {
+  async paginate(
+    options: IPaginationOptions,
+  ): Promise<Pagination<UserActivity>> {
     return await paginate<UserActivity>(
-      this.userActivityEntityRepository.createQueryBuilder().orderBy({date_time: "DESC"}),
-      options);
+      this.userActivityEntityRepository
+        .createQueryBuilder()
+        .orderBy({ date_time: 'DESC' }),
+      options,
+    );
   }
 
   async getNumberOfRow() {

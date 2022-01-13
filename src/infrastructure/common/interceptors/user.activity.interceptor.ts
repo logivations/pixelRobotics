@@ -1,8 +1,8 @@
 import {
+  CallHandler,
+  ExecutionContext,
   Injectable,
   NestInterceptor,
-  ExecutionContext,
-  CallHandler,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { LoggingInterceptor } from './logger.interceptor';
@@ -31,7 +31,7 @@ export class UserActivityInterceptor implements NestInterceptor {
       visitedPage: request.path || request.url,
       cookieDetail: request.headers.cookie,
       userAgent: request.headers['user-agent'],
-      referer: request.headers.referer || "No referer",
+      referer: request.headers.referer || 'No referer',
     });
     await this.userActivityService.create(userActivityDto);
   }

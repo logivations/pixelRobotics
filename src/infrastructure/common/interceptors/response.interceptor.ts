@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 export class ResponseFormat<T> {
   @ApiProperty()
