@@ -1,34 +1,28 @@
 {
   "vacancies": [
     {
-      "title": "Betriebswirt (m/w/d)",
-      "description": "description",
+      "title": "Robotics Software Engineer (m/f/d)",
       "country": "Germany",
-      "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
+      "city": "Munich",
+      "pdfLink": "/pdf/202112_Robotics-Engineer_PR.pdf"
     },
     {
-      "title": "Betriebswirt (m/w/d)",
-      "description": "description",
+      "title": "Consultant Logistics Solutions (m/f/d)",
       "country": "Germany",
-      "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
+      "city": "Munich",
+      "pdfLink": "/pdf/202107_Combined_Consultant_PR.pdf"
     },
     {
-      "title": "Betriebswirt (m/w/d)",
-      "description": "description",
+      "title": "Unterstützung für die Montage von Robotik-Komponenten",
       "country": "Germany",
-      "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
+      "city": "Munich",
+      "pdfLink": "/pdf/202106_Montage_PR.pdf"
     },
     {
-      "title": "Betriebswirt (m/w/d)",
-      "description": "description",
+      "title": "Werkstudent/in für den Bereich Office-/ Event-Management (m/w/d)",
       "country": "Germany",
-      "pdfLink": "/pdf/202108_Betriebswirt_PR.pdf"
-    },
-    {
-      "title": "Kaufmännische Angestellte - Buchhaltung (m/w/d)",
-      "description": "description",
-      "country": "Germany",
-      "pdfLink": "/pdf/202108_Accounting_PR.pdf"
+      "city": "Munich",
+      "pdfLink": "/pdf/202104_Werkstudent_OfficeManagement.pdf"
     }
   ]
 }

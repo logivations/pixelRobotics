@@ -11,13 +11,7 @@ export class ViewController {
     return {};
   }
 
-  @Get('about')
-  @Render('about.ejs')
-  about() {
-    return {};
-  }
-
-  @Get('careers')
+  @Get('career')
   @Render('careers.ejs')
   careers() {
     return { vacancies: careers.vacancies };
@@ -27,8 +21,8 @@ export class ViewController {
   contact() {
     return {};
   }
-  @Get('impressum')
-  @Render('impressum.ejs')
+  @Get('imprint')
+  @Render('imprint.ejs')
   impressum() {
     return {};
   }
