@@ -1,6 +1,6 @@
 function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
   const cookieElement = document.querySelector('.cookieElement');
-  const acceptBtn = document.querySelector('.setCookieBtn');
+  const acceptBtn = document.querySelector('.btn-cookies');
 
   let showCookieMessage = true;
 
@@ -26,23 +26,14 @@ function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
 
 
 // Set cookie with name and days until expire
-cookieCheck('pixel_robotics_cookies', 100);
 
-window.onload = async function () {
-  const contactForm = document.getElementById('contact');
+$(document).ready(() => {
+  $(".loader_inner").fadeOut();
+  $(".loader").fadeOut("slow");
+  cookieCheck('pixel_robotics_cookies', 100);
 
-  contactForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const data = new FormData(event.target);
-
-    await fetch('api/mail/sendMail', {
-      method: 'POST',
-      body: JSON.stringify(Object.fromEntries(data))
-    })
-  });
-  await fetch('api/user-activity/setResolution', {
+  fetch('api/user-activity/setResolution', {
     method: 'POST',
     body: JSON.stringify({ width: screen.width, height: screen.height })
   });
-};
+})

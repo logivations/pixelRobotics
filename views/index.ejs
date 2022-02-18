@@ -1,4 +1,3 @@
-<?php include "secure.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,75 +7,84 @@
 <body>
 <section id="first-screen">
   <%- include('includes/header'); -%>
-  <div class="banner d-flex">
-    <div class="main-heading d-flex">
-      <span class="pre-title">autonomous robots cooperating with humans</span>
-      <h1>Vision-based Robotics</h1>
-      <p>Pixel Robotics uses AI, Computer Vision and robotics to transport pallets free of restrictions. Automate transport logistics processes, no changes required, working together cooperating with humans.</p>
-      <a href="TODO" class="btn-custom scroll-to">Sign up for our webinar</a>
+  <div class="banner d-flex container-fluid">
+    <div class="">
+      <div class="main-heading d-flex">
+        <h1>Vision-based Robotics</h1>
+        <p>Pixel Robotics uses AI, computer vision and robotics to automate pallet transportation with ease. Our robots work alongside humans and dynamically adapt to existing logistics processes.</p>
+        <div class="btn-container">
+          <a href="/contact" class="btn-custom scroll-to">Contact us</a>
+        </div>
+      </div>
+      <div class="main-image-holder">
+        <div class="main-image"></div>
+      </div>
     </div>
-    <div class="col main-image"></div>
   </div>
 </section>
 <div id="main">
   <section id="how-it-works" class="">
-    <div class="container">
-      <div class="hiw-wrapper">
-        <div class="title-holder text-center">
-          <h2>How it works</h2>
-          <h5><b>The enabler:</b> AI recognition units distributed in the warehouse ceiling</h5>
-        </div>
-        <div class="row fg-1ist">
-          <div class="col-md-6 col-12">
-            <div class="fg-item d-flex">
-              <span class="hiw-number">1</span>
-              <figure class="d-flex figure-holder">
-                <div class="figure-image figure-1">
-                  <img src="images/hiw-1.svg" alt="Machine Learning">
-                </div>
-                <figcaption>
-                  <p>AI recognition units placed in the warehouse ceiling track everything in realtime</p>
-                </figcaption>
-              </figure>
+    <div class="container-xxl container-md">
+      <div class="row">
+        <div class="col-lg-10 col-md-12 offset-lg-1 offset-0">
+          <div class="hiw-wrapper">
+            <div class="title-holder text-center">
+              <h2>How it works</h2>
+              <h5><span class="bold-text">The enabler:</span> AI recognition units distributed on the ceiling</h5>
             </div>
-          </div>
-          <div class="col-md-6 col-12">
-            <div class="fg-item d-flex">
-              <span class="hiw-number">2</span>
-              <figure class="d-flex figure-holder">
-                <div class="figure-image figure-2">
-                  <img src="images/hiw-2.svg" alt="Machine Learning">
+            <div class="row fg-1ist">
+              <div class="col-md-6 col-12">
+                <div class="fg-item d-flex">
+                  <span class="hiw-number">1</span>
+                  <figure class="d-flex figure-holder">
+                    <div class="figure-image figure-1">
+                      <img src="images/hiw-1.svg" alt="Machine Learning">
+                    </div>
+                    <figcaption>
+                      <p>AI recognition units placed on the ceiling track everything in real time</p>
+                    </figcaption>
+                  </figure>
                 </div>
-                <figcaption>
-                  <p>They analyze the area for obstacles and other vehicles</p>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-          <div class="col-md-6 col-12">
-            <div class="fg-item d-flex">
-              <span class="hiw-number">3</span>
-              <figure class="d-flex figure-holder">
-                <div class="figure-image figure-3">
-                  <img src="images/hiw-3.svg" alt="Machine Learning">
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="fg-item d-flex">
+                  <span class="hiw-number">2</span>
+                  <figure class="d-flex figure-holder">
+                    <div class="figure-image figure-2">
+                      <img src="images/hiw-2.svg" alt="Machine Learning">
+                    </div>
+                    <figcaption>
+                      <p>They analyze the shop floor for obstacles and vehicles</p>
+                    </figcaption>
+                  </figure>
                 </div>
-                <figcaption>
-                  <p>Pallets, target lanes, and their availability is determined</p>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-          <div class="col-md-6 col-12">
-            <div class="fg-item d-flex">
-              <span class="hiw-number">4</span>
-              <figure class="d-flex">
-                <div class="figure-holder figure-4">
-                  <img src="images/hiw-4.svg" alt="Machine Learning">
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="fg-item d-flex">
+                  <span class="hiw-number">3</span>
+                  <figure class="d-flex figure-holder">
+                    <div class="figure-image figure-3">
+                      <img src="images/hiw-3.svg" alt="Machine Learning">
+                    </div>
+                    <figcaption>
+                      <p>Determines the availability of target locations</p>
+                    </figcaption>
+                  </figure>
                 </div>
-                <figcaption>
-                  <p>Information is visualized in real-time in our digital twin fleet management</p>
-                </figcaption>
-              </figure>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="fg-item d-flex">
+                  <span class="hiw-number">4</span>
+                  <figure class="d-flex figure-holder">
+                    <div class="figure-image figure-4">
+                      <img src="images/hiw-4.svg" alt="Machine Learning">
+                    </div>
+                    <figcaption>
+                      <p>A digital twin is created and used for navigation and fleet management</p>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -84,201 +92,252 @@
     </div>
   </section>
   <section id="navigation">
-    <div class="container-fluid">
+    <div class="container-xxl container-md">
       <div class="row">
-        <div class="col-md-6 col-12">
+        <div class="col-md-12 col-12">
           <div class="title-holder">
-            <h2>Navigation</h2>
-            <h5>The top-down view enables unprecedented precision and reliability even in crowded and fast-changing environments</h5>
+            <h2>Advanced Navigation</h2>
+            <h5>The digital twin enables precise and reliable navigation in crowded and fast-changing environments</h5>
           </div>
         </div>
       </div>
       <div class="navigation-wrapper row">
         <div class="col-md-4 col-12">
           <img src="images/nav-1.png" alt="1">
-          <p>Pallets can be picked from anywhere. <b>No special floor markings required.</b></p>
+          <p>Pallets can be picked up anywhere. <span class="bold-text">No pre-determined transfer points required.</span></p>
         </div>
         <div class="col-md-4 col-12">
           <img src="images/nav-2.png" alt="2">
-          <p>AMRs can follow <b>virtual lanes</b> and <b>avoid obstacles</b> freely. Localization and navigation is precise, even in fast-changing environments such as bulk areas</p>
+          <p>The data from the digital twin allows flexible <span class="bold-text">obstacle avoidance</span>.</p>
         </div>
         <div class="col-md-4 col-12">
           <img src="images/nav-3.png" alt="3">
-          <p>AMRs can <b>interact</b> with manually-driven vehicles</p>
+          <p>Robots can <span class="bold-text">interact</span> with forklifts and other manually-driven vehicles.</p>
         </div>
       </div>
-    </div>
-    <br><br><br><br><br><br>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 offset-md-2 col-12 text-center">
-          <div class="title-holder">
-            <h2>Navigation</h2>
-            <h5>The top-down view enables unprecedented precision and reliability even in crowded and fast-changing environments</h5>
-          </div>
-        </div>
-      </div>
-      <!-- Slider main container -->
-      <div class="swiper">
-        <div class="swiper-wrapper navigation-wrapper">
-          <div class="swiper-slide">
-            <div class="row">
-              <div class="col-6">
-                <img src="images/nav-1.png" alt="1">
-              </div>
-              <div class="navigation-text-holder col-6 d-flex">
-                <h5 class="navigation-text">Pallets can be picked from anywhere.<br><b>No special floor markings required.</b></h5>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="row">
-              <div class="col-6">
-                <img src="images/nav-2.png" alt="1">
-              </div>
-              <div class="navigation-text-holder col-6 d-flex">
-                <h5 class="navigation-text">AMRs can follow <b>virtual lanes</b> and <b>avoid obstacles</b> freely. Localization and navigation is precise, even in fast-changing environments such as bulk areas</b></h5>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="row">
-              <div class="col-6">
-                <img src="images/nav-3.png" alt="1">
-              </div>
-              <div class="navigation-text-holder col-6 d-flex">
-                <h5 class="navigation-text">AMRs can <b>interact</b> with manually-driven vehicles</b></h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-
     </div>
   </section>
-  <section id="navigation">
-    <div class="container-fluid">
+  <section id="hardware">
+    <div class="container-xxl container-md">
+      <div class="row">
+        <div class="col-md-12 col-12">
+          <div class="">
+            <h2>PIXEL <span style="color:#E25303">PT</span></h2>
+            <p class="pt-info">Designed from scratch, the PIXEL PT is an Autonomous Mobile Robot (AMR) based on a lean,
+              modular, and robust hardware concept. The PIXEL PT was developed to enable automated
+              intralogistics workflows in fast-changing and rough industrial environments. The vehicle combines
+              proven hardware of industrial trucks with the latest safety and camera technology. With its 3-
+              wheel geometry and slim design the PIXEL PT can navigate through tight spaces and narrow
+              aisles.</p>
+          </div>
+        </div>
+      </div>
+      <div class="hardware-wrapper row d-flex">
+        <div class="col-md-6 col-12">
+          <img src="images/pixel-pt-01.png" alt="1">
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="hardware-info row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <span class="bold-text">Max. Speed:</span>
+                </div>
+                <div class="col-6">
+                  <span>1.5 m/s</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="bold-text">Max. Lifting Weight:</span>
+                </div>
+                <div class="col-6">
+                  <span>1,300 kg</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="bold-text">Lifting Height:</span>
+                </div>
+                <div class="col-6">
+                  <span>300 mm (optional 900 mm)</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="bold-text">Dimensions:</span>
+                </div>
+                <div class="col-6">
+                  <span>1,980 x 800 x 1,740 mm</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="bold-text">Turning Radius:</span>
+                </div>
+                <div class="col-6">
+                  <span>1,650 mm</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="bold-text">Min. Aisle Width:</span>
+                </div>
+                <div class="col-6">
+                  <span>1,000 mm</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <span class="bold-text">Weight:</span>
+                </div>
+                <div class="col-6">
+                  <span>550 kg</span>
+                </div>
+              </div>
+            </div>
+            <!--                        <li><span class="bold-text">Max. Speed: </span><span>1.5 m/s</span></li>-->
+            <!--                        <li><span>Max. Lifting Weight: </span> 1,300 kg</li>-->
+            <!--                        <li><span>Lifting Height: </span> 300 mm (optional 900 mm)</li>-->
+            <!--                        <li><span>Dimensions: </span> 1,980 x 800 x 1,740 mm</li>-->
+            <!--                        <li><span>Turning Radius: </span> 1,650 mm</li>-->
+            <!--                        <li><span>Min. Aisle Width:</span> 1,000 mm</li>-->
+            <!--                        <li><span>Weight: </span> 550 kg</li>-->
+          </div>
+        </div>
+      </div>
+      <div class="pt-group row">
+        <div class="col-md-4 col-12">
+          <img src="images/pt-01.jpeg" alt="Automatic Charging">
+          <h6 class="bold-text">Automatic Charging</h6>
+          <p>Powered by Li-Ion technology the PIXEL PT is highly available due to short charging times and up to 12 hours of continuous operation. In times of low productivity, the AMR drives automatically to its nearest charging station.</p>
+        </div>
+        <div class="col-md-4 col-12">
+          <img src="images/pt-02.jpeg" alt="360°-Safety">
+          <h6 class="bold-text">360°-Safety</h6>
+          <p>Featuring SICK safety laser scanners, obstacle recognition and various sensors the <span class="bold-text">PIXEL PT</span> can operate safely and flexibly in a shared environment with humans..</p>
+        </div>
+        <div class="col-md-4 col-12">
+          <img src="images/pt-03.jpeg" alt="Automatic Charging">
+          <h6 class="bold-text">Goods Recognition</h6>
+          <p style="margin: 0;">Using camera-based goods recognition the PIXEL PT can automatically identify its load. In combination with the onboard high end processing unit custom recognition applications can be implemented.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="company">
+    <div class="container-xxl container-md">
       <div class="row">
         <div class="col-12">
-          <div class="title-holder">
-            <h2>Navigation</h2>
-            <h5>The top-down view enables unprecedented precision and reliability even in crowded and fast-changing environments</h5>
-          </div>
+          <h2>Company</h2>
         </div>
-      </div>
-      <div class="navigation-wrapper row">
-        <div class="col-md-12 col-12">
-          <div class="row">
-            <div class="col-6">
-              <img src="images/nav-1.png" alt="1">
-            </div>
-            <div class="navigation-text-holder col-6 d-flex align-items-center">
-              <h5 class="navigation-text">Pallets can be picked from anywhere. <br><b>No special floor markings required.</b></h5>
-            </div>
-          </div>
-          <div class="row">
-            <div class="navigation-text-holder col-6 d-flex align-items-center">
-              <h5 class="navigation-text">AMRs can follow <b>virtual lanes</b> and <b>avoid obstacles</b> freely. Localization and navigation is precise, even in fast-changing environments such as bulk areas</b></h5>
-            </div>
-            <div class="col-6">
-              <img src="images/nav-2.png" alt="2">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <img src="images/nav-3.png" alt="1">
-            </div>
-            <div class="navigation-text-holder col-6 d-flex align-items-center">
-              <h5 class="navigation-text">AMRs can <b>interact</b> with manually-driven vehicles</b></h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="navigatio2" class="nav-2">
-    <div class="container-fluid">
-      <div class="row">
         <div class="col-md-6 col-12">
-          <div class="title-holder">
-            <h2>Navigation</h2>
-            <h5>The top-down view enables unprecedented precision and reliability even in crowded and fast-changing environments</h5>
-          </div>
+          <p>Pixel Robotics GmbH builds intelligent, perception-controlled robots tailored for logistics. With its unique AI vision infrastructure a digital twin of the operating area is created. Using this real-time twin, Pixel Robotics’s robots work together with their human colleagues - autonomous, safe and with an unmatched level of flexibility.</p>
+          <p>Pixel Robotics is headquartered in Munich.</p>
         </div>
-      </div>
-      <div class="navigation-wrapper row">
-        <div class="col-4">
-          <div id="comparison">
-            <figure class="left-nav-image">
-              <div id="handle"></div>
-              <div id="divisor"></div>
-            </figure>
-            <input type="range" min="0" max="100" value="50" id="slider" oninput="moveDivisor()">
+        <div class="col-md-6 col-12">
+          <div class="company-img-holder">
+            <img src="images/neue_firmenzentrale_lg.jpeg" alt="Pixel Robotics office" class="company-img company-img-1"/>
           </div>
-          <p>Pallets can be picked from anywhere. <b>No special floor markings required.</b></p>
         </div>
       </div>
     </div>
   </section>
-  <br><br><br><br><br><br>
-
-  <section id="navigation3" class="nav-2">
-    <div class="container-fluid">
+  <div id="partners">
+    <div class="container-xxl container-md">
       <div class="row">
-        <div class="col-md-6 offset-3 col-12">
-          <div class="title-holder text-center">
-            <h2>Navigation</h2>
-            <h5>The top-down view enables unprecedented precision and reliability even in crowded and fast-changing environments</h5>
+        <div class="col-12">
+          <h2 class="text-center">Partners</h2>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-10 offset-1">
+              <div class="row partners-container d-flex justify-content-center">
+                <div class="col-sm-3 col-12 partners-mb">
+                  <a class="partner-holder" href="https://www.logivations.com/" target="_blank">
+                    <img src="images/partners/logivations_logo.svg" alt="Logivations">
+                  </a>
+                </div>
+                <div class="col-sm-3 col-12 partners-mb">
+                  <a class="partner-holder" href="https://www.5-ht.com/" target="_blank">
+                    <img src="images/partners/5-ht.svg" class="img-responsive" alt="5-HT">
+                  </a>
+                </div>
+                <div class="col-sm-3 col-12 partners-mb">
+                  <a class="partner-holder" href="https://www.bmbf.de/" target="_blank">
+                    <img src="images/partners/fed_min_of-edu_and_res.svg" class="img-responsive" alt="fed_min_of-edu_and_res.svg">
+                  </a>
+                </div>
+                <div class="col-sm-3 col-12 partners-mb">
+                  <a class="partner-holder" href="https://www.stmwi.bayern.de/" target="_blank">
+                    <img src="images/partners/stmwi.bayern.png" class="img-responsive" alt="Bayerischen Staatsministeriums für Wirtschaft, Landesentwicklung und Energie">
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="navigation-wrapper row">
-        <div class="col-md-12 col-12 d-flex nav-box">
-          <div class="row">
-            <div class="col-6">
-              <div class="text-h">
-                <p class="nav-text">Pallets can be picked from anywhere. <br>
-                  <span class="bold-text">No special floor markings required.</span></p>
-              </div>
+    </div>
+  </div>
+  <section id="current-vacancies">
+    <div class="container-xxl container-md">
+      <div class="row">
+        <div class="col-12">
+          <h2>Hot openings</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-0">
+          <div class="benefits-holder">
+            <p class="bold-text">Benefits:</p>
+            <ul>
+              <li>• Start-up atmosphere in a fast-growing and rapidly evolving company</li>
+              <li>• Join a team of experts in the growing robotics and automation market</li>
+              <li>• A centrally located office next to the Olympic park</li>
+              <li>• Extras such as free drinks, fruits, and a job ticket</li>
+              <li>• Flat hierarchies and room for growth</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="vacancies-holder">
+            <div class="current-vacancy">
+              <h6>Robotics Software Engineer (m/f/d)</h6>
+              <a class="arrow-icon" href="pdf/202112_Robotics-Engineer_PR.pdf" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16.01 11.0001H5C4.45 11.0001 4 11.4501 4 12.0001C4 12.5501 4.45 13.0001 5 13.0001H16.01V14.7901C16.01 15.2401 16.55 15.4601 16.86 15.1401L19.64 12.3501C19.83 12.1501 19.83 11.8401 19.64 11.6401L16.86 8.85008C16.55 8.53008 16.01 8.76008 16.01 9.20008V11.0001V11.0001Z" fill="#E25303"/>
+                </svg>
+              </a>
             </div>
-            <div class="col">
-              <img src="images/example-perspective-2.png" alt="3">
+            <div class="current-vacancy">
+              <h6>Consultant Logistics Solutions (m/f/d)</h6>
+              <a class="arrow-icon" href="pdf/202107_Combined_Consultant_PR.pdf" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16.01 11.0001H5C4.45 11.0001 4 11.4501 4 12.0001C4 12.5501 4.45 13.0001 5 13.0001H16.01V14.7901C16.01 15.2401 16.55 15.4601 16.86 15.1401L19.64 12.3501C19.83 12.1501 19.83 11.8401 19.64 11.6401L16.86 8.85008C16.55 8.53008 16.01 8.76008 16.01 9.20008V11.0001V11.0001Z" fill="#E25303"/>
+                </svg>
+              </a>
             </div>
-            <div class="col">
-              <img src="images/n-test.png" alt="3">
+            <div class="d-flex btn-container">
+              <a href="/career" class="">View all</a>
             </div>
           </div>
         </div>
-        <div class="col-md-12 col-12 d-flex nav-box">
+      </div>
+    </div>
+  </section>
+  <section id="cta-section">
+    <div class="container-xxl container-md">
+      <div class="row">
+        <div class="col">
           <div class="row">
-            <div class="col">
-              <img src="images/example-perspective-2.png" alt="3">
-            </div>
-            <div class="col">
-              <img src="images/n-test.png" alt="3">
-            </div>
-            <div class="col-6">
-              <div class="text-h">
-                <p class="nav-text">AMRs can follow <b>virtual lanes</b> and <b>avoid obstacles</b> freely. Localization and navigation is precise, even in fast-changing environments such as bulk areas</p>
+            <div class="col-md-10 offset-md-1 offset-0 col-12">
+              <div class="cta-holder">
+                <h2>Get the best solution for your mobile robot and transportation needs!</h2>
+                <a href="/contact" class="btn-custom">Contact us</a>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-12 d-flex nav-box">
-          <div class="row">
-            <div class="col-6">
-              <div class="text-h">
-                <p class="nav-text">AMRs can <b>interact</b> with manually-driven vehicles</p>
-              </div>
-            </div>
-            <div class="col">
-              <img src="images/example-perspective-2.png" alt="3">
-            </div>
-            <div class="col">
-              <img src="images/n-test.png" alt="3">
+            <div class="col-md-6 img-object">
             </div>
           </div>
         </div>
@@ -287,22 +346,8 @@
   </section>
   <!--    </section>-->
   <%- include('includes/footer'); -%>
-  <?php include "components/footer.php"; ?>
 </div>
 <%- include('includes/default-scripts'); -%>
-
-<script>
-  function moveDivisor() {
-    const divisor = document.getElementById("divisor");
-    const handle = document.getElementById("handle");
-    const slider = document.getElementById("slider");
-    handle.style.left = slider.value+"%";
-    divisor.style.width = slider.value+"%";
-  }
-  window.onload = function() {
-    moveDivisor();
-  };
-</script>
 
 </body>
 </html>
