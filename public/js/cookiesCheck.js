@@ -36,4 +36,4 @@ $(document).ready(() => {
     method: 'POST',
     body: JSON.stringify({ width: screen.width, height: screen.height })
   });
-})
+});

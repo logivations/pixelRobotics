@@ -2,18 +2,23 @@
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container-fluid">
             <a href="/">
-                <img class="header-logo" src="../images/pixel-robotics-logo.svg" alt="Pixel Robotics">
+                <img class="header-logo" src="./images/pixel-robotics-logo.svg" alt="Pixel Robotics">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav main-nav">
+                    <% if (!hideHomeLink) { %>
+                        <li class="">
+                            <a class="<% if (activeTab === "home") { %> active-nav <% } %>" href="/">Home</a>
+                        </li>
+                    <% } %>
                     <li class="">
-                        <a class="active" aria-current="page" href="/career">Career</a>
+                        <a class="<% if (activeTab === "career") { %> active-nav <% } %>" href="/career">Career</a>
                     </li>
                     <li class="">
-                        <a class="" href="/contact">Contact</a>
+                        <a class="<% if (activeTab === "contact") { %> active-nav <% } %>" href="/contact">Contact</a>
                     </li>
                 </ul>
                 <div class="mobile-contact-info d-sm-none d-flex">
