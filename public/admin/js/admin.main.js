@@ -17,3 +17,8 @@ const submitted = () => {
             });
     }
 };
+
+$(document).ready(() => {
+    $(".loader_inner").fadeOut();
+    $(".loader").fadeOut("slow");
+})

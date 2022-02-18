@@ -1,6 +1,6 @@
 function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
   const cookieElement = document.querySelector('.cookieElement');
-  const acceptBtn = document.querySelector('.setCookieBtn');
+  const acceptBtn = document.querySelector('.btn-cookies');
 
   let showCookieMessage = true;
 
@@ -26,15 +26,14 @@ function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
 
 
 // Set cookie with name and days until expire
-cookieCheck('pixel_robotics_cookies', 100);
 
 $(document).ready(() => {
   $(".loader_inner").fadeOut();
   $(".loader").fadeOut("slow");
+  cookieCheck('pixel_robotics_cookies', 100);
 
-    fetch('api/user-activity/setResolution', {
-      method: 'POST',
-      body: JSON.stringify({ width: screen.width, height: screen.height })
-    });
-  }
+  fetch('api/user-activity/setResolution', {
+    method: 'POST',
+    body: JSON.stringify({ width: screen.width, height: screen.height })
+  });
 })
