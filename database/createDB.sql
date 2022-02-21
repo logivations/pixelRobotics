@@ -4,11 +4,11 @@ use pixel_robotics;
 
 create table if not exists user_activity
 (
-    ID                  varchar(64)    not null,
-    user_IP             varchar(48)    not null,
-    visited_page        varchar(48)    not null,
-    user_agent          varchar(255)   not null,
-    provider_detail     varchar(767)   not null,
+    ID                  varchar(64)    not null default '0',
+    user_IP             varchar(48)    not null default '',
+    visited_page        varchar(48)    not null default '',
+    user_agent          varchar(255)   not null default '',
+    provider_detail     varchar(767)   not null default '',
     date_time           datetime       not null default CURRENT_TIMESTAMP,
     cookie_detail       varchar(255)   not null default '',
     number_of_visits    int            not null default 0,
