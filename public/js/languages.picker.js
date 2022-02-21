@@ -12,7 +12,6 @@ function getLangFromCookie() {
 
 function changeLanguage(lang, reloadNeeded = true) {
   const isDELang = lang === 'DE_de';
-  $('.language-name').text(isDELang ? 'DE' : 'EN');
   const icon = $('.languages-wrapper li').find('.fa-angle-down.sl-flag');
   icon.removeClass(isDELang ? 'flag-en' : 'flag-de');
   icon.addClass(isDELang ? 'flag-de' : 'flag-en');
