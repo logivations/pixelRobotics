@@ -11,14 +11,20 @@
                 <ul class="navbar-nav main-nav">
                     <% if (!hideHomeLink) { %>
                         <li class="">
-                            <a class="<% if (activeTab === "home") { %> active-nav <% } %>" href="/">Home</a>
+                            <a class="<% if (activeTab === "home") { %> active-nav <% } %>" href="/">
+                                Home
+                            </a>
                         </li>
                     <% } %>
                     <li class="">
-                        <a class="<% if (activeTab === "career") { %> active-nav <% } %>" href="/career">Career</a>
+                        <a class="<% if (activeTab === "career") { %> active-nav <% } %>" href="/career">
+                            <% if (lang === 'EN_en') { %> Career <% } else { %> Karriere <% } %>
+                        </a>
                     </li>
                     <li class="">
-                        <a class="<% if (activeTab === "contact") { %> active-nav <% } %>" href="/contact">Contact</a>
+                        <a class="<% if (activeTab === "contact") { %> active-nav <% } %>" href="/contact">
+                            <% if (lang === 'EN_en') { %> Contact <% } else { %> Kontakt <% } %>
+                        </a>
                     </li>
                     <%- include('languages-picker'); -%>
                 </ul>
