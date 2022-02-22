@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <%- include('includes/metadata'); -%>
+    <link rel="stylesheet/less" type="text/css" href="css/imprint.less" />
+</head>
+<body class="imprint-page">
+<div id="wrapper">
+    <%- include('includes/de.header.ejs', {hideHomeLink: false, activeTab: 'imprint'}); -%>
+    <section id="imprint-section">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col">
+                    <h2>Impressum</h2>
+                    <h3>Pixel Robotics GmbH</h3>
+                    <address>
+                        Riesstrasse 18<br>
+                        80992 M&uuml;nchen, Germany<br>
+                    </address>
+                    <span class="bold-text">Gesch&auml;ftsf&uuml;hrung:</span>
+                    <p class="m-0">Johannes Plapp</p>
+                    <p>Valentin Plapp</p>
+                    <p>Email: info@pixel-robotics.eu</p>
+                    <p>
+                        Sitz M&uuml;nchen<br>Amtsgericht München<br>HRB 23 11 06<br>VAT-ID: DE 311 269 992
+                    </p>
+                    <p>The owner of the site does not guarantee for topicality, correctness, completeness or quality of the shown information. Please check the pages privacy and the legal hints, too.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('includes/de.footer.ejs'); -%>
+    <%- include('includes/default-scripts'); -%></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <%- include('includes/metadata'); -%>
+    <link rel="stylesheet/less" type="text/css" href="css/careers.less" />
+</head>
+<body>
+<%- include('includes/de.header.ejs', {hideHomeLink: false, activeTab: 'career'}); -%>
+<section id="careers-section">
+    <div class="container-xxl container-md">
+        <div class="row">
+            <div class="col title-section">
+                <h2>Unsere Stellenangebote</h2>
+                <div class="page-sub-title"><b><%= vacancies.length %> Aktuelle</b> Stellenangebote</div>
+            </div>
+        </div>
+        <div class="row">
+            <% vacancies.forEach(function(vacancy) { %>
+                <%- include('includes/careers.block.ejs', {
+                title: vacancy.title,
+                city: vacancy.city,
+                country: vacancy.country,
+                pdfLink: vacancy.pdfLink,
+                }); %>
+            <% }); %>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center">Wenn Sie f&uuml;r zuk&uuml;nftige Positionen ber&uuml;cksichtigt werden m&ouml;chten, senden Sie bitte Ihren Lebenslauf und Ihr Anschreiben mit m&ouml;glichem Starttermin an:<span class="o-text bold-text"> career@pixel-robotics.eu</span>
+                    <br><span class="bold-text">Wir freuen uns auf Ihre Bewerbung!</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('includes/de.footer.ejs'); -%>
+<%- include('includes/default-scripts'); -%>
+
+</body>
+</html>

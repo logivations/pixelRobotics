@@ -20,10 +20,13 @@ export class ViewController {
   }
 
   @Get('career')
-  careers(@Res() res, @Req() request: FastifyRequest) {
-    return res.view(getViewNameByLang(request, 'careers.ejs'), {
-      vacancies: careers.vacancies,
-    });
+  career(@Res() res, @Req() request: FastifyRequest) {
+    const lang = request.cookies['lang'];
+    const vacancies = careers[lang && lang === "DE_de" ? 'vacanciesDE' : 'vacanciesEN']
+    return res.view(
+      getViewNameByLang(request, 'careers.ejs'),
+      { vacancies }
+    );
   }
   @Get('contact')
   contact(@Res() res, @Req() request: FastifyRequest) {
@@ -31,8 +34,9 @@ export class ViewController {
   }
 
   @Get('imprint')
-  @Render('imprint.ejs')
-  impressum(@Res() res, @Req() request: FastifyRequest) {
-    return res.view(getViewNameByLang(request, 'contact.ejs'));
+  @Render('en.imprint.ejs')
+  imprint(@Res() res, @Req() request: FastifyRequest) {
+    return res.view(getViewNameByLang(request, 'imprint.ejs'));
   }
+
 }

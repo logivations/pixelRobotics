@@ -1,0 +1,38 @@
+<header id="header" class="header">
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container-fluid">
+            <a href="/">
+                <img class="header-logo" src="./images/pixel-robotics-logo.svg" alt="Pixel Robotics">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav main-nav">
+                    <% if (!hideHomeLink) { %>
+                        <li class="">
+                            <a class="<% if (activeTab === "home") { %> active-nav <% } %>" href="/">Home</a>
+                        </li>
+                    <% } %>
+                    <li class="">
+                        <a class="<% if (activeTab === "career") { %> active-nav <% } %>" href="/career">Karriere</a>
+                    </li>
+                    <li class="">
+                        <a class="<% if (activeTab === "contact") { %> active-nav <% } %>" href="/contact">Kontakt</a>
+                    </li>
+                    <%- include('languages-picker'); -%>
+                </ul>
+                <div class="mobile-contact-info d-sm-none d-flex">
+                    <div class="col-12 d-flex flex-column mb-2">
+                        <span>E-mail:</span>
+                        <a href="mailto:info@pixel-robotics.eu" class="o-text">info@pixel-robotics.eu</a>
+                    </div>
+                    <div class="col-12 d-flex flex-column">
+                        <span>Phone:</span>
+                        <a href="tel:+49 89 20 00 85 18" class="o-text">+49 89 20 00 85 18</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

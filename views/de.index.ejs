@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('includes/metadata'); -%>
+    <link rel="stylesheet/less" type="text/css" href="css/index.less" />
+</head>
+<body>
+<section id="first-screen">
+    <%- include('includes/de.header.ejs', {hideHomeLink: true, activeTab: 'home'}); -%>
+    <div class="banner d-flex container-fluid">
+        <div class="">
+            <div class="main-heading d-flex">
+                <h1>Vision-based Robotics</h1>
+                <p>Pixel Robotics kombiniert KI, Computer Vision und Robotik, um innerbetriebliche Palettentransporte zu automatisieren. Unsere Roboter arbeiten kooperativ mit den menschlichen Kollegen zusammen und passen sich dynamisch an bestehende Prozesse in der Intralogistik an.</p>
+                <div class="btn-container">
+                    <a href="/contact" class="btn-custom scroll-to">Kontaktieren sie uns</a>
+                </div>
+            </div>
+            <div class="main-image-holder">
+                <div class="main-image"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="main">
+    <section id="how-it-works" class="">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col-lg-10 col-md-12 offset-lg-1 offset-0">
+                    <div class="hiw-wrapper">
+                        <div class="title-holder text-center">
+                            <h2>Wie es funktioniert </h2>
+                            <h5><span class="bold-text">Der Enabler:</span> KI-Erfassungseinheiten an der Hallendecke</h5>
+                        </div>
+                        <div class="row fg-1ist">
+                            <div class="col-md-6 col-12">
+                                <div class="fg-item d-flex">
+                                    <span class="hiw-number">1</span>
+                                    <figure class="d-flex figure-holder">
+                                        <div class="figure-image figure-1">
+                                            <img src="images/hiw-1.svg" alt="Machine Learning">
+                                        </div>
+                                        <figcaption>
+                                            <p>Die KI-Erfassungseinheiten an der Hallendecke verfolgen alle Prozesse in Echtzeit</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="fg-item d-flex">
+                                    <span class="hiw-number">2</span>
+                                    <figure class="d-flex figure-holder">
+                                        <div class="figure-image figure-2">
+                                            <img src="images/hiw-2.svg" alt="Machine Learning">
+                                        </div>
+                                        <figcaption>
+                                            <p>Sie analysieren den Hallenboden auf Hindernisse, Fahrzeuge und Personen</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="fg-item d-flex">
+                                    <span class="hiw-number">3</span>
+                                    <figure class="d-flex figure-holder">
+                                        <div class="figure-image figure-3">
+                                            <img src="images/hiw-3.svg" alt="Machine Learning">
+                                        </div>
+                                        <figcaption>
+                                            <p>Sie erkennen den F&uuml;llgrad von Start- und Zielpositionen</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="fg-item d-flex">
+                                    <span class="hiw-number">4</span>
+                                    <figure class="d-flex figure-holder">
+                                        <div class="figure-image figure-4">
+                                            <img src="images/hiw-4.svg" alt="Machine Learning">
+                                        </div>
+                                        <figcaption>
+                                            <p>Ein digitaler Zwilling wird erstellt und f&uuml;r die Navigation und das Flottenmanagement verwendet</p>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="navigation">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <div class="title-holder">
+                        <h2>Advanced Navigation</h2>
+                        <h5>Der digitale Zwilling erm&ouml;glicht eine pr&auml;zise und zuverl&auml;ssige Navigation in beengten und sich schnell &auml;ndernden Umgebungen</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation-wrapper row">
+                <div class="col-md-4 col-12">
+                    <img src="images/nav-1.png" alt="1">
+                    <p>Paletten k&ouml;nnen &uuml;berall aufgenommen werden. <span class="bold-text"> Es sind keine vorbestimmten &Uuml;bergabepunkte erforderlich.</span></p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="images/nav-2.png" alt="2">
+                    <p>Die Daten des digitalen Zwillings erm&ouml;glichen eine flexible <span class="bold-text">Umfahrung von Hindernissen.</span>.</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="images/nav-3.png" alt="3">
+                    <p>Roboter k&ouml;nnen mit Gabelstaplern und anderen manuell betriebenen Fahrzeugen <span class="bold-text">interagieren.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="hardware">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <div class="">
+                        <h2>PIXEL <span style="color:#E25303">PT</span></h2>
+                        <p class="pt-info">Der PIXEL PT wurde von Grund auf neu entwickelt und ist ein autonomer mobiler Roboter (AMR),
+                            der auf einem schlanken, modularen und robusten Hardwarekonzept basiert. Der PIXEL PT wurde entwickelt,
+                            um automatisierte Intralogistik-Prozesse in sich schnell ver&auml;ndernden und rauen Industrieumgebungen
+                            zu erm&ouml;glichen. Das Fahrzeug kombiniert bew&auml;hrte Hardware von Flurf&ouml;
+                            mit modernster Sicherheits- und Kameratechnik. Mit seiner 3-Rad-Geometrie und seinem schlanken
+                            Design kann der PIXEL PT durch enge R&auml;ume und schmale G&auml;nge navigieren.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hardware-wrapper row d-flex">
+                <div class="col-md-6 col-12">
+                    <img src="images/pixel-pt-01.png" alt="1">
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="hardware-info row">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="bold-text">Max. Geschwindigkeit:</span>
+                                </div>
+                                <div class="col-6">
+                                    <span>1.5 m/s</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="bold-text">Max. Last:</span>
+                                </div>
+                                <div class="col-6">
+                                    <span>1,300 kg</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="bold-text">Hubh&ouml;he:</span>
+                                </div>
+                                <div class="col-6">
+                                    <span>300 mm (optional 900 mm)</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="bold-text">Abmessungen:</span>
+                                </div>
+                                <div class="col-6">
+                                    <span>1,980 x 800 x 1,740 mm</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="bold-text">Wenderadius:</span>
+                                </div>
+                                <div class="col-6">
+                                    <span>1,650 mm</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="bold-text">Min. Gangbreite:</span>
+                                </div>
+                                <div class="col-6">
+                                    <span>1,000 mm</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <span class="bold-text">Eigengewicht:</span>
+                                </div>
+                                <div class="col-6">
+                                    <span>550 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                        <li><span class="bold-text">Max. Geschwindigkeit: </span><span>1.5 m/s</span></li>-->
+                        <!--                        <li><span>Max. Last: </span> 1,300 kg</li>-->
+                        <!--                        <li><span>Hubh&ouml;he: </span> 300 mm (optional 900 mm)</li>-->
+                        <!--                        <li><span>Abmessungen: </span> 1,980 x 800 x 1,740 mm</li>-->
+                        <!--                        <li><span>Wenderadius: </span> 1,650 mm</li>-->
+                        <!--                        <li><span>Min. Gangbreite:</span> 1,000 mm</li>-->
+                        <!--                        <li><span>Eigengewicht: </span> 550 kg</li>-->
+                    </div>
+                </div>
+            </div>
+            <div class="pt-group row">
+                <div class="col-md-4 col-12">
+                    <img src="images/pt-01.jpeg" alt="Automatic Charging">
+                    <h6 class="bold-text">Automatisches Laden</h6>
+                    <p>Durch den Einsatz von Li-Ion-Technologie ist der PIXEL PT infolge kurzer Ladezeiten und bis zu 12 Stunden Dauerbetrieb hochverf&uuml;gbar. In Zeiten geringer Produktivit&auml;t f&auml;hrt der AMR automatisch zur n&auml;chsten Ladestation.</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="images/pt-02.jpeg" alt="360°-Safety">
+                    <h6 class="bold-text">360&deg;-Sicherheit</h6>
+                    <p>Ausgestattet mit SICK Sicherheits-Laserscannern, Hinderniserkennung und verschiedenster Sensorik, kann der <span class="bold-text">PIXEL PT</span> sicher und flexibel in einer gemeinsamen Umgebung mit Personen agieren.</p>
+                </div>
+                <div class="col-md-4 col-12">
+                    <img src="images/pt-03.jpeg" alt="Automatic Charging">
+                    <h6 class="bold-text">Warenerkennung</h6>
+                    <p style="margin: 0;">Mittels kamerabasierter Warenerkennung kann der PIXEL PT seine Ladung automatisch identifizieren. In Kombination mit der integrierten High-End-Recheneinheit k&ouml;nnen kundenspezifische Erkennungsanwendungen implementiert werden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="company">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Unternehmen</h2>
+                </div>
+                <div class="col-md-6 col-12">
+                    <p>Pixel Robotics baut intelligente, wahrnehmungsgesteuerte Roboter, die auf die Intralogistik zugeschnitten sind. Mithilfe unserer einzigartigen KI-Vision-Infrastruktur entsteht ein digitaler Zwilling des Betriebsbereiches. Anhand dieses Echtzeitzwillings arbeiten die Roboter von Pixel Robotics mit ihren menschlichen Kollegen zusammen - autonom, sicher und mit einer un&uuml;bertroffenen Flexibilit&auml;t.</p>
+                    <p>Pixel Robotics hat seinen Hauptsitz in M&uuml;nchen.</p>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="company-img-holder">
+                        <img src="images/neue_firmenzentrale_lg.jpeg" alt="Pixel Robotics office" class="company-img company-img-1"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="partners">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="text-center">Partner</h2>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="row partners-container d-flex justify-content-center">
+                                <div class="col-sm-3 col-12 partners-mb">
+                                    <a class="partner-holder" href="https://www.logivations.com/" target="_blank">
+                                        <img src="images/partners/logivations_logo.svg" alt="Logivations">
+                                    </a>
+                                </div>
+                                <div class="col-sm-3 col-12 partners-mb">
+                                    <a class="partner-holder" href="https://www.5-ht.com/" target="_blank">
+                                        <img src="images/partners/5-ht.svg" class="img-responsive" alt="5-HT">
+                                    </a>
+                                </div>
+                                <div class="col-sm-3 col-12 partners-mb">
+                                    <a class="partner-holder" href="https://www.bmbf.de/" target="_blank">
+                                        <img src="images/partners/german/BMBF_Logo_de.svg" class="img-responsive" alt="fed_min_of-edu_and_res.svg">
+                                    </a>
+                                </div>
+                                <div class="col-sm-3 col-12 partners-mb">
+                                    <a class="partner-holder" href="https://www.stmwi.bayern.de/" target="_blank">
+                                        <img src="images/partners/german/stmwi.bayern.de.svg" class="img-responsive" alt="Bayerischen Staatsministeriums für Wirtschaft, Landesentwicklung und Energie">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="current-vacancies">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Stellenangebote (Optionen: offene Stellen/ Stellenangebote)</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-0">
+                    <div class="benefits-holder">
+                        <p class="bold-text">Benefits:</p>
+                        <ul>
+                            <li>• Start-up-Atmosph&auml;re in einem schnell wachsenden Unternehmen</li>
+                            <li>• Zentral gelegenes B&uuml;ro neben dem Olympiapark</li>
+                            <li>• Extras wie kostenlose Getr&auml;nke, Obst und ein Jobticket</li>
+                            <li>• Flache Hierarchien</li>
+                            <li>• Junges, innovatives Arbeitsumfeld</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="vacancies-holder">
+                        <div class="current-vacancy">
+                            <h6>Robotics Software Engineer (m/f/d)</h6>
+                            <a class="arrow-icon" href="pdf/202112_Robotics-Engineer_PR.pdf" target="_blank">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.01 11.0001H5C4.45 11.0001 4 11.4501 4 12.0001C4 12.5501 4.45 13.0001 5 13.0001H16.01V14.7901C16.01 15.2401 16.55 15.4601 16.86 15.1401L19.64 12.3501C19.83 12.1501 19.83 11.8401 19.64 11.6401L16.86 8.85008C16.55 8.53008 16.01 8.76008 16.01 9.20008V11.0001V11.0001Z" fill="#E25303"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="current-vacancy">
+                            <h6>Consultant Logistics Solutions (m/f/d)</h6>
+                            <a class="arrow-icon" href="pdf/202107_Combined_Consultant_PR.pdf" target="_blank">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.01 11.0001H5C4.45 11.0001 4 11.4501 4 12.0001C4 12.5501 4.45 13.0001 5 13.0001H16.01V14.7901C16.01 15.2401 16.55 15.4601 16.86 15.1401L19.64 12.3501C19.83 12.1501 19.83 11.8401 19.64 11.6401L16.86 8.85008C16.55 8.53008 16.01 8.76008 16.01 9.20008V11.0001V11.0001Z" fill="#E25303"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="d-flex btn-container">
+                            <a href="/career" class="">View all</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="cta-section">
+        <div class="container-xxl container-md">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 offset-0 col-12">
+                            <div class="cta-holder">
+                                <h2>Entscheiden Sie sich f&uuml;r die beste L&ouml;sung f&uuml;r Ihre mobilen Roboter!</h2>
+                                <a href="/contact" class="btn-custom">Kontaktieren sie uns</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 img-object">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--    </section>-->
+    <%- include('includes/de.footer.ejs'); -%>
+</div>
+<%- include('includes/default-scripts'); -%>
+
+</body>
+</html>

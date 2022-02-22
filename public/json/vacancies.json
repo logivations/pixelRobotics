@@ -1,5 +1,5 @@
 {
-  "vacancies": [
+  "vacanciesEN": [
     {
       "title": "Robotics Software Engineer (m/f/d)",
       "country": "Germany",
@@ -22,6 +22,32 @@
       "title": "Werkstudent/in für den Bereich Office-/ Event-Management (m/w/d)",
       "country": "Germany",
       "city": "Munich",
+      "pdfLink": "/pdf/202104_Werkstudent_OfficeManagement.pdf"
+    }
+  ],
+  "vacanciesDE": [
+    {
+      "title": "Robotics Software Engineer (m/w/d)",
+      "country": "Deutschland",
+      "city": "München",
+      "pdfLink": "/pdf/202112_Robotics-Engineer_PR.pdf"
+    },
+    {
+      "title": "Consultant Logistics Solutions (m/w/d)",
+      "country": "Deutschland",
+      "city": "München",
+      "pdfLink": "/pdf/202107_Combined_Consultant_PR.pdf"
+    },
+    {
+      "title": "Unterstützung für die Montage von Robotik-Komponenten",
+      "country": "Deutschland",
+      "city": "München",
+      "pdfLink": "/pdf/202106_Montage_PR.pdf"
+    },
+    {
+      "title": "Werkstudent/in für den Bereich Office-/ Event-Management (m/w/d)",
+      "country": "Deutschland",
+      "city": "München",
       "pdfLink": "/pdf/202104_Werkstudent_OfficeManagement.pdf"
     }
   ]
