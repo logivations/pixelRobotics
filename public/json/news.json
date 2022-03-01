@@ -1,0 +1,31 @@
+{
+  "news": [
+    {
+      "id": 2001,
+      "title": {
+        "en": "News name",
+        "de": "News name_DE"
+      },
+      "posterURL": "/images/newsAndEvents/blank.jpg",
+      "createdAt": "28.02.2022"
+    },
+    {
+      "id": 2002,
+      "title": {
+        "en": "News name",
+        "de": "News name_DE"
+      },
+      "posterURL": "/images/newsAndEvents/blank.jpg",
+      "createdAt": "27.02.2022"
+    },
+    {
+      "id": 2003,
+      "title": {
+        "en": "News name",
+        "de": "News name_DE"
+      },
+      "posterURL": "/images/newsAndEvents/blank.jpg",
+      "createdAt": "28.02.2022"
+    }
+  ]
+}

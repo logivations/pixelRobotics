@@ -17,6 +17,11 @@
                         </li>
                     <% } %>
                     <li class="">
+                        <a class="<% if (activeTab === "newsAndEvents") { %> active-nav <% } %>" href="/newsAndEvents">
+                            <% if (lang === 'EN_en') { %> News & Events <% } else { %>  News & Events <% } %>
+                        </a>
+                    </li>
+                        <li class="">
                         <a class="<% if (activeTab === "career") { %> active-nav <% } %>" href="/career">
                             <% if (lang === 'EN_en') { %> Career <% } else { %> Karriere <% } %>
                         </a>

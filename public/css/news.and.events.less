@@ -1,0 +1,105 @@
+@import "./general.less";
+
+#news-and-events-section {
+  min-height: calc(100vh - 110px);
+  padding: 90px 0 32px;
+
+  .toggle-buttons-wrapper {
+    color: @main-orange-color;
+    margin: 30px 30px 30px 0;
+    & > div {
+      height: 48px;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+      & > p {
+        position: relative;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+
+        & > span {
+          position: absolute;
+          top: -24px;
+          right: -24px;
+          width: 24px;
+          height: 24px;
+          background-color: @main-orange-color-with-opacity;
+          border-radius: 24px;
+          line-height: 24px;
+          text-align: center;
+          font-size: 12px;
+        }
+      }
+      &:hover {
+        p {
+          margin-bottom: -1px;
+          border-bottom: 1px solid @main-orange-color;
+        }
+      }
+    }
+  }
+
+  .events-list-container {
+    display: flex;
+    justify-content: start;
+    .event-container {
+      width: 330px;
+      margin: 40px 10px 40px 0;
+      transition: transform .2s;
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+      p {
+        margin: 0;
+      }
+      .image-holder {
+        position: relative;
+        .announcement-container {
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          height: 48px;
+          width: 48px;
+          background-color: white;
+          border-radius: 5px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+          flex-wrap: wrap;
+
+          p {
+            color: @main-orange-color;
+            font-size: 12px;
+            line-height: 16px;
+          }
+          span {
+            font-size: 8px;
+            line-height: 12px;
+          }
+        }
+      }
+
+      .info-holder {
+        margin: 1px;
+        .title {
+          font-size: 28px;
+          line-height: 42px;
+        }
+
+        .sub-title, .title {
+          font-weight: 600;
+        }
+
+        .sub-title, .event-place, .date {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+      }
+    }
+  }
+}
