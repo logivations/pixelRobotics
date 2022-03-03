@@ -1,13 +1,18 @@
 @import "./general.less";
 
 #news-and-events-section {
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 210px);
   padding: 90px 0 32px;
 
   .toggle-buttons-wrapper {
     color: @main-orange-color;
-    margin: 30px 30px 30px 0;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+
     & > div {
+      margin-right: 64px;
+      padding: 0;
       height: 48px;
       display: flex;
       align-items: flex-end;
@@ -44,27 +49,25 @@
     display: flex;
     justify-content: start;
     .event-container {
-      width: 330px;
-      margin: 40px 10px 40px 0;
-      transition: transform .2s;
+      margin: 0 0 48px;
       &:hover {
         cursor: pointer;
-        transform: scale(1.1);
       }
       p {
         margin: 0;
       }
       .image-holder {
         position: relative;
+
         .announcement-container {
           position: absolute;
-          top: 2px;
-          right: 2px;
-          height: 48px;
-          width: 48px;
           background-color: white;
-          border-radius: 5px;
-
+          top: 5px;
+          right: 5px;
+          height: 28px;
+          width: 124px;
+          border-radius: 4px;
+          flex-direction: row;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -75,30 +78,29 @@
             color: @main-orange-color;
             font-size: 12px;
             line-height: 16px;
+            font-weight: 600;
           }
           span {
-            font-size: 8px;
+            font-size: 12px;
             line-height: 12px;
+            margin-left: 5px;
           }
         }
       }
 
       .info-holder {
-        margin: 1px;
+         margin: 15px 0 0;
         .title {
           font-size: 28px;
           line-height: 42px;
         }
-
         .sub-title, .title {
           font-weight: 600;
         }
-
         .sub-title, .event-place, .date {
           font-size: 16px;
           line-height: 24px;
         }
-
       }
     }
   }

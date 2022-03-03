@@ -1,4 +1,5 @@
-const template = `<div class="col-md-6 col-12 event-container <%= type %>">
+const template = `<div class="col-md-4 col-12 event-container <%= type %>" data-eventid="<%= id %>">
+    <a href="/news-and-events-details?eventId=<%= id %>">
     <div class="image-holder">
         <img class="event-image" src="<%= posterURL %>">
         <% if (isUpcomingEvent) { %>
@@ -18,6 +19,7 @@ const template = `<div class="col-md-6 col-12 event-container <%= type %>">
         <% } %>
         <p class="date"> <%= createdAt %> </p>
     </div>
+    </a>
 </div>`;
 
 const showHideElement = (element, show) => {

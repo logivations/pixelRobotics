@@ -28,4 +28,9 @@ export class CommonService {
 
     return [...events, ...news].sort((itemA, itemB) => sortByDate(itemA.createdAt, itemB.createdAt));
   }
+
+  public getEventById(eventId: string, lang: string) {
+    return [...this.getEvents(lang), ...this.getNews(lang)]
+      .find(({id}) => id === parseInt(eventId)) || {};
+  }
 }

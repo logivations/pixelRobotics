@@ -2,12 +2,12 @@ import { FastifyRequest } from "fastify";
 
 export const getLangFromCookie = (request: FastifyRequest) => {
   const lang = request.cookies['lang'];
-  return lang && lang === "DE_de" ? 'de' : 'en';
+  return lang || 'EN_en';
 };
 
 export const getViewNameByLang = (request: FastifyRequest, baseViewName) => {
   const prefix = getLangFromCookie(request);
-  return `${prefix}.${baseViewName}`;
+  return `${prefix}/${baseViewName}`;
 };
 
 export const sortByDate = (dateA, dateB) => {

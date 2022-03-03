@@ -9,7 +9,7 @@ import {
 import * as careers from '../../../../public/json/vacancies.json';
 import { UserActivityInterceptor } from '../../common/interceptors/user.activity.interceptor';
 import { FastifyRequest } from 'fastify';
-import { getViewNameByLang } from "../../utils";
+import { getLangFromCookie, getViewNameByLang } from "../../utils";
 import { CommonService } from "../common-controller/common.service";
 
 @UseInterceptors(UserActivityInterceptor)
@@ -26,14 +26,25 @@ export class ViewController {
     );
   }
 
-  @Get('newsAndEvents')
+  @Get('news-and-events')
   newsAndEvents(@Res() res, @Req() request: FastifyRequest) {
     return res.view(
       getViewNameByLang(request, 'news.and.events.ejs'),
       {
-        newsCount: this.commonService.getNews('en').length,
-        eventsCount: this.commonService.getEvents('en').length
+        newsCount: this.commonService.getNews('EN_en').length,
+        eventsCount: this.commonService.getEvents('EN_en').length
       }
+    );
+  }
+
+  @Get('news-and-events-details')
+  newsAndEventsDetails(@Res() res, @Req() request: FastifyRequest) {
+    const event = this.commonService.getEventById(
+      request.query['eventId'], getLangFromCookie(request)
+    );
+    return res.view(
+      getViewNameByLang(request, 'news.and.events.details.ejs'),
+      { event }
     );
   }
 
@@ -55,7 +66,7 @@ export class ViewController {
   }
 
   @Get('imprint')
-  @Render('en.imprint.ejs')
+  @Render('imprint.ejs')
   imprint(@Res() res, @Req() request: FastifyRequest) {
     return res.view(
       getViewNameByLang(request, 'imprint.ejs')

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <%- include('includes/metadata'); -%>
+    <%- include('../includes/metadata'); -%>
     <link rel="stylesheet/less" type="text/css" href="css/news.and.events.less" />
 </head>
 <body>
-<%- include('includes/header', {hideHomeLink: false, activeTab: 'newsAndEvents', lang: 'EN_en'}); -%>
+<%- include('../includes/header', {hideHomeLink: false, activeTab: 'newsAndEvents', lang: 'EN_en'}); -%>
 <section id="news-and-events-section">
     <div class="container-xxl container-md">
         <div class="row title-container">
@@ -14,7 +14,7 @@
                 <div class="page-sub-title">Check here for our latest news and events</div>
             </div>
         </div>
-        <div class="row toggle-buttons-wrapper">
+        <div class="toggle-buttons-wrapper">
             <div class="col-md-3" id="latest-news-and-events">
                 <p class="btn-title">News & Events<span class="counter"><%= newsCount + eventsCount %></span></p>
             </div>
@@ -29,8 +29,8 @@
     </div>
 </section>
 
-<%- include('includes/footer'); -%>
-<%- include('includes/default-scripts'); -%>
+<%- include('../includes/footer'); -%>
+<%- include('../includes/default-scripts'); -%>
 <script type="text/javascript" src="js/eventsAndNews.js"></script>
 
 </body>

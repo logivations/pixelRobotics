@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%- include('includes/metadata'); -%>
+  <%- include('../includes/metadata'); -%>
   <link rel="stylesheet/less" type="text/css" href="css/index.less" />
 </head>
 <body>
 <section id="first-screen">
-  <%- include('includes/header', {hideHomeLink: true, activeTab: 'home', lang: 'EN_en'}); -%>
+  <%- include('../includes/header', {hideHomeLink: true, activeTab: 'home', lang: 'EN_en'}); -%>
   <div class="banner d-flex container-fluid">
     <div class="">
       <div class="main-heading d-flex">
@@ -345,9 +345,9 @@
     </div>
   </section>
   <!--    </section>-->
-  <%- include('includes/footer'); -%>
+  <%- include('../includes/footer'); -%>
 </div>
-<%- include('includes/default-scripts'); -%>
+<%- include('../includes/default-scripts'); -%>
 
 </body>
 </html>

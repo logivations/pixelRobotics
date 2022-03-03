@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <%- include('includes/metadata'); -%>
+    <%- include('../includes/metadata'); -%>
     <link rel="stylesheet/less" type="text/css" href="css/careers.less" />
 </head>
 <body>
-<%- include('includes/header', {hideHomeLink: false, activeTab: 'career', lang: 'EN_en'}); -%>
+<%- include('../includes/header', {hideHomeLink: false, activeTab: 'career', lang: 'EN_en'}); -%>
 <section id="careers-section">
     <div class="container-xxl container-md">
         <div class="row">
@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <% vacancies.forEach(function(vacancy) { %>
-                <%- include('includes/careers.block.ejs', {
+                <%- include('../includes/careers.block.ejs', {
                     title: vacancy.title,
                     city: vacancy.city,
                     country: vacancy.country,
@@ -33,8 +33,8 @@
     </div>
 </section>
 
-<%- include('includes/footer'); -%>
-<%- include('includes/default-scripts'); -%>
+<%- include('../includes/footer'); -%>
+<%- include('../includes/default-scripts'); -%>
 
 </body>
 </html>

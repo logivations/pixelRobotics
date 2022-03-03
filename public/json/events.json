@@ -3,56 +3,62 @@
     {
       "id": 1001,
       "title": {
-        "en": "Event name",
-        "de": "Event name"
+        "EN_en": "Event name",
+        "DE_de": "Event name"
       },
       "posterURL": "/images/newsAndEvents/blank.jpg",
       "eventTime": "04.03.2022",
       "eventPlace": "Munich, Germany",
-      "createdAt": "28.02.2022"
+      "extraInfo": "(Duration approx. 40 min | Language: English)",
+      "createdAt": "28.02.2022",
+      "contentTemplate": "<div>tratatata</div>"
     },
     {
       "id": 1002,
       "title": {
-        "en": "Event name",
-        "de": "Event name"
+        "EN_en": "Event name",
+        "DE_de": "Event name"
       },
       "posterURL": "/images/newsAndEvents/blank.jpg",
       "eventTime": "04.03.2022",
       "eventPlace": "Munich, Germany",
+      "extraInfo": "(Duration approx. 40 min | Language: English)",
       "createdAt": "28.02.2022"
     },
     {
       "id": 1003,
       "title": {
-        "en": "Event name",
-        "de": "Event name"
+        "EN_en": "Event name",
+        "DE_de": "Event name"
       },
       "posterURL": "/images/newsAndEvents/blank.jpg",
       "eventTime": "04.03.2022",
       "eventPlace": "Munich, Germany",
+      "extraInfo": "(Duration approx. 40 min | Language: English)",
       "createdAt": "27.02.2022"
     },
     {
       "id": 1004,
       "title": {
-        "en": "Event name",
-        "de": "Event name"
+        "EN_en": "Event name",
+        "DE_de": "Event name"
       },
       "posterURL": "/images/newsAndEvents/blank.jpg",
       "eventTime": "04.03.2022",
       "eventPlace": "Munich, Germany",
+      "extraInfo": "(Duration approx. 40 min | Language: English)",
       "createdAt": "25.02.2022"
     },
     {
       "id": 1005,
       "title": {
-        "en": "Event name",
-        "de": "Event name"
+        "EN_en": "Event name",
+        "DE_de": "Event name"
       },
       "posterURL": "/images/newsAndEvents/blank.jpg",
       "eventTime": "04.03.2022",
       "eventPlace": "Munich, Germany",
+      "extraInfo": "(Duration approx. 40 min | Language: English)",
       "createdAt": "24.02.2022"
     }
   ]

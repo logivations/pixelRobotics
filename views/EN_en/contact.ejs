@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <%- include('includes/metadata'); -%>
+    <%- include('../includes/metadata'); -%>
     <link rel="stylesheet/less" type="text/css" href="css/contacts.less" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-<%- include('includes/header', {hideHomeLink: false, activeTab: 'contact', lang: 'EN_en'}); -%>
+<%- include('../includes/header', {hideHomeLink: false, activeTab: 'contact', lang: 'EN_en'}); -%>
 <section id="contacts-section">
     <div class="container-xxl container-md">
         <div class="row">
@@ -105,8 +105,8 @@
         </div>
     </div>
 </section>
-<%- include('includes/footer'); -%>
-<%- include('includes/default-scripts'); -%>
+<%- include('../includes/footer'); -%>
+<%- include('../includes/default-scripts'); -%>
 
 <script src="js/contactForm.js"></script>
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <%- include('../includes/metadata'); -%>
+    <link rel="stylesheet/less" type="text/css" href="css/news.and.events.details.less" />
+</head>
+<body>
+<%- include('../includes/header', {hideHomeLink: false, activeTab: 'newsAndEvents', lang: 'EN_en'}); -%>
+<section id="news-and-events-details-section">
+    <div class="container-xxl container-md">
+        <div class="row top-section">
+            <div class="go-back-btn"><a href="/news-and-events">Go back</a></div>
+            <p class="event-title"><%= event.title %></p>
+            <p class="event-place"><%= event.eventPlace %></p>
+            <p class="event-date"><%= event.eventTime %></p>
+            <% if (event.extraInfo) { %><p class="extra-info"><%= event.extraInfo %></p> <% } %>
+        </div>
+        <div class="row image-container">
+            <img src="/images/newsAndEvents/blank2.jpg">
+        </div>
+        <div class="row content-section">
+            <div class="col-md-8 col-12 content-container" id="event-details">
+                <% if (event.contentTemplate) { %><div class="event-content-box"></div> <% } %>
+            </div>
+            <div class="col-md-4 col-12 social-buttons-container">
+                <p>Find or contact us:</p>
+                <div class="social-buttons">
+                    <div class="icon linkedin-icon">
+                        <a href="https://www.linkedin.com/" target="_blank">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="0.5" width="47" height="47" rx="3.5" stroke="#291F1E"/>
+                                <path d="M18 34.5H13.5V19.5H18V34.5ZM34.5 34.5H30V26.487C30 24.399 29.256 23.3595 27.7815 23.3595C26.613 23.3595 25.872 23.9415 25.5 25.107C25.5 27 25.5 34.5 25.5 34.5H21C21 34.5 21.06 21 21 19.5H24.552L24.8265 22.5H24.9195C25.842 21 27.3165 19.983 29.3385 19.983C30.876 19.983 32.1195 20.4105 33.069 21.4845C34.0245 22.56 34.5 24.003 34.5 26.0295V34.5Z" fill="#291F1E"/>
+                                <path d="M15.75 18C17.0341 18 18.075 16.9926 18.075 15.75C18.075 14.5074 17.0341 13.5 15.75 13.5C14.4659 13.5 13.425 14.5074 13.425 15.75C13.425 16.9926 14.4659 18 15.75 18Z" fill="#291F1E"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="icon mail-icon">
+                        <a href="mailto:info@pixel-robotics.eu">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="0.5" width="47" height="47" rx="3.5" stroke="#291F1E"/>
+                                <path d="M23.7166 26.4365L15.4892 19.2499H32.511L24.2832 26.4365C24.2832 26.4365 24.2832 26.4365 24.2831 26.4365C24.2346 26.4788 24.1319 26.5174 23.9999 26.5174C23.8679 26.5174 23.7651 26.4788 23.7166 26.4365C23.7166 26.4365 23.7166 26.4365 23.7166 26.4365ZM14.5589 17.75C13.5823 17.75 12.75 18.5225 12.75 19.5001V30.4999C12.75 31.4773 13.5822 32.25 14.5589 32.25H33.4411C34.4177 32.25 35.25 31.4775 35.25 30.4999V19.5001C35.25 18.5227 34.4178 17.75 33.4411 17.75H14.5589ZM14.2734 29.8662V20.1907L20.0222 25.2112L14.2734 29.8662ZM27.9776 25.2112L33.7269 20.1903V29.8662L27.9776 25.2112ZM15.5853 30.7497L21.1801 26.2246L22.7085 27.5553C23.4424 28.1963 24.558 28.1963 25.2919 27.5553L26.8202 26.2247L32.4148 30.7497H15.5853Z" fill="#291F1E" stroke="#291F1E" stroke-width="0.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row buttons-container">
+            <div class="col-md-6 col-12">
+                <div class="d-flex">
+                    <button id="signUpEventBtn" class="btn-custom" name="submit" type="submit">Sign up now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal" id="signUpEvent" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-custom" data-dismiss="modal">Sign up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer'); -%>
+<%- include('../includes/default-scripts'); -%>
+
+</body>
+<script>
+    $(document).ready(async function() {
+      await fetch(`common/getEventById?eventId=<%= event.id %>`, {
+        method: 'GET',
+      })
+        .then((res) => res.json())
+        .then(({contentTemplate}) => {
+            const detailBox = document.getElementById('event-details');
+            contentTemplate && (detailBox.innerHTML = contentTemplate);
+        });
+    })
+
+    document.getElementById('signUpEventBtn').addEventListener('click', () => {
+      // $('#myModal').on('shown.bs.modal', function () {
+      //   $('#myInput').trigger('focus')
+      // })
+      $('#signUpEvent').modal('toggle')
+        // $('#signUpEvent').toggle();
+    })
+</script>
+</html>
