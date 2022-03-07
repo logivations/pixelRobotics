@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import MailDataDto from './mail-dto/mail.data.dto';
 import { HttpService } from '@nestjs/axios';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
+import SubscribeEventDataDto from "./mail-dto/subscribe.event.data.dto";
 
 @Injectable()
 export class MailService {
@@ -53,5 +54,20 @@ export class MailService {
         context: { name: name },
       });
     }
+  }
+
+  public async subscribeToEvent(subscribeData: SubscribeEventDataDto) {
+    const {name, email, company, phone, comment} = subscribeData;
+    await this.mailerService.sendMail({
+      to: 'volodymyr.boichuk@logivations.com',
+      from: email,
+      subject: 'EVENT SUBSCRIPTION',
+      template: 'subscribeEventMailTemplateToPX',
+      headers: [
+        { key: 'Mime-Version', value: '1.0' },
+        { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
+      ],
+      context: { name, email, company, phone, comment },
+    });
   }
 }

@@ -9,4 +9,9 @@ export class MailController {
   async sendMail(@Body() mailData: string) {
     await this.mailService.sendMail(JSON.parse(mailData));
   }
+
+  @Post('subscribeEvent')
+  async subscribeEvent(@Body() subscriberData: string) {
+    await this.mailService.subscribeToEvent(JSON.parse(subscriberData));
+  }
 }
