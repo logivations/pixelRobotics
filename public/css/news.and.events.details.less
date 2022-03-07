@@ -60,3 +60,79 @@
     margin-top: 20px;
   }
 }
+.modal {
+  .modal-dialog {
+    .modal-content {
+      background-color: #FFFFFF;
+      .button {
+        display: flex;
+        flex-direction: row-reverse;
+
+        .close {
+          background-color: white;
+          border: 0;
+          align-items: center;
+          justify-content: center;
+          font-size: 25px;
+          color: #291F1E;
+        }
+      }
+      .modal-header {
+        margin-top: -23px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: flex-start;
+        p {
+          margin: 2px 0;
+          font-size: 16px;
+        }
+        h5 {
+          margin: 2px 0;
+          font-size: 28px;
+        }
+
+      }
+      .modal-body {
+        .input-forms {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-content: center;
+          justify-content: space-between;
+          align-items: center;
+          .form-control {
+            width: 225px;
+            height: 48px;
+          }
+          .left {
+            @media @desktop-sm {
+              margin-right: -1px;
+            }
+            margin-right: -8px;
+          }
+        }
+      }
+      .modal-footer {
+        .btn-cancel {
+          border: 1px solid #D3D3D3;
+          justify-content: center;
+          border-radius: 6px;
+          width: max-content;
+          min-width: 120px;
+          height: 48px;
+          padding: 0 32px;
+          line-height: 48px;
+          color: black;
+          background-size: 200%;
+          background-color: #FFFFFF;
+          animation: appear 3s;
+          margin: 0 10px 0 0;
+        }
+
+      }
+    }
+  }
+}
