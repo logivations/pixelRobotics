@@ -33,6 +33,9 @@ const showHideElement = (element, show) => {
 const changePageTitle = (title) => {
   document.getElementById('page-title').innerText = title;
 };
+const changePageSubTitle = (subTitle) => {
+  document.getElementById('page-sub-title').innerText = subTitle;
+};
 
 $(document).ready(async () => {
   const eventsContainer = document.querySelector('.events-list-container');
@@ -62,6 +65,7 @@ $(document).ready(async () => {
     showHideElement(showLatestNewsBtn, false);
     showHideElement([showLatestNewsAndEventsBtn, showLatestEventBtn], true);
     changePageTitle('Latest News');
+    changePageSubTitle('Check here for latest news and events');
   });
   showLatestEventBtn.addEventListener('click', () => {
     [...newsBlocks].forEach((block) => showHideElement(block, false));
@@ -69,6 +73,7 @@ $(document).ready(async () => {
     showHideElement(showLatestEventBtn, false);
     showHideElement([showLatestNewsAndEventsBtn, showLatestNewsBtn], true);
     changePageTitle('Upcoming Events');
+    changePageSubTitle('Check here for our upcoming events');
   });
   showLatestNewsAndEventsBtn.addEventListener('click', () => {
     [...newsBlocks].forEach((block) => showHideElement(block, true));
@@ -76,5 +81,6 @@ $(document).ready(async () => {
     showHideElement(showLatestNewsAndEventsBtn, false);
     showHideElement([showLatestEventBtn, showLatestNewsBtn], true);
     changePageTitle('News & Events');
+    changePageSubTitle('Check here for latest news and events');
   });
 });

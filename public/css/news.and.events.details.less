@@ -39,18 +39,25 @@
   .image-container {
     margin: 40px 0;
   }
-
   .content-section {
+    margin: 5px 30px;
     .content-container {
-
+      li {
+        margin-left: 10px;
+      }
     }
 
     .social-buttons-container {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: flex-end;
+      align-items: flex-end;
+      justify-content: flex-start;
       .social-buttons {
         display: flex;
-
-        .icon {
-          margin-right: 20px;
+        .mail-icon {
+          margin-left: 10px;
         }
       }
     }
@@ -58,6 +65,9 @@
   }
   .buttons-container {
     margin-top: 20px;
+    .btn-custom {
+      margin-left: 40px;
+    }
   }
 }
 .modal {
