@@ -290,6 +290,35 @@ h5  {
   .header-logo {
     max-width: 120px;
   }
+  .refugee-link {
+    position: absolute;
+    left: 50%;
+    margin-left: -82px;
+    content: '';
+    z-index: 1;
+    @media @desktop-md {
+      left: 40%;
+    }
+    @media @desktop-sm {
+      left: 30%;
+    }
+    @media @tablet-md {
+      left: 50%;
+    }
+    @media @mobile {
+      left: 62%;
+    }
+    a {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      width: 50px;
+    }
+    span {
+      margin-left: 10px
+    }
+  }
   .main-nav {
     li:first-child {
       animation-delay: .1s;
