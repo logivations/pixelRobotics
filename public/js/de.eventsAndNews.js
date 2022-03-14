@@ -1,7 +1,6 @@
 const template = `<div class="col-md-4 col-12 event-container <%= type %>" data-eventid="<%= id %>">
     <a href="/news-and-events-details?eventId=<%= id %>">
-    <div class="image-holder">
-<!--        <img class="event-image" src="<%= posterURL %>">-->
+    <div class="image-holder" style="background-image: url('<%= posterURL %>')">
         <% if (isUpcomingEvent) { %>
             <div class="announcement-container">
                 <p class="announcement-title">EVENT</p>

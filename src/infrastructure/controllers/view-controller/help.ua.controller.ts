@@ -10,15 +10,15 @@ import { UserActivityInterceptor } from '../../common/interceptors/user.activity
 import { FastifyRequest } from 'fastify';
 
 @UseInterceptors(UserActivityInterceptor)
-@Controller('shelterinlviv')
-export class ShelterInLvivController {
+@Controller('help-ukraine')
+export class HelpUaController {
   @Get('refugees')
-  @Render('shelterinlviv/refugees.ejs')
+  @Render('help-ukraine/refugees.ejs')
   refugees(@Res() res, @Req() request: FastifyRequest) {
     return 123;
   }
   @Get('shelter-in-lviv')
-  @Render('shelterinlviv/shelter.in.lviv.ejs')
+  @Render('help-ukraine/shelter.in.lviv.ejs')
   shelterInLviv(@Res() res, @Req() request: FastifyRequest) {
     return 123;
   }
