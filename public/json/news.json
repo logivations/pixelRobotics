@@ -6,25 +6,7 @@
         "EN_en": "News name",
         "DE_de": "News name_DE"
       },
-      "posterURL": "/images/newsAndEvents/blank.jpg",
-      "createdAt": "28.02.2022"
-    },
-    {
-      "id": 2002,
-      "title": {
-        "EN_en": "News name",
-        "DE_de": "News name_DE"
-      },
-      "posterURL": "/images/newsAndEvents/blank.jpg",
-      "createdAt": "27.02.2022"
-    },
-    {
-      "id": 2003,
-      "title": {
-        "EN_en": "News name",
-        "DE_de": "News name_DE"
-      },
-      "posterURL": "/images/newsAndEvents/blank.jpg",
+      "posterURL": "/images/neue_firmenzentrale_lg.jpeg",
       "createdAt": "28.02.2022"
     }
   ]

@@ -10,8 +10,8 @@
     display: flex;
     flex-direction: row;
 
-    & > div {
-      margin-right: 64px;
+    .toggle-buttons-holder {
+      margin-right: 48px;
       padding: 0;
       height: 48px;
       display: flex;
@@ -22,7 +22,7 @@
         font-size: 16px;
         line-height: 24px;
         margin: 0;
-
+        font-weight: 600;
         & > span {
           position: absolute;
           top: -24px;
@@ -58,6 +58,33 @@
       }
       .image-holder {
         position: relative;
+        height: 240px;
+        border-radius: 6px;
+        background-color: #d3d3d3;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @media @desktop-md {
+          height: 220px;
+        }
+        @media @desktop-sm {
+          height: 180px;
+        }
+        @media @tablet-md {
+          height: 340px;
+        }
+        @media @tablet {
+          height: 140px;
+        }
+        @media @tablet-md {
+          height: 320px;
+        }
+        @media @tablet-sm {
+          height: 280px;
+        }
+        @media @mobile {
+          height: 240px;
+        }
 
         .announcement-container {
           position: absolute;
@@ -91,15 +118,32 @@
       .info-holder {
          margin: 15px 0 0;
         .title {
-          font-size: 28px;
-          line-height: 42px;
+          font-size: 1.6em;
+          line-height: 1.2em;
+          margin: 5px 0;
+          color: @main-orange-color;
+          @media @desktop-md {
+            font-size: 1.4em;
+          }
+          @media @tablet {
+            font-size: 1em;
+          }
+          @media @tablet {
+            font-size: 1.4em;
+          }
         }
         .sub-title, .title {
           font-weight: 600;
         }
         .sub-title, .event-place, .date {
-          font-size: 16px;
-          line-height: 24px;
+          font-size: 1em;
+          line-height: 1.4em;
+          @media @tablet {
+            font-size: 0.7em;
+          }
+          @media @tablet-md {
+            font-size: 1em;
+          }
         }
       }
     }

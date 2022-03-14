@@ -19,11 +19,25 @@
     position: relative;
     li {
       cursor: pointer;
-
+      display: flex;
+      align-items: center;
       .language-name {
-        color: #02040f;
         font-weight: 400;
         margin-left: 8px;
+      }
+      span {
+        padding-left: 8px;
+      }
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      border-left: 1px solid #d3d3d3;
+      height: 100%;
+      left: -15px;
+      top: 0;
+      @media @tablet-md {
+        display: none;
       }
     }
   }
@@ -31,10 +45,10 @@
   .language-list {
     display: none;
     position: absolute;
-    top: 29px;
-    right: -15px;
+    top: 30px;
+    right: -13px;
     background: #fff;
-    width: 80px;
+    width: auto;
     padding-top: 0;
     z-index: 1;
     border-radius: 5px;
@@ -45,27 +59,22 @@
       background: transparent;
       padding: 15px 15px 0 15px;
       z-index: 2;
-      font-size: 15px;
-      color: #3c3c3c;
+      font-size: 1em;
       &:last-of-type {
         padding-bottom: 15px;
-      }
-      span {
-        padding-left: 5px;
       }
     }
   }
 }
 
 .sl-flag {
-  display: inline-block;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-  width: 15px;
-  height: 15px;
+  display: flex;
+  width: 16px;
+  height: 16px;
   background: #aaa;
   border-radius: 50%;
   position: relative;
-  top: 2px;
+  top: 0;
   overflow: hidden;
 }
 .flag-de {

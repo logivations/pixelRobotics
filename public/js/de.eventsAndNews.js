@@ -1,7 +1,7 @@
 const template = `<div class="col-md-4 col-12 event-container <%= type %>" data-eventid="<%= id %>">
     <a href="/news-and-events-details?eventId=<%= id %>">
     <div class="image-holder">
-        <img class="event-image" src="<%= posterURL %>">
+<!--        <img class="event-image" src="<%= posterURL %>">-->
         <% if (isUpcomingEvent) { %>
             <div class="announcement-container">
                 <p class="announcement-title">EVENT</p>
@@ -61,14 +61,14 @@ $(document).ready(async () => {
         [...eventsBlocks].forEach((block) => showHideElement(block, false));
         showHideElement(showLatestNewsBtn, false);
         showHideElement([showLatestNewsAndEventsBtn, showLatestEventBtn], true);
-        changePageTitle('News');
+        changePageTitle('Latest News');
     });
     showLatestEventBtn.addEventListener('click', () => {
         [...newsBlocks].forEach((block) => showHideElement(block, false));
         [...eventsBlocks].forEach((block) => showHideElement(block, true));
         showHideElement(showLatestEventBtn, false);
         showHideElement([showLatestNewsAndEventsBtn, showLatestNewsBtn], true);
-        changePageTitle('Events');
+        changePageTitle('Upcoming Events');
     });
     showLatestNewsAndEventsBtn.addEventListener('click', () => {
         [...newsBlocks].forEach((block) => showHideElement(block, true));

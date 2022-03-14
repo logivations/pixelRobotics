@@ -3,12 +3,13 @@
 
 /* Breakpoints */
 
-@mobile: ~"screen and (max-width: 575px)";
-@tablet-sm: ~"screen and (max-width: 688px)";
-@tablet: ~"screen and (max-width: 992px)";
-@desktop-sm: ~"screen and (max-width: 1024px)";
-@desktop-md: ~"screen and (max-width: 1312px)";
-@desktop-lg: ~"screen and (max-width: 1441px)";
+@mobile: ~"screen and (max-width: 574px)";
+@tablet-sm: ~"screen and (max-width: 687px)";
+@tablet-md: ~"screen and (max-width: 767px)";
+@tablet: ~"screen and (max-width: 991px)";
+@desktop-sm: ~"screen and (max-width: 1023px)";
+@desktop-md: ~"screen and (max-width: 1311px)";
+@desktop-lg: ~"screen and (max-width: 1440px)";
 
 /* General Reset */
 html, body {
@@ -331,7 +332,7 @@ h5  {
       }
 
     }
-    @media @mobile {
+    @media @tablet-md {
       padding-top: 36px;
       li {
         display: flex;

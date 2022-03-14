@@ -10,18 +10,19 @@
     <div class="container-xxl container-md">
         <div class="row title-container">
             <div class="col title-section">
-                <h2 id="page-title">News & Events</h2>
+                <h2 id="page-title">News &amp; Events</h2>
+                <div id="page-sub-title" class="page-sub-title">Check here for latest news and events</div>
             </div>
         </div>
         <div class="toggle-buttons-wrapper">
-            <div class="col-md-3" id="latest-news-and-events">
+            <div class="toggle-buttons-holder" id="latest-news-and-events">
                 <p class="btn-title">News & Events<span class="counter"><%= newsCount + eventsCount %></span></p>
             </div>
-            <div class="col-md-3" id="latest-news">
-                <p class="btn-title">News<span class="counter"><%= newsCount %></span></p>
+            <div class="toggle-buttons-holder" id="latest-news">
+                <p class="btn-title">Latest news<span class="counter"><%= newsCount %></span></p>
             </div>
-            <div class="col-md-3" id="latest-events">
-                <p class="btn-title">Events<span class="counter"><%= eventsCount %></span></p>
+            <div class="toggle-buttons-holder" id="latest-events">
+                <p class="btn-title">Upcoming Events<span class="counter"><%= eventsCount %></span></p>
             </div>
         </div>
         <div class="row events-list-container"></div>
