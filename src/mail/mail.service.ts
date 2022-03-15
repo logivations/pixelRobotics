@@ -4,6 +4,7 @@ import MailDataDto from './mail-dto/mail.data.dto';
 import { HttpService } from '@nestjs/axios';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
 import SubscribeEventDataDto from "./mail-dto/subscribe.event.data.dto";
+import { SentMessageInfo } from "nodemailer";
 
 @Injectable()
 export class MailService {
@@ -13,7 +14,7 @@ export class MailService {
     private readonly config: EnvironmentConfigService,
   ) {}
 
-  async sendMail(mailData: MailDataDto) {
+  async sendMail(mailData: MailDataDto): Promise<SentMessageInfo[]> {
     const checkCaptchaResponse: { [key: string]: any } = await this.httpService
       .request({
         url: 'https://www.google.com/recaptcha/api/siteverify',
@@ -25,11 +26,10 @@ export class MailService {
         },
       })
       .toPromise();
-
     if (checkCaptchaResponse.data.success) {
       const { email, name, mailTo, message } = mailData;
 
-      await this.mailerService.sendMail({
+      const resultToServer = await this.mailerService.sendMail({
         // to: mailTo,
         to: 'volodymyr.boichuk@logivations.com',
         from: `<info@pixel-robotics.eu>`,
@@ -42,7 +42,7 @@ export class MailService {
         context: { name, email, message },
       });
 
-      await this.mailerService.sendMail({
+      const resultToClient = await this.mailerService.sendMail({
         to: email,
         from: `<info@pixel-robotics.eu>`,
         subject: 'Kontakt | Pixel Robotics',
@@ -53,12 +53,13 @@ export class MailService {
         ],
         context: { name: name },
       });
+      return [resultToClient, resultToServer];
     }
   }
 
-  public async subscribeToEvent(subscribeData: SubscribeEventDataDto) {
+  public async subscribeToEvent(subscribeData: SubscribeEventDataDto): Promise<SentMessageInfo> {
     const {name, email, company, phone, comment} = subscribeData;
-    await this.mailerService.sendMail({
+    return this.mailerService.sendMail({
       to: 'volodymyr.boichuk@logivations.com',
       from: email,
       subject: 'EVENT SUBSCRIPTION',

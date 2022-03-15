@@ -12,6 +12,7 @@ import { LoggingInterceptor } from './infrastructure/common/interceptors/logger.
 import { ResponseInterceptor } from './infrastructure/common/interceptors/response.interceptor';
 import { LoggerService } from './infrastructure/logger/logger.service';
 import fastifyCookie from 'fastify-cookie';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -30,6 +31,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ResponseInterceptor());
 
   app.useStaticAssets({ root: join(__dirname, '../..', 'public') });
+  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
 
   app.setViewEngine({
     engine: { ejs: require('ejs') },

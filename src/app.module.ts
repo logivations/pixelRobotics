@@ -5,7 +5,9 @@ import { ExceptionsModule } from './infrastructure/exceptions/exceptions.module'
 import { ControllersModule } from './infrastructure/controllers/controllers.module';
 import { UserActivityModule } from './infrastructure/modules/user-activity/user-activity.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import config from './infrastructure/config/typeorm/typeorm.config';
+import typeOrmConfig from './infrastructure/config/typeorm/typeorm.config';
+import winstonConfig from './infrastructure/config/winston/config';
+import { WinstonModule } from 'nest-winston';
 
 @Module({
   imports: [
@@ -13,8 +15,9 @@ import config from './infrastructure/config/typeorm/typeorm.config';
     ExceptionsModule,
     ControllersModule,
     EnvironmentConfigModule,
-    TypeOrmModule.forRoot(config),
+    TypeOrmModule.forRoot(typeOrmConfig),
     UserActivityModule,
+    WinstonModule.forRoot(winstonConfig),
   ],
   controllers: [],
   providers: [],

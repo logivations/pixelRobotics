@@ -1,11 +1,13 @@
 import {
   ArgumentsHost,
   Catch,
+  Inject,
   ExceptionFilter,
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
 import { LoggerService } from '../../logger/logger.service';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 interface IError {
   message: string;
@@ -14,7 +16,7 @@ interface IError {
 
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {
-  constructor(private readonly logger: LoggerService) {}
+  constructor(@Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService) {}
   catch(exception: any, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
