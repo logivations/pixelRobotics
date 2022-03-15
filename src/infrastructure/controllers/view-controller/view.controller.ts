@@ -1,11 +1,11 @@
 import {
   Controller,
-  Get,
+  Get, Redirect,
   Render,
   Req,
   Res,
-  UseInterceptors,
-} from '@nestjs/common';
+  UseInterceptors
+} from "@nestjs/common";
 import * as careers from '../../../../public/json/vacancies.json';
 import { UserActivityInterceptor } from '../../common/interceptors/user.activity.interceptor';
 import { FastifyRequest } from 'fastify';
@@ -73,4 +73,15 @@ export class ViewController {
     );
   }
 
+
+  // Redirects
+  @Get('shelterinlviv/**')
+  @Redirect('help-ukraine/refugees', 301)
+  refugees() {
+  }
+
+  @Get('shelterinlviv')
+  @Redirect('help-ukraine/shelter-in-lviv', 301)
+  shelterinlviv() {
+  }
 }
