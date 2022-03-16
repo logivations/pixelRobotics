@@ -75,13 +75,13 @@ export class ViewController {
 
 
   // Redirects
-  @Get('shelterinlviv/**')
-  @Redirect('help-ukraine/refugees', 301)
+  @Get(['shelterinlviv/refugees', 'shelterinlviv/refugees.php'])
+  @Redirect('/help-ukraine/refugees', 301)
   refugees() {
   }
 
-  @Get('shelterinlviv')
-  @Redirect('help-ukraine/shelter-in-lviv', 301)
+  @Get(['shelterinlviv', 'shelterinlviv/index.php'])
+  @Redirect('/help-ukraine/shelter-in-lviv', 301)
   shelterinlviv() {
   }
 }
