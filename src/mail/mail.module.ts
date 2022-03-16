@@ -20,6 +20,7 @@ import { HttpModule } from '@nestjs/axios';
           transport: {
             host: config.getMailHost(),
             port: config.getMailPort(),
+            tls: { rejectUnauthorized: false },
             secure: false,
             auth: {
               user: config.getMailUser(),
