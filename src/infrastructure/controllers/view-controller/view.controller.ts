@@ -1,6 +1,6 @@
 import {
   Controller,
-  Get, Redirect,
+  Get, Header, Redirect,
   Render,
   Req,
   Res,
@@ -76,11 +76,15 @@ export class ViewController {
 
   // Redirects
   @Get(['shelterinlviv/refugees', 'shelterinlviv/refugees.php'])
+  @Header('Cache-Control', 'no-cache, no-store, must-revalidate')
+  @Header('Clear-Site-Data', "\"cache\"")
   @Redirect('/help-ukraine/refugees', 301)
   refugees() {
   }
 
   @Get(['shelterinlviv', 'shelterinlviv/index.php'])
+  @Header('Cache-Control', 'no-cache, no-store, must-revalidate')
+  @Header('Clear-Site-Data', "\"cache\"")
   @Redirect('/help-ukraine/shelter-in-lviv', 301)
   shelterinlviv() {
   }
