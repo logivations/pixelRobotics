@@ -18,17 +18,17 @@ import { HttpModule } from '@nestjs/axios';
       ): Promise<MailerOptions> => {
         return {
           transport: {
-            host: config.getMailHost(),
-            port: config.getMailPort(),
-            tls: { rejectUnauthorized: false },
-            secure: false,
+            host: 'test.pixel-robotics.com',
+            port: 465,
+            secure: true,
             auth: {
-              user: config.getMailUser(),
-              pass: config.getMailPassword(),
+              type: "LOGIN",
+              user: '_mainaccount@test.pixel-robotics.com',
+              pass: 'KEt9GVbfm9TU7i3m4eYv',
             },
           },
           defaults: {
-            from: `"No Reply" <${config.getMailFrom()}>`,
+            from: `"No Reply <PixelRobotics>"`,
           },
           template: {
             dir: join(__dirname, '../../../src/mail', 'templates'),

@@ -27,33 +27,41 @@ export class MailService {
       })
       .toPromise();
     if (checkCaptchaResponse.data.success) {
+    //   console.log("checkCaptchaResponse", checkCaptchaResponse);
       const { email, name, mailTo, message } = mailData;
+      try {
 
-      const resultToServer = await this.mailerService.sendMail({
-        // to: mailTo,
-        to: 'volodymyr.boichuk@logivations.com',
-        from: `<info@pixel-robotics.eu>`,
-        subject: 'Kontakt | Pixel Robotics',
-        template: 'mailToPixelInfoTemplate',
-        headers: [
-          { key: 'Mime-Version', value: '1.0' },
-          { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
-        ],
-        context: { name, email, message },
-      });
+        const resultToServer = await this.mailerService.sendMail({
+          // to: mailTo,
+          to: 'volodymyr.boichuk@logivations.com',
+          from: `Pixel Robotics`,
+          subject: 'Kontakt | Pixel Robotics',
+          template: 'mailToPixelInfoTemplate',
+          headers: [
+            { key: 'Mime-Version', value: '1.0' },
+            { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
+          ],
+          context: { name, email, message },
+        });
 
-      const resultToClient = await this.mailerService.sendMail({
-        to: email,
-        from: `<info@pixel-robotics.eu>`,
-        subject: 'Kontakt | Pixel Robotics',
-        template: 'mailToClientTemplate',
-        headers: [
-          { key: 'Mime-Version', value: '1.0' },
-          { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
-        ],
-        context: { name: name },
-      });
+        const resultToClient = await this.mailerService.sendMail({
+          to: email,
+          from: `Pixel Robotics`,
+          subject: 'Kontakt | Pixel Robotics',
+          template: 'mailToClientTemplate',
+          headers: [
+            { key: 'Mime-Version', value: '1.0' },
+            { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
+          ],
+          context: { name: name },
+        });
+      console.log("resultToClient", resultToClient);
+      console.log("resultToServer", resultToServer);
       return [resultToClient, resultToServer];
+
+      } catch (error) {
+        console.log("error", error);
+      }
     }
   }
 
