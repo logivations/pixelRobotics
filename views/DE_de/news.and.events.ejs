@@ -5,7 +5,7 @@
     <link rel="stylesheet/less" type="text/css" href="css/news.and.events.less" />
 </head>
 <body>
-<%- include('../includes/header', {hideHomeLink: false, activeTab: 'newsAndEvents', lang: 'EN_en'}); -%>
+<%- include('../includes/header', {hideHomeLink: false, activeTab: 'newsAndEvents', lang: 'DE_de'}); -%>
 <section id="news-and-events-section">
     <div class="container-xxl container-md">
         <div class="row title-container">
@@ -16,13 +16,13 @@
         </div>
         <div class="toggle-buttons-wrapper">
             <div class="toggle-buttons-holder" id="latest-news-and-events">
-                <p class="btn-title">News & Events<span class="counter"><%= newsCount + eventsCount %></span></p>
+                <p class="btn-title">News & Events<span class="counter"><%= 0 %></span></p>
             </div>
             <div class="toggle-buttons-holder" id="latest-news">
-                <p class="btn-title">Latest news<span class="counter"><%= newsCount %></span></p>
+                <p class="btn-title">Latest news<span class="counter"><%= 0 %></span></p>
             </div>
             <div class="toggle-buttons-holder" id="latest-events">
-                <p class="btn-title">Upcoming Events<span class="counter"><%= eventsCount %></span></p>
+                <p class="btn-title">Upcoming Events<span class="counter"><%= 0 %></span></p>
             </div>
         </div>
         <div class="row events-list-container"></div>

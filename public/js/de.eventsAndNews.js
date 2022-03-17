@@ -40,11 +40,12 @@ $(document).ready(async () => {
     })
         .then((res) => res.json())
         .then((data) => {
-            eventsContainer.innerHTML = data.reduce((templates, item) => {
-                const isUpcomingEvent = item.eventTime && (new Date(item.eventTime)).getTime() > Date.now();
-                const html = ejs.render(template, {...item, isUpcomingEvent});
-                return templates + html;
-            }, '');
+            // eventsContainer.innerHTML = data.reduce((templates, item) => {
+            //     const isUpcomingEvent = item.eventTime && (new Date(item.eventTime)).getTime() > Date.now();
+            //     const html = ejs.render(template, {...item, isUpcomingEvent});
+            //     return templates + html;
+            // }, '');
+            eventsContainer.innerHTML = '<h5>Coming soon</h5>';
         });
 
     const showLatestNewsAndEventsBtn = document.getElementById('latest-news-and-events');
