@@ -13,14 +13,14 @@ import { FastifyRequest } from 'fastify';
 @Controller('help-ukraine')
 export class HelpUaController {
   @Get('refugees')
-  @Render('help-ukraine/refugees.ejs')
   refugees(@Res() res, @Req() request: FastifyRequest) {
-    return 123;
+    const lang = request.cookies['lang'];
+    const viewName = `help-ukraine/${lang && lang === "DE_de" ? 'de' : 'en'}.refugees.ejs`;
+    return res.view(viewName);
   }
   @Get('shelter-in-lviv')
   @Render('help-ukraine/shelter.in.lviv.ejs')
   shelterInLviv(@Res() res, @Req() request: FastifyRequest) {
-    return 123;
   }
 
 }
