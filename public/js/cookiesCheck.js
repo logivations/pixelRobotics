@@ -9,7 +9,7 @@ function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
       showCookieMessage = false;
     }
   });
-  if (showCookieMessage) {
+  if (showCookieMessage && cookieElement && acceptBtn) {
     cookieElement.classList.add('is-visible');
     acceptBtn.addEventListener('click', function (e) {
       e.preventDefault();
