@@ -41,7 +41,6 @@ export class AllExceptionFilter implements ExceptionFilter {
       },
       ...message,
     };
-    console.log("message", message);
     this.logMessage(request, message, status, exception);
     this.sendErrorPage(response, status, message);
     // response.status(status).json(responseData);
