@@ -111,5 +111,28 @@
       }
     }
   }
+
+  .language-container {
+    .languages-wrapper {
+      &::after {
+        display: none;
+      }
+
+      li {
+        justify-content: flex-end;
+      }
+
+      .language-list {
+        top: 40px;
+        right: 0;
+      }
+
+      #lang-name {
+        padding: 5px 15px;
+        border-radius: 5px;
+        background: #f0f0f0;
+      }
+    }
+  }
 }
 
