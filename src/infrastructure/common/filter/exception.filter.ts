@@ -6,6 +6,8 @@ import {
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
+import { Request, Response } from 'express';
+
 import { LoggerService } from '../../logger/logger.service';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
@@ -19,8 +21,8 @@ export class AllExceptionFilter implements ExceptionFilter {
   constructor(@Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService) {}
   catch(exception: any, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
-    const response = ctx.getResponse();
-    const request: any = ctx.getRequest();
+    const response = ctx.getResponse<Response>();
+    const request: any = ctx.getRequest<Request>();
 
     const status =
       exception instanceof HttpException
@@ -39,9 +41,9 @@ export class AllExceptionFilter implements ExceptionFilter {
       },
       ...message,
     };
-
+    console.log("message", message);
     this.logMessage(request, message, status, exception);
-
+    this.sendErrorPage(response, status, message);
     // response.status(status).json(responseData);
   }
 
@@ -53,7 +55,7 @@ export class AllExceptionFilter implements ExceptionFilter {
   ) {
     if (status >= 500) {
       this.logger.error(
-        `End Request for ${request.path}`,
+        `End Request for ${request.path || request.url}`,
         `method=${request.method} status=${status} code_error=${
           message.code_error ? message.code_error : null
         } message=${message.message ? message.message : null}`,
@@ -61,11 +63,25 @@ export class AllExceptionFilter implements ExceptionFilter {
       );
     } else {
       this.logger.warn(
-        `End Request for ${request.path}`,
+        `End Request for ${request.path || request.url}`,
         `method=${request.method} status=${status} code_error=${
           message.code_error ? message.code_error : null
         } message=${message.message ? message.message : null}`,
       );
+    }
+  }
+
+  private sendErrorPage(response: Response, status: number, message) {
+    if (status === HttpStatus.NOT_FOUND) {
+      response.status(HttpStatus.NOT_FOUND).sendFile('./404.html', (err) => {
+        this.logger.error(
+          `End Request for 404.html`,
+          `method=GET status=${status} code_error=${
+            err.name ? err.name : null
+          } message=${err.message ? err.message : null}`,
+          err.stack || '',
+        );
+      });
     }
   }
 }

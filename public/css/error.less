@@ -1,0 +1,45 @@
+@import "./general.less";
+
+#error-page-wrapper {
+  #error-section {
+    min-height: calc(100vh - 110px);
+    padding: 90px 0 32px;
+    & > div {
+      height: calc(100vh - 232px);
+      & > .row {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    img {
+      transform: scaleX(-1);
+    }
+
+    .status-code {
+      font-family: 'Poppins', serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 96px;
+      line-height: 144px;
+      color: #E25303;
+    }
+
+    .status-description {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 72px;
+    }
+
+    .status-info {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
