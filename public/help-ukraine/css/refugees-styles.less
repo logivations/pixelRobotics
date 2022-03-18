@@ -113,6 +113,7 @@
   }
 
   .language-container {
+    margin-bottom: 15px;
     .languages-wrapper {
       &::after {
         display: none;
@@ -124,13 +125,27 @@
 
       .language-list {
         top: 40px;
-        right: 0;
+        right: -7px;
+        li {
+          color: #0d0d0d;
+          &:hover {
+            color: #1a38cf;
+          }
+        }
       }
 
       #lang-name {
-        padding: 5px 15px;
+        width: 36px;
+        height: 36px;
         border-radius: 5px;
         background: #f0f0f0;
+        color: @main-dark-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background: #e7e7e7;
+        }
       }
     }
   }
