@@ -72,6 +72,13 @@ export class ViewController {
       getViewNameByLang(request, 'imprint.ejs')
     );
   }
+  @Get('registration')
+  @Render('registration.ejs')
+  registration(@Res() res, @Req() request: FastifyRequest) {
+    return res.view(
+        getViewNameByLang(request, 'registration.ejs')
+    );
+  }
 
 
   // Redirects

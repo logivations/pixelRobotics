@@ -40,7 +40,7 @@
                                 <div class="col-12 sdfv">
                                     <div class="buttons-container">
                                         <div class="d-flex">
-                                            <button id="signUpEventBtn" class="btn-custom" name="submit" type="submit">Sign up now</button>
+                                            <button id="signUpEventBtn" class="btn-custom" name="submit" type="submit"><a href="/registration.ejs" target="_blank"/>Sign up now</button>
                                         </div>
                                     </div>
                                 </div>
@@ -138,9 +138,9 @@
             });
     })
 
-    document.getElementById('signUpEventBtn').addEventListener('click', () => {
-        $('#signUpEvent').modal('toggle')
-    })
+    // document.getElementById('signUpEventBtn').addEventListener('click', () => {
+    //     $('#signUpEvent').modal('toggle')
+    // })
     const subscribeForm = document.getElementById('subscribe-form')
     subscribeForm.addEventListener('submit', function (event) {
         event.preventDefault()

@@ -1,0 +1,396 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <%- include('../includes/metadata'); -%>
+    <link rel="stylesheet/less" type="text/css" href="css/registration.less" />
+</head>
+<body>
+<section id="registration">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-lg-6 offset-lg-3 col-md-12">
+                <div class="row element-with-photo">
+                    <div class="elem col-xs-12 col-md-4 col-md-offset-2">
+                        <a href="/">
+                            <img src="https://www.logivations.com/img_general/Logi-logo-color-1000.png" alt="PixelRobotics">
+                        </a>
+                    </div>
+                    <div class="elem col-xs-12 col-md-4 elem">
+                        <a href="/">
+                            <img src="https://www.logivations.com/img_general/mailing/logimat2022/logimat-2022.jpg" alt="PixelRobotics">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="appointment">
+            <h1 class="text-uppercase text-center h1">Appointment at LOGIMAT 2022</h1>
+            <h2 class="text-center h2">
+                31 May - 2 June 2022 | 9:00 – 17:00 |
+                <br>
+                Hall 8, Booth F05
+                <br>
+                Stuttgart Trade Fair Centre
+            </h2>
+        </div>
+        <div class="input-forms" method="POST">
+            <div class="col-md-6 form-holder">
+                <label for="name">Name *</label>
+                <input class="form-control" id="name" name="name" type="text" required placeholder="Your Name" value="" >
+            </div>
+            <div class="col-md-6 form-holder">
+                <label for="company">Company *</label>
+                <input class="form-control" id="company" name="company" type="text" placeholder="Your Company" value="" >
+            </div>
+            <div class="col-md-6 form-holder">
+                <label for="job-title">Job Title *</label>
+                <input class="form-control" id="job-title" name="job-title" type="text" placeholder="Your Job Title" value="" >
+            </div>
+            <div class="col-md-6 form-holder">
+                <label for="email">Email *</label>
+                <input class="form-control" id="email" name="email" type="email" required placeholder="Your Email Address" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            </div>
+            <div class="col-md-6 form-holder">
+                <label for="phone">Phone</label>
+                <input class="form-control" id="phone" name="phone" type="tel" placeholder="Your Phone Number" value="">
+            </div>
+        </div>
+        <div class="row check-input-forms">
+            <h2 class="text-uppercase">Topics of interst:</h2>
+            <div class="checkbox col-md-6">
+                <ul class="no-padding">
+                    <li>
+                        <input id="sce" type="checkbox" name="type[]" value="">
+                        <label for="sce">
+                            <b>Supply Chain Engineering and Supply Network Planning</b>
+                            : Holistic planning and optimization of your Supply Chain
+                        </label>
+                    </li>
+                </ul>
+                <p><b>Modern optimization algorithms for operational IT systems:</b></p>
+                <ul>
+                    <li>
+                        <input id="moa-1" type="checkbox" name="type[]" value="">
+                        <label for="moa-1">Advanced Slotting</label>
+                    </li>
+                    <li>
+                        <input id="moa-2" type="checkbox" name="type[]" value="">
+                        <label for="moa-2">Optimized tour building</label>
+                    </li>
+                    <li>
+                        <input id="moa-3" type="checkbox" name="type[]" value="">
+                        <label for="moa-3">Capacity and workforce planning</label>
+                    </li>
+                    <li>
+                        <input id="moa-4" type="checkbox" name="type[]" value="">
+                        <label for="moa-4">3D cubing (case pack)</label>
+                    </li>
+                </ul>
+                <p><b>Digital twin, logistics planning and process optimization:</b></p>
+                <ul>
+                    <li>
+                        <input id="dt-1" type="checkbox" name="type[]" value="">
+                        <label for="dt-1">Digital Twin for planning new facilities and simulation of layout and process changes</label>
+                    </li>
+                    <li>
+                        <input id="dt-2" type="checkbox" name="type[]" value="">
+                        <label for="dt-2">Digital Twin for optimization of running operations</label>
+                    </li>
+                </ul>
+                <p><b>Scanner-free logistics based on Artificial Intelligence (AI):</b></p>
+                <ul>
+                    <li>
+                        <input id="ai-1" type="checkbox" name="type[]" value="">
+                        <label for="ai-1">Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed</label>
+                    </li>
+                    <li>
+                        <input id="ai-2" type="checkbox" name="type[]" value="">
+                        <label for="ai-2">Management, optimization and control of the packing process</label>
+                    </li>
+                    <li>
+                        <input id="ai-3" type="checkbox" name="type[]" value="">
+                        <label for="ai-3">Master data acquisition using AI</label>
+                    </li>
+                </ul>
+                <p><b>W2MO RTL&RS (Real Time Location & Recognition System):</b></p>
+                <ul>
+                    <li>
+                        <input id="rtl-rs-1" type="checkbox" name="type[]" value="">
+                        <label for="rtl-rs-1">Tracking for all types of movements in a warehouse (goods, forklifts, people, ...)</label>
+                    </li>
+                    <li>
+                        <input id="rtl-rs-2" type="checkbox" name="type[]" value="">
+                        <label for="rtl-rs-2">Automatic Booking into WMS</label>
+                    </li>
+                    <li>
+                        <input id="rtl-rs-3" type="checkbox" name="type[]" value="">
+                        <label for="rtl-rs-3">
+                            <b>Intelligent fleet management of the forklift and AGV fleet</b>
+                        </label>
+                    </li>
+                    <li>
+                        <input id="rtl-rs-4" type="checkbox" name="type[]" value="">
+                        <label for="rtl-rs-4">
+                            <b>Autonomous floor-to-floor transport robot </b>
+                            developed and manufactured by Pixel Robotics
+                        </label>
+                    </li>
+                </ul>
+                <p><b>I already have a specific use case that I would like to discuss *</b></p>
+                <ul class="discuss-input">
+                    <li class="yes">
+                        <input id="scf-1" type="radio" name="specific-case"/>
+                        <label for="scf-1">Yes</label>
+                    </li>
+                    <li>
+                        <input id="scf-2" type="radio" name="specific-case"/>
+                        <label for="scf-2">No</label>
+                    </li>
+                </ul>
+                <textarea id="specific-cases-form" class="form-control" rows="3" name="specificCases" placeholder="Please describe your use case" hidden></textarea>
+                <p class="text-under-radio-input">
+                    We will gladly inform you about our innovative solution portfolio and discuss how we can
+                    support your current logistics tasks. Feel free to contact our experts for a discussion
+                    and set up a date.
+                </p>
+                <h3>I want an appointment at the Logimat *</h3>
+                <ul>
+                    <li>
+                        <input id="app-1" type="radio" name="type1[]" value=""/>
+                        <label for="app-1">on Tuesday, 31 May 2022</label>
+                    </li>
+                    <li>
+                        <input id="app-2" type="radio" name="specific-case" value=""/>
+                        <label for="app-2">on Wednesday, 1 June 2022</label>
+                    </li>
+                    <li>
+                        <input id="app-3" type="radio" name="specific-case" value=""/>
+                        <label for="app-3">on Thursday, 2 June 2022</label>
+                    </li>
+                </ul>
+                <br>
+                <h3>At the following time: (You can also use this box for comments / further topics)</h3>
+                <textarea id="comment-form" class="form-control" rows="3" name="remarks" placeholder="Appointment Time / Further Topics"></textarea>
+                <button id="submit-btn" type="button" name="submit" class="btn btn-custom">Send</button>
+            </div>
+            <div class="inform col-md-6">
+                <p>We are looking forward to your visit!</p>
+                <p>
+                    Your data will be handled confidentially in accordance with our privacy guidelines.
+                    <a href="./../../public/pdf/AGB_Pixel_Robotics_EN_01_2021.pdf">Privacy policy</a>
+                </p>
+                <p>* Mandatory fields</p>
+                <p>After sign up, you will immediately receive a written confirmation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal" id="" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><%= event.title %></h5>
+            </div>
+            <div class="form-horizontal" id="subscribe-form">
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" data-bs-dismiss="modal" aria-label="Close">Abbrechen</button>
+                    <button type="submit" class="btn btn-custom" data-dismiss="modal">Anmelden</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../includes/default-scripts'); -%>
+</body>
+
+
+<script>
+    document.getElementById('scf-1').addEventListener('click', () => {
+        document.getElementById('specific-cases-form').hidden = false;
+    })
+    document.getElementById('scf-2').addEventListener('click', () => {
+        document.getElementById('specific-cases-form').hidden = true;
+    })
+    document.getElementById('sce').addEventListener('click', () => {
+        if (document.getElementById('sce').checked === true) {
+            document.getElementById('sce').value = "Supply Chain Engineering und Supply Network Planning";
+        } else {
+            document.getElementById('sce').value = ' ';
+        }
+    })
+    document.getElementById('moa-1').addEventListener('click', () => {
+        if (document.getElementById('moa-1').checked) {
+            document.getElementById('moa-1').value = "Advanced Slotting";
+        } else {
+            document.getElementById('moa-1').value = '';
+        }
+    })
+    document.getElementById('moa-2').addEventListener('click', () => {
+        if (document.getElementById('moa-2').checked) {
+            document.getElementById('moa-2').value = "Optimized tour building";
+        } else {
+            document.getElementById('moa-2').value = '';
+        }
+    })
+    document.getElementById('moa-3').addEventListener('click', () => {
+        if (document.getElementById('moa-3').checked) {
+            document.getElementById('moa-3').value = "Capacity and workforce planning";
+        } else {
+            document.getElementById('moa-3').value = '';
+        }
+    })
+    document.getElementById('moa-4').addEventListener('click', () => {
+        if (document.getElementById('moa-4').checked) {
+            document.getElementById('moa-4').value = "3D cubing (case pack)";
+        } else {
+            document.getElementById('moa-4').value = '';
+        }
+    })
+    document.getElementById('dt-1').addEventListener('click', () => {
+        if (document.getElementById('dt-1').checked) {
+            document.getElementById('dt-1').value = "Digital Twin for planning new facilities and simulation of layout and process changes";
+        } else {
+            document.getElementById('dt-1').value = '';
+        }
+    })
+    document.getElementById('dt-2').addEventListener('click', () => {
+        if (document.getElementById('dt-2').checked) {
+            document.getElementById('dt-2').value = "Digital Twin for optimization of running operations";
+        } else {
+            document.getElementById('dt-2').value = '';
+        }
+    })
+    document.getElementById('ai-1').addEventListener('click', () => {
+        if (document.getElementById('ai-1').checked) {
+            document.getElementById('ai-1').value = "Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed";
+        } else {
+            document.getElementById('ai-1').value = '';
+        }
+    })
+    document.getElementById('ai-2').addEventListener('click', () => {
+        if (document.getElementById('ai-2').checked) {
+            document.getElementById('ai-2').value = "Management, optimization and control of the packing process";
+        } else {
+            document.getElementById('ai-2').value = '';
+        }
+    })
+    document.getElementById('ai-3').addEventListener('click', () => {
+        if (document.getElementById('ai-3').checked) {
+            document.getElementById('ai-3').value = "Master data acquisition using AI";
+        } else {
+            document.getElementById('ai-3').value = '';
+        }
+    })
+    document.getElementById('rtl-rs-1').addEventListener('click', () => {
+        if (document.getElementById('rtl-rs-1').checked) {
+            document.getElementById('rtl-rs-1').value = "Tracking for all types of moving in a warehouse (goods, forklifts, people, ...)";
+        } else {
+            document.getElementById('rtl-rs-1').value = '';
+        }
+    })
+    document.getElementById('rtl-rs-2').addEventListener('click', () => {
+        if (document.getElementById('rtl-rs-2').checked) {
+            document.getElementById('rtl-rs-2').value = "Automatic Booking into WMS System";
+        } else {
+            document.getElementById('rtl-rs-2').value = '';
+        }
+    })
+    document.getElementById('rtl-rs-3').addEventListener('click', () => {
+        if (document.getElementById('rtl-rs-3').checked) {
+            document.getElementById('rtl-rs-3').value = "Intelligent fleet management of the forklift and AGV fleet";
+        } else {
+            document.getElementById('rtl-rs-3').value = '';
+        }
+    })
+    document.getElementById('rtl-rs-4').addEventListener('click', () => {
+        if (document.getElementById('rtl-rs-4').checked) {
+            document.getElementById('rtl-rs-4').value = "Autonomer Boden-zu-Boden-Transportroboter, entwickelt und hergestellt von Pixel Robotics";
+        } else {
+            document.getElementById('rtl-rs-4').value = '';
+        }
+    })
+    document.getElementById('app-1').addEventListener('click', () => {
+        if (document.getElementById('app-1').checked) {
+            document.getElementById('app-1').value = "on Tuesday, 31 May 2022";
+        } else {
+            document.getElementById('app-1').value = '';
+        }
+    })
+    document.getElementById('app-2').addEventListener('click', () => {
+        if (document.getElementById('app-2').checked) {
+            document.getElementById('app-2').value = "on Wednesday, 1 June 2022";
+        } else {
+            document.getElementById('app-2').value = '';
+        }
+    })
+    document.getElementById('app-3').addEventListener('click', () => {
+        if (document.getElementById('app-3').checked) {
+            document.getElementById('app-3').value = "on Thursday, 2 June 2022";
+        } else {
+            document.getElementById('app-3').value = '';
+        }
+    })
+
+    const submitted = () => {
+        let name = document.getElementById('name').value;
+        let company = document.getElementById('company').value;
+        let jobTitle = document.getElementById('job-title').value;
+        let email = document.getElementById('email').value;
+        let phone = document.getElementById('phone').value;
+        let supplyChainEngineering = document.getElementById('sce').value;
+        let advancedSlotting = document.getElementById('moa-1').value;
+        let optimizedTourBuilding = document.getElementById('moa-2').value;
+        let capacityAndWorkforce = document.getElementById('moa-3').value;
+        let cubing3D = document.getElementById('moa-4').value;
+        let digitalTwinForPlanning= document.getElementById('dt-1').value;
+        let digitalTwinForOptimization = document.getElementById('dt-2').value;
+        let measureAndCountProducts= document.getElementById('ai-1').value;
+        let managementOptimizationAndControl = document.getElementById('ai-2').value;
+        let masterDataAcquisition = document.getElementById('ai-3').value;
+        let trackingForAllTypes = document.getElementById('rtl-rs-1').value;
+        let automaticBooking = document.getElementById('rtl-rs-2').value;
+        let intelligentFleet = document.getElementById('rtl-rs-3').value;
+        let autonomousFloor = document.getElementById('rtl-rs-4').value;
+        let scfYes = document.getElementById('scf-1').value;
+        let scfNo = document.getElementById('scf-2').value;
+        let scfText = document.getElementById('specific-cases-form').value;
+        let onTuesday = document.getElementById('app-1').value;
+        let onWednesday = document.getElementById('app-2').value;
+        let onThursday = document.getElementById('app-3').value;
+        let commentForm = document.getElementById('comment-form').value;
+        const error = document.querySelector('.invalid-feedback');
+        console.log(name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
+            capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts, managementOptimizationAndControl,
+            masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet, autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday,
+            onThursday, commentForm)
+        if (name, company, jobTitle, email, (scfYes || scfNo), (onTuesday || onWednesday || onThursday)) {
+
+            // fetch('registration', {method: 'POST', body: name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
+            //     capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts, managementOptimizationAndControl,
+            //     masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet, autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday,
+            //     onThursday, commentForm})
+            //     .then((res) => res.json())
+            //     .then((response) => {
+            //         if (response.data) {
+            //             error.style.display = 'none';
+            //             window.location.replace("/admin/statistics");
+            //         } else {
+            //             error.style.display = 'block';
+            //         }
+            //     })
+            //     .catch((err) => {
+            //         console.error(err)
+            //     });
+        } else {
+
+        }
+    };
+    document.getElementById('submit-btn').addEventListener('click', () => {
+        submitted()
+    })
+
+    $(document).ready(() => {
+        $(".loader_inner").fadeOut();
+        $(".loader").fadeOut("slow");
+    })
+</script>
