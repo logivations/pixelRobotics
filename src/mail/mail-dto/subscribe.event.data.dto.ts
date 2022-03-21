@@ -1,4 +1,3 @@
-
 export default class SubscribeEventDataDto {
   name: string;
   email: string;

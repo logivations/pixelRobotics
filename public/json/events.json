@@ -14,7 +14,10 @@
         "DE_de": "(Dauer ca. 40 min | Sprache: Deutsch)"
       },
       "createdAt": "28.02.2022",
-      "contentTemplate": "<div><p>E-Commerce is growing rapidly. Current structures and processes are struggling\nto catch up with growing order volumes, customer demands, and returns.</p><p>W2MO algorithms and Artificial Intelligence can help you to manage all of these\nchallenges.</p><div><div>Logivations offers the broadest scope of Al-technologies and algorithms for E-\nCommerce; amolig them are:</div><ul><li> • Al based goods recognition, counting and measurement,</li><li> • Al quided pick carts and AGVs, tracking of material flows, carts and forklifts,</li><li> • intelligent warehouse and process design,</li><li> • advanced slotting,</li><li> • optimized tour building and order sequencing,</li><li> • replenishment from mixed stock/ returns,</li><li> • staff planning, 3D Cubing (package, pallet & load builder and video-based\nprocess studies,</li><li> • distribution network and supply chain optimization.</li><ul></div></div>"
+      "templateName": {
+        "EN_en": "en.LogiMAT_2022.ejs",
+        "DE_de": "de.LogiMAT_2022.ejs"
+      }
     }
   ]
 }

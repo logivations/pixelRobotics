@@ -34,16 +34,7 @@
                     <div class="row">
                         <div class="col-md-8 col-12 content-container">
                             <div class="row">
-                                <div class="col-12 234">
-                                    <% if (event.contentTemplate) { %><div class="event-content-box" id="event-details"></div> <% } %>
-                                </div>
-                                <div class="col-12 sdfv">
-                                    <div class="buttons-container">
-                                        <div class="d-flex">
-                                            <button id="signUpEventBtn" class="btn-custom" name="submit" type="submit"><a href="/registration">Sign up now</a></button>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="event-content-box" id="event-details"></div>
                             </div>
                         </div>
                         <div class="col-md-4 col-12 social-buttons-container">
@@ -128,19 +119,17 @@
 </body>
 <script>
     $(document).ready(async function() {
-      await fetch(`common/getEventById?eventId=<%= event.id %>`, {
+      await fetch(`common/template?eventId=<%= event.id %>`, {
         method: 'GET',
       })
-        .then((res) => res.json())
-        .then(({contentTemplate}) => {
+        .then((res) => res.text())
+        .then((contentTemplate) => {
+            console.log("contentTemplate", contentTemplate);
             const detailBox = document.getElementById('event-details');
             contentTemplate && (detailBox.innerHTML = contentTemplate);
         });
     })
 
-    // document.getElementById('signUpEventBtn').addEventListener('click', () => {
-    //   $('#signUpEvent').modal('toggle')
-    // })
     const subscribeForm = document.getElementById('subscribe-form')
     subscribeForm.addEventListener('submit', function (event) {
       event.preventDefault()

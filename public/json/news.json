@@ -7,7 +7,11 @@
         "DE_de": "News name_DE"
       },
       "posterURL": "/images/neue_firmenzentrale_lg.jpeg",
-      "createdAt": "28.02.2022"
+      "createdAt": "28.02.2022",
+      "templateName": {
+        "EN_en": "en.LogiMAT_2022.ejs",
+        "DE_de": "de.LogiMAT_2022.ejs"
+      }
     }
   ]
 }

@@ -20,7 +20,5 @@ export class HelpUaController {
   }
   @Get('shelter-in-lviv')
   @Render('help-ukraine/shelter.in.lviv.ejs')
-  shelterInLviv(@Res() res, @Req() request: FastifyRequest) {
-  }
-
+  shelterInLviv(@Res() res, @Req() request: FastifyRequest) {}
 }

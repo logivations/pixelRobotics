@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { MailService } from './mail.service';
-import { SentMessageInfo } from "nodemailer";
+import { SentMessageInfo } from 'nodemailer';
 
 @Controller('api/mail')
 export class MailController {
@@ -12,7 +12,9 @@ export class MailController {
   }
 
   @Post('subscribeEvent')
-  async subscribeEvent(@Body() subscriberData: string): Promise<SentMessageInfo> {
+  async subscribeEvent(
+    @Body() subscriberData: string,
+  ): Promise<SentMessageInfo> {
     return this.mailService.subscribeToEvent(JSON.parse(subscriberData));
   }
 }

@@ -1,7 +1,7 @@
-import * as winston from "winston";
-import { utilities as nestWinstonModuleUtilities } from "nest-winston/dist/winston.utilities";
+import * as winston from 'winston';
+import { utilities as nestWinstonModuleUtilities } from 'nest-winston/dist/winston.utilities';
 
-const config ={
+const config = {
   transports: [
     new winston.transports.File({
       filename: 'logs/error.log',
@@ -29,7 +29,7 @@ const config ={
         winston.format.timestamp(),
         nestWinstonModuleUtilities.format.nestLike(),
       ),
-    })
+    }),
   ],
 };
 

@@ -1,4 +1,4 @@
-import { FastifyRequest } from "fastify";
+import { FastifyRequest } from 'fastify';
 
 export const getLangFromCookie = (request: FastifyRequest) => {
   const lang = request.cookies['lang'];
@@ -11,5 +11,5 @@ export const getViewNameByLang = (request: FastifyRequest, baseViewName) => {
 };
 
 export const sortByDate = (dateA, dateB) => {
-  return (new Date(dateA)).getTime() - (new Date(dateB)).getTime();
+  return new Date(dateA).getTime() - new Date(dateB).getTime();
 };

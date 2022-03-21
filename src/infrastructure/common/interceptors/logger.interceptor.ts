@@ -1,8 +1,8 @@
 import {
   CallHandler,
   ExecutionContext,
-  Injectable,
   Inject,
+  Injectable,
   NestInterceptor,
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
@@ -12,7 +12,10 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
-  constructor(@Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService) {}
+  constructor(
+    @Inject(WINSTON_MODULE_NEST_PROVIDER)
+    private readonly logger: LoggerService,
+  ) {}
 
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     const now = Date.now();

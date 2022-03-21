@@ -1,10 +1,10 @@
 import {
   ArgumentsHost,
   Catch,
-  Inject,
   ExceptionFilter,
   HttpException,
   HttpStatus,
+  Inject,
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 
@@ -18,7 +18,10 @@ interface IError {
 
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {
-  constructor(@Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService) {}
+  constructor(
+    @Inject(WINSTON_MODULE_NEST_PROVIDER)
+    private readonly logger: LoggerService,
+  ) {}
   catch(exception: any, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
