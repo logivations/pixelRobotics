@@ -7,7 +7,7 @@ export const getLangFromCookie = (request: FastifyRequest) => {
   const queryLang = request.query['lang'];
   if (queryLang) {
     if (queryLang.toLowerCase().includes('de')) return "DE_de";
-    if (queryLang.toLowerCase() === 'en') return "EN_en";
+    if (queryLang.toLowerCase().includes('en')) return "EN_en";
   }
   return finallyLang;
 };
