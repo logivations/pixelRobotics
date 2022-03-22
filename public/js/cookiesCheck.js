@@ -28,8 +28,6 @@ function cookieCheck(cookieName = 'defaultName', daysUntilExpire = 365) {
 // Set cookie with name and days until expire
 
 $(document).ready(() => {
-  $(".loader_inner").fadeOut();
-  $(".loader").fadeOut("slow");
   cookieCheck('pixel_robotics_cookies', 100);
 
   fetch('api/user-activity/setResolution', {
