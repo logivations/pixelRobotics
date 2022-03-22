@@ -12,18 +12,26 @@ function getLangFromCookie() {
 
 function changeLanguage(lang, reloadNeeded = true) {
   const isDELang = lang === 'DE_de';
-  const icon = $('.languages-wrapper li').find('.fa-angle-down.sl-flag');
-  icon.removeClass(isDELang ? 'flag-en' : 'flag-de');
-  icon.addClass(isDELang ? 'flag-de' : 'flag-en');
   $('#lang-name').text(isDELang ? 'DE' : 'EN');
 
   const oldLang = getLangFromCookie();
 
-  document.cookie = `lang=${lang}`;
-
   if (reloadNeeded && oldLang !== lang) {
+    document.cookie = `lang=${lang}`;
     window.location.reload();
   }
+}
+
+function getDefaultLanguage() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const langUrlParam = urlParams.get('lang');
+  console.log("langUrlParam", langUrlParam);
+  if (langUrlParam) {
+    if (langUrlParam.toLowerCase() === 'de') return 'DE_de';
+    if (langUrlParam.toLowerCase() === 'en') return 'EN_en';
+  }
+  const isDELang = navigator.languages.some((language) => language.includes('de'));
+  return isDELang? 'DE_de' : 'EN_en';
 }
 
 $(document).ready(() => {
@@ -33,6 +41,6 @@ $(document).ready(() => {
     const currentLang = getLangFromCookie();
     changeLanguage(currentLang, false);
   } else {
-    changeLanguage('EN_en', false);
+    changeLanguage(getDefaultLanguage(), false);
   }
 });

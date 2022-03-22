@@ -47,7 +47,7 @@ export class UserActivityService {
       .execute();
   }
 
-  public async create(entity: UserActivity): Promise<UserActivityDto> {
+  public async create(entity: UserActivity): Promise<any> {
     const { entityFromDb, providerDetail } = await this.getEntityFromDB(entity);
 
     Object.assign(entity, {
@@ -58,7 +58,8 @@ export class UserActivityService {
 
     return this.userActivityEntityRepository
       .save(entity)
-      .then((e) => UserActivityDto.fromEntity(e));
+      .then((e) => UserActivityDto.fromEntity(e))
+      .catch((error) => console.error(error));
   }
 
   async paginate(
