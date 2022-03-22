@@ -25,7 +25,6 @@ function changeLanguage(lang, reloadNeeded = true) {
 function getDefaultLanguage() {
   const urlParams = new URLSearchParams(window.location.search);
   const langUrlParam = urlParams.get('lang');
-  console.log("langUrlParam", langUrlParam);
   if (langUrlParam) {
     if (langUrlParam.toLowerCase() === 'de') return 'DE_de';
     if (langUrlParam.toLowerCase() === 'en') return 'EN_en';
