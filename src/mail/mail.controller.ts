@@ -22,6 +22,6 @@ export class MailController {
   async sendRegistrationForm(
       @Body() registrationData: string,
   ): Promise<SentMessageInfo> {
-    return this.mailService.sendMail(JSON.parse(registrationData));
+    return this.mailService.sendRegistrationForm(JSON.parse(registrationData));
   }
 }
