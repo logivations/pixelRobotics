@@ -34,7 +34,9 @@
                     <div class="row">
                         <div class="col-md-8 col-12 content-container">
                             <div class="row">
-                                <div class="event-content-box" id="event-details"></div>
+                                <div class="event-content-box" id="event-details">
+                                    <%= event.templateName.DE_de %>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-12 social-buttons-container">
@@ -119,11 +121,12 @@
 </body>
 <script>
     $(document).ready(async function() {
-        await fetch(`common/getEventById?eventId=<%= event.id %>`, {
+        await fetch(`common/template?eventId=<%= event.id %>`, {
             method: 'GET',
         })
-            .then((res) => res.json())
+            .then((res) => res.text())
             .then((contentTemplate) => {
+                console.log("contentTemplate", contentTemplate);
                 const detailBox = document.getElementById('event-details');
                 contentTemplate && (detailBox.innerHTML = contentTemplate);
             });

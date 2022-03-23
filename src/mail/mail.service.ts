@@ -5,6 +5,7 @@ import { HttpService } from '@nestjs/axios';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
 import SubscribeEventDataDto from "./mail-dto/subscribe.event.data.dto";
 import { SentMessageInfo } from "nodemailer";
+import SendRegistrationFormDataDto from "./mail-dto/send.registration.form.data.dto";
 
 @Injectable()
 export class MailService {
@@ -77,6 +78,27 @@ export class MailService {
         { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
       ],
       context: { name, email, company, phone, comment },
+    });
+  }
+
+  public async sendRegistrationForm(registrationData: SendRegistrationFormDataDto): Promise<SentMessageInfo> {
+    const {name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
+      capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts,
+      managementOptimizationAndControl, masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet,
+      autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday, onThursday, commentForm} = registrationData;
+    return this.mailerService.sendMail({
+      to: 'volodymyr.boichuk@logivations.com',
+      from: email,
+      subject: 'REGISTRATION FORM',
+      template: 'registrationFormMailTemplateToPX',
+      headers: [
+        { key: 'Mime-Version', value: '1.0' },
+        { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
+      ],
+      context: { name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
+        capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts,
+        managementOptimizationAndControl, masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet,
+        autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday, onThursday, commentForm },
     });
   }
 }

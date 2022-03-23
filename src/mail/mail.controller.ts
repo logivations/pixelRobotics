@@ -17,4 +17,11 @@ export class MailController {
   ): Promise<SentMessageInfo> {
     return this.mailService.subscribeToEvent(JSON.parse(subscriberData));
   }
+
+  @Post('sendRegistrationForm')
+  async sendRegistrationForm(
+      @Body() registrationData: string,
+  ): Promise<SentMessageInfo> {
+    return this.mailService.sendMail(JSON.parse(registrationData));
+  }
 }

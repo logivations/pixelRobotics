@@ -10,6 +10,9 @@ window.onload = function() {
       method: 'POST',
       body: JSON.stringify(Object.fromEntries(data))
     })
+        .then(() => {
+          $('#contactModal').toggle();
+        })
   });
 
 };

@@ -1,8 +1,9 @@
 <!DOCTYPE html >
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <%- include('../includes/metadata'); -%>
     <link rel="stylesheet/less" type="text/css" href="css/registration.less" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 <section id="registration">
@@ -56,8 +57,8 @@
             </div>
         </div>
         <div class="row check-input-forms">
-            <h2 class="text-uppercase">Topics of interst:</h2>
             <div class="checkbox col-md-6">
+                <h2 class="text-uppercase">Topics of interst:</h2>
                 <ul class="no-padding">
                     <li>
                         <input id="sce" type="checkbox" name="type[]" value="">
@@ -156,15 +157,15 @@
                 <h3>I want an appointment at the Logimat *</h3>
                 <ul>
                     <li>
-                        <input id="app-1" type="radio" name="type1[]" value=""/>
+                        <input id="app-1" type="radio" name="type2[]" value=""/>
                         <label for="app-1">on Tuesday, 31 May 2022</label>
                     </li>
                     <li>
-                        <input id="app-2" type="radio" name="specific-case" value=""/>
+                        <input id="app-2" type="radio" name="type2[]" value=""/>
                         <label for="app-2">on Wednesday, 1 June 2022</label>
                     </li>
                     <li>
-                        <input id="app-3" type="radio" name="specific-case" value=""/>
+                        <input id="app-3" type="radio" name="type2[]" value=""/>
                         <label for="app-3">on Thursday, 2 June 2022</label>
                     </li>
                 </ul>
@@ -185,21 +186,38 @@
         </div>
     </div>
 </section>
-<div class="modal" id="" tabindex="-1" role="dialog">
+<div class="modal" id="feedback" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><%= event.title %></h5>
+                <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="form-horizontal" id="subscribe-form">
-                <div class="modal-footer">
-                    <button type="button" class="btn-cancel" data-bs-dismiss="modal" aria-label="Close">Abbrechen</button>
-                    <button type="submit" class="btn btn-custom" data-dismiss="modal">Anmelden</button>
-                </div>
+            <div class="modal-body">
+                <h6>THANK YOU!</h6>
+                <p>We received your feedback.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-ok" class="btn-custom" data-bs-dismiss="modal">Ok</button>
             </div>
         </div>
     </div>
 </div>
+<div class="modal" id="not-all-required-fields" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" id="modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>PLEASE FILL ALL REQUIRED FIELDS</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="modal-btn-ok" class="btn-custom" data-bs-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <%- include('../includes/default-scripts'); -%>
 </body>
 
@@ -207,12 +225,20 @@
 <script>
     document.getElementById('scf-1').addEventListener('click', () => {
         document.getElementById('specific-cases-form').hidden = false;
+        if (document.getElementById('scf-1').checked === true) {
+            document.getElementById('scf-1').value = "Yes";
+            document.getElementById('scf-2').value = "";
+        }
     })
     document.getElementById('scf-2').addEventListener('click', () => {
         document.getElementById('specific-cases-form').hidden = true;
+        if (document.getElementById('scf-2').checked === true) {
+            document.getElementById('scf-2').value = "No";
+            document.getElementById('scf-1').value = "";
+        }
     })
     document.getElementById('sce').addEventListener('click', () => {
-        if (document.getElementById('sce').checked === true) {
+        if (document.getElementById('sce').checked) {
             document.getElementById('sce').value = "Supply Chain Engineering und Supply Network Planning";
         } else {
             document.getElementById('sce').value = ' ';
@@ -312,23 +338,29 @@
     document.getElementById('app-1').addEventListener('click', () => {
         if (document.getElementById('app-1').checked) {
             document.getElementById('app-1').value = "on Tuesday, 31 May 2022";
-        } else {
-            document.getElementById('app-1').value = '';
+            document.getElementById('app-2').value = "";
+            document.getElementById('app-3').value = "";
         }
     })
     document.getElementById('app-2').addEventListener('click', () => {
         if (document.getElementById('app-2').checked) {
             document.getElementById('app-2').value = "on Wednesday, 1 June 2022";
-        } else {
-            document.getElementById('app-2').value = '';
+            document.getElementById('app-1').value = "";
+            document.getElementById('app-3').value = "";
         }
     })
     document.getElementById('app-3').addEventListener('click', () => {
         if (document.getElementById('app-3').checked) {
             document.getElementById('app-3').value = "on Thursday, 2 June 2022";
-        } else {
-            document.getElementById('app-3').value = '';
+            document.getElementById('app-1').value = "";
+            document.getElementById('app-2').value = "";
         }
+    })
+    document.getElementById('modal-btn-close').addEventListener('click', () => {
+        $('#not-all-required-fields').hide();
+    })
+    document.getElementById('modal-btn-ok').addEventListener('click', () => {
+        $('#not-all-required-fields').hide();
     })
 
     const submitted = () => {
@@ -359,30 +391,54 @@
         let onThursday = document.getElementById('app-3').value;
         let commentForm = document.getElementById('comment-form').value;
         const error = document.querySelector('.invalid-feedback');
-        console.log(name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
-            capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts, managementOptimizationAndControl,
-            masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet, autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday,
-            onThursday, commentForm)
-        if (name, company, jobTitle, email, (scfYes || scfNo), (onTuesday || onWednesday || onThursday)) {
 
-            // fetch('registration', {method: 'POST', body: name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
-            //     capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts, managementOptimizationAndControl,
-            //     masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet, autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday,
-            //     onThursday, commentForm})
-            //     .then((res) => res.json())
-            //     .then((response) => {
-            //         if (response.data) {
-            //             error.style.display = 'none';
-            //             window.location.replace("/admin/statistics");
-            //         } else {
-            //             error.style.display = 'block';
-            //         }
-            //     })
-            //     .catch((err) => {
-            //         console.error(err)
-            //     });
+        if (name && company && email && (scfYes || scfNo) && (onTuesday || onWednesday || onThursday)) {
+            fetch('api/mail/sendRegistrationForm', {method: 'POST', body: JSON.stringify({
+                    name,
+                    company,
+                    jobTitle,
+                    email,
+                    phone,
+                    supplyChainEngineering,
+                    advancedSlotting,
+                    optimizedTourBuilding,
+                    capacityAndWorkforce,
+                    cubing3D,
+                    digitalTwinForPlanning,
+                    digitalTwinForOptimization,
+                    measureAndCountProducts,
+                    managementOptimizationAndControl,
+                    masterDataAcquisition,
+                    trackingForAllTypes,
+                    automaticBooking,
+                    intelligentFleet,
+                    autonomousFloor,
+                    scfYes,
+                    scfNo,
+                    scfText,
+                    onTuesday,
+                    onWednesday,
+                    onThursday,
+                    commentForm
+                })})
+                .then((res) => res.json())
+                .then((response) => {
+                    if (response.data) {
+                        console.log(response.data)
+                        error.style.display = 'none';
+                        window.location.replace("/admin/statistics");
+                    } else {
+                        error.style.display = 'block';
+                    }
+                })
+                .then(() => {
+                    $('#feedback').toggle();
+                })
+                .catch((err) => {
+                    console.error(err)
+                });
         } else {
-
+            $('#not-all-required-fields').toggle();
         }
     };
     document.getElementById('submit-btn').addEventListener('click', () => {

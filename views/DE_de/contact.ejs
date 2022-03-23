@@ -105,25 +105,33 @@
         </div>
     </div>
 </section>
-<%- include('../includes/de.footer.ejs'); -%>
-<%- include('../includes/default-scripts'); -%>
-
-<script src="js/contactForm.js"></script>
-
-<div id="contactModal" class="custom-modal modal fade" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+<div id="contactModal" class="modal " tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" id="modal-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h6>We received your message.</h6>
+                <h6>DANKE!</h6>
+                <p>Wir haben Ihre Nachricht erhalten</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn-custom" data-bs-dismiss="modal">Ok</button>
+                <button type="button" id="modal-btn-ok" class="btn-custom" data-bs-dismiss="modal">Ok</button>
             </div>
         </div>
     </div>
 </div>
+<%- include('../includes/de.footer.ejs'); -%>
+<%- include('../includes/default-scripts'); -%>
+
+<script src="js/contactForm.js"></script>
 </body>
 </html>
+<script>
+    document.getElementById('modal-btn-close').addEventListener('click', () => {
+        $('#contactModal').hide();
+    })
+    document.getElementById('modal-btn-ok').addEventListener('click', () => {
+        $('#contactModal').hide();
+    })
+</script>

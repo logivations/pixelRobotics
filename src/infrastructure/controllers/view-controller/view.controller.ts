@@ -23,7 +23,6 @@ export class ViewController {
   root(@Res() res, @Req() request: FastifyRequest) {
     return res.view(getViewNameByLang(request, 'index.ejs'));
   }
-
   @Get('news-and-events')
   newsAndEvents(@Res() res, @Req() request: FastifyRequest) {
     return res.view(getViewNameByLang(request, 'news.and.events.ejs'), {
@@ -61,6 +60,7 @@ export class ViewController {
   imprint(@Res() res, @Req() request: FastifyRequest) {
     return res.view(getViewNameByLang(request, 'imprint.ejs'));
   }
+
   @Get('registration')
   @Render('registration.ejs')
   registration(@Res() res, @Req() request: FastifyRequest) {
