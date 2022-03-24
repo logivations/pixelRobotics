@@ -3,14 +3,14 @@
     {
       "id": 1001,
       "title": {
-        "EN_en": "LogiMAT 2022",
+        "EN_en": "Appointment to LogiMAT 2022",
         "DE_de": "Event name"
       },
-      "posterURL": "/images/first-main-screen.jpg",
-      "eventTime": "04.03.2022",
-      "eventPlace": "Munich, Germany",
+      "posterURL": "/images/newsAndEvents/logimat-2022.jpg",
+      "eventTime": "31 May - 2 June 2022 | 9:00 – 17:00",
+      "eventPlace": "Stuttgart Trade Fair Centre",
       "extraInfo": {
-        "EN_en": "(Duration approx. 40 min | Language: English)",
+        "EN_en": "Hall 8, Booth F05",
         "DE_de": "(Dauer ca. 40 min | Sprache: Deutsch)"
       },
       "createdAt": "28.02.2022",

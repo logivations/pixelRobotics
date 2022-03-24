@@ -56,36 +56,13 @@
       p {
         margin: 0;
       }
-      .image-holder {
-        position: relative;
+      .event-image {
         height: 240px;
+        object-fit: cover;
         border-radius: 6px;
-        background-color: #d3d3d3;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        @media @desktop-md {
-          height: 220px;
-        }
-        @media @desktop-sm {
-          height: 180px;
-        }
-        @media @tablet-md {
-          height: 340px;
-        }
-        @media @tablet {
-          height: 140px;
-        }
-        @media @tablet-md {
-          height: 320px;
-        }
-        @media @tablet-sm {
-          height: 280px;
-        }
-        @media @mobile {
-          height: 240px;
-        }
-
+        box-shadow: 0 0 15px rgba(77, 77, 77, .10);
+      }
+      .image-holder {
         .announcement-container {
           position: absolute;
           background-color: white;
@@ -118,10 +95,10 @@
       .info-holder {
          margin: 15px 0 0;
         .title {
-          font-size: 1.6em;
+          font-size: 1.4em;
           line-height: 1.2em;
           margin: 5px 0;
-          color: @main-orange-color;
+          //color: @main-dark-color;
           @media @desktop-md {
             font-size: 1.4em;
           }
