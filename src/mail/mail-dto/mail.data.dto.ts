@@ -1,7 +1,7 @@
 export default class MailDataDto {
   email: string;
   name: string;
-  mailTo: string;
+  iWantToTalkWith: string;
   message: string;
   'g-recaptcha-response': string;
 }

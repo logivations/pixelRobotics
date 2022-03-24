@@ -8,6 +8,7 @@ import SendRegistrationFormDataDto from "./mail-dto/send.registration.form.data.
 
 import * as ejs from 'ejs';
 import * as path from "path";
+import { MessageHeaders } from "emailjs/smtp/message";
 
 @Injectable()
 export class MailService {
@@ -41,19 +42,26 @@ export class MailService {
       })
       .toPromise();
     if (checkCaptchaResponse.data.success) {
-      const { email, name, mailTo, message } = mailData;
+      const { email, name, iWantToTalkWith, message } = mailData;
       try {
         const resultToServer = await this.sendMailWithTemplate(
           'mailToPixelInfoTemplate.ejs',
-          { name, email, message },
-          'volodymyr.boichuk@logivations.com',
-          'Kontakt | Pixel Robotics'
+          { name, email, message, iWantToTalkWith },
+          {
+            to: 'volodymyr.boichuk@logivations.com',
+            subject: 'Kontakt | Pixel Robotics',
+            // cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
+            cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
+          },
+
         );
         const resultToClient = await this.sendMailWithTemplate(
           'mailToClientTemplate.ejs',
           { name },
-          email,
-          'Kontakt | Pixel Robotics'
+          {
+            to: email,
+            subject: 'Kontakt | Pixel Robotics',
+          }
         );
         return [resultToServer, resultToClient];
       } catch (error) {
@@ -64,11 +72,15 @@ export class MailService {
 
   public async subscribeToEvent(subscribeData: SubscribeEventDataDto): Promise<any> {
     const {name, email, company, phone, comment} = subscribeData;
-    return  await this.sendMailWithTemplate(
+    return await this.sendMailWithTemplate(
       'subscribeEventMailTemplateToPX.ejs',
       { name, email, company, phone, comment },
-      'volodymyr.boichuk@logivations.com',
-      'Event subscription'
+      {
+        to: 'volodymyr.boichuk@logivations.com',
+        subject: 'Event subscription',
+        // cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
+        cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
+      }
     );
   }
 
@@ -96,29 +108,25 @@ export class MailService {
   private sendMailWithTemplate(
     templateName: string,
     templateData: {[key: string]: string},
-    mailTo: string,
-    subject: string
+    configParameters: {to: string, subject: string, cc?: string},
   ) {
     return new Promise((resolve, reject) => {
       ejs.renderFile(
         path.resolve(`src/mail/templates/${templateName}`),
         templateData,
         (err, template) => {
+          const mailConfig: MessageHeaders = Object.assign({
+            from: 'PixelRobotics<info@pixel-robotics.eu>',
+            attachment: [{ data: template, alternative: true }],
+            headers: {
+              'Mime-Version': '1.0',
+              'Content-Type': 'text/plain;charset=UTF-8',
+            },
+            text: null
+          }, configParameters);
           if (!err && template) {
             this.mailClient.send(
-              {
-                from: 'PixelRobotics<info@pixelrobotics.eu>',
-                to: mailTo,
-                subject: subject,
-                attachment: [
-                  { data: template, alternative: true },
-                ],
-                headers: {
-                  'Mime-Version': '1.0',
-                  'Content-Type': 'text/plain;charset=UTF-8',
-                },
-                text: null
-              },
+              mailConfig,
               (err, message) => {
                 if (err) { reject(err); }
                 if (message) { resolve(message); }
