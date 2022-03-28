@@ -4,7 +4,7 @@ function toggleLanguage() {
 
 function getLangFromCookie() {
   const lang =  document.cookie && document.cookie.split(';')
-    .find((cookie) => cookie.includes('lang'));
+    .find((cookie) => cookie && cookie.includes('lang'));
   if (lang) {
     return lang.trim().split('=')[1];
   }
