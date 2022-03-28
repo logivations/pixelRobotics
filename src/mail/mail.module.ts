@@ -4,10 +4,7 @@ import { EnvironmentConfigModule } from '../infrastructure/config/environment-co
 import { HttpModule } from '@nestjs/axios';
 
 @Module({
-  imports: [
-    HttpModule,
-    EnvironmentConfigModule,
-  ],
+  imports: [HttpModule, EnvironmentConfigModule],
   providers: [MailService],
   exports: [MailService],
 })

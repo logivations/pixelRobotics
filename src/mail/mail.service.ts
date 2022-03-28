@@ -2,13 +2,11 @@ import { Injectable } from '@nestjs/common';
 import MailDataDto from './mail-dto/mail.data.dto';
 import { HttpService } from '@nestjs/axios';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
-import SubscribeEventDataDto from "./mail-dto/subscribe.event.data.dto";
 import { SMTPClient } from 'emailjs';
-import SendRegistrationFormDataDto from "./mail-dto/send.registration.form.data.dto";
 
 import * as ejs from 'ejs';
-import * as path from "path";
-import { MessageHeaders } from "emailjs/smtp/message";
+import * as path from 'path';
+import { MessageHeaders } from 'emailjs/smtp/message';
 
 @Injectable()
 export class MailService {
@@ -24,8 +22,8 @@ export class MailService {
       port: this.config.getMailPort(),
       ssl: false,
       logger: (...args) => {
-        console.log("args", args);
-      }
+        console.log('args', args);
+      },
     });
   }
 
@@ -50,10 +48,9 @@ export class MailService {
           {
             to: 'volodymyr.boichuk@logivations.com',
             subject: 'Kontakt | Pixel Robotics',
-            cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
+            cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>',
             // cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
           },
-
         );
         const resultToClient = await this.sendMailWithTemplate(
           'mailToClientTemplate.ejs',
@@ -61,64 +58,66 @@ export class MailService {
           {
             to: email,
             subject: 'Kontakt | Pixel Robotics',
-          }
+          },
         );
         return [resultToServer, resultToClient];
       } catch (error) {
-        console.log("error", error);
+        console.log('error', error);
       }
     }
   }
 
-  public async subscribeToEvent(subscribeData: {[key: string]: any}): Promise<any> {
-    const {sendMailDetail: {mailTo, subject, emailTemplate}, mailData} = subscribeData;
-    return await this.sendMailWithTemplate(
-      emailTemplate,
+  public async subscribeToEvent(subscribeData: {
+    [key: string]: any;
+  }): Promise<any> {
+    const {
+      sendMailDetail: { mailTo, subject, emailTemplate },
       mailData,
-      {
-        to: mailTo || 'volodymyr.boichuk@logivations.com',
-        subject: subject || 'Event subscription',
-        cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
-        // cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
-      }
-    );
+    } = subscribeData;
+    return await this.sendMailWithTemplate(emailTemplate, mailData, {
+      to: mailTo || 'volodymyr.boichuk@logivations.com',
+      subject: subject || 'Event subscription',
+      cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>',
+      // cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
+    });
   }
 
   private sendMailWithTemplate(
     templateName: string,
-    templateData: {[key: string]: string},
-    configParameters: {to: string, subject: string, cc?: string},
+    templateData: { [key: string]: string },
+    configParameters: { to: string; subject: string; cc?: string },
   ) {
     return new Promise((resolve, reject) => {
       ejs.renderFile(
         path.resolve(`src/mail/templates/${templateName}`),
         templateData,
         (err, template) => {
-          console.log("renderFile error: ", err);
-          const mailConfig: MessageHeaders = Object.assign({
-            from: 'PixelRobotics<info@pixel-robotics.eu>',
-            attachment: [{ data: template, alternative: true }],
-            headers: {
-              'Mime-Version': '1.0',
-              'Content-Type': 'text/plain;charset=UTF-8',
+          console.log('renderFile error: ', err);
+          const mailConfig: MessageHeaders = Object.assign(
+            {
+              from: 'PixelRobotics<info@pixel-robotics.eu>',
+              attachment: [{ data: template, alternative: true }],
+              headers: {
+                'Mime-Version': '1.0',
+                'Content-Type': 'text/plain;charset=UTF-8',
+              },
+              text: null,
             },
-            text: null
-          }, configParameters);
+            configParameters,
+          );
           if (!err && template) {
-            this.mailClient.send(
-              mailConfig,
-              (err, message) => {
-                if (err) {
-                  console.log("mailClient err: ", err);
-                  reject(err);
-                }
-                if (message) {
-                  resolve(message);
-                }
+            this.mailClient.send(mailConfig, (err, message) => {
+              if (err) {
+                console.log('mailClient err: ', err);
+                reject(err);
               }
-            )
+              if (message) {
+                resolve(message);
+              }
+            });
           }
-        });
-    })
+        },
+      );
+    });
   }
 }
