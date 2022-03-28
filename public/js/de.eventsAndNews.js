@@ -1,6 +1,7 @@
 const template = `<div class="col-md-4 col-12 event-container <%= type %>" data-eventid="<%= id %>">
     <a href="/news-and-events-details?eventId=<%= id %>">
-    <div class="image-holder" style="background-image: url('<%= posterURL %>')">
+    <div class="image-holder">
+        <img class="event-image" src="<%= posterURL %>">
         <% if (isUpcomingEvent) { %>
             <div class="announcement-container">
                 <p class="announcement-title">EVENT</p>
@@ -40,12 +41,14 @@ $(document).ready(async () => {
     })
         .then((res) => res.json())
         .then((data) => {
-            // eventsContainer.innerHTML = data.reduce((templates, item) => {
-            //     const isUpcomingEvent = item.eventTime && (new Date(item.eventTime)).getTime() > Date.now();
-            //     const html = ejs.render(template, {...item, isUpcomingEvent});
-            //     return templates + html;
-            // }, '');
-            eventsContainer.innerHTML = '<h5>Coming soon</h5>';
+            const html = data.reduce((templates, item) => {
+                const isUpcomingEvent = item.eventTime && (new Date(item.eventTime)).getTime() > Date.now();
+                const html = ejs.render(template, {...item, isUpcomingEvent});
+                return templates + html;
+            }, '');
+            const domParser = new DOMParser();
+            const doc = domParser.parseFromString(html, 'text/html');
+            [...doc.body.children].forEach((node) => eventsContainer.appendChild(node));
         });
 
     const showLatestNewsAndEventsBtn = document.getElementById('latest-news-and-events');

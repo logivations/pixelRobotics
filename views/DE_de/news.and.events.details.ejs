@@ -10,24 +10,27 @@
     <div class="ne-top-section">
         <div class="container-xxl container-md">
             <div class="row ne-top-info">
-                <div class="col-12">
+                <div class="col-md-8 col-12">
                     <div class="go-back-btn"><a href="/news-and-events">
                             <img src="images/icons/arrow-back.svg" alt="Go back">Zur&uuml;ck</a></div>
                     <p class="event-title"><%= event.title %></p>
-                    <p class="event-place"><%= event.eventPlace %></p>
-                    <p class="event-date"><%= event.eventTime %></p>
-                    <% if (event.extraInfo) { %><p class="extra-info"><%= event.extraInfo.DE_de %></p> <% } %>
+                    <div class="event-details-box">
+                        <div class="d-flex e-d-row">
+                            <img src="images/icons/clock.svg" alt="Clock"><p class="event-date"><%= event.eventTime %></p>
+                        </div>
+                        <div class="d-flex e-d-row">
+                            <img src="images/icons/map-pin.svg" alt="Pin"><p class="event-place"><%= event.eventPlace %></p>
+                        </div>
+                        <% if (event.extraInfo) { %><p class="extra-info"><%= event.extraInfo.EN_en %></p> <% } %>
+                    </div>
+                </div>
+                <div class="col-md-4 offset-md-0 mt-md-0 mt-4 col-6 offset-3">
+                    <img class="event-image" src="<%= event.posterURL %>">
                 </div>
             </div>
         </div>
     </div>
     <div class="container-xxl container-md">
-        <div class="row">
-            <div class="col-12">
-                <div class="image-container" style="background-image: url('<%= event.posterURL %>'); ">
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-12">
                 <div class="content-section">
@@ -65,88 +68,32 @@
         </div>
     </div>
 </section>
-<div class="modal" id="signUpEvent" tabindex="-1" role="dialog">
+
+<div class="modal" id="feedback" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="close-button">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <p class="modal-event-date"><%= event.eventTime %></p>
-                <h5 class="modal-title"><%= event.title %></h5>
-                <p class="modal-event-place"><%= event.eventPlace %></p>
-                <% if (event.extraInfo) { %>
-                    <p class="modal-extra-info"><%= event.extraInfo.DE_de %> </p>
-                <% } %>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form class="form-horizontal" id="subscribe-form" method="POST">
-                <div class="modal-body">
-                    <div class="input-forms">
-                        <div class="row">
-                            <div class="col-md-6 form-holder right">
-                                <label for="name">Name</label>
-                                <input class="form-control" id="name" name="name" type="text" required placeholder="" value="" >
-                            </div>
-                            <div class="col-md-6 form-holder left">
-                                <label for="email">E-mail</label>
-                                <input class="form-control" id="email" name="email" type="email" required placeholder="" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                            </div>
-                            <div class="col-md-6 form-holder right">
-                                <label for="company">Unternehmen</label>
-                                <input class="form-control" id="company" name="company" type="text" placeholder="" value="" >
-                            </div>
-                            <div class="col-md-6 form-holder left">
-                                <label for="phone">Telefon</label>
-                                <input class="form-control" id="phone" name="phone" type="tel" placeholder="" value="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 form-holder">
-                        <label for="comment">Kommentar</label>
-                        <textarea class="form-control" id="comment" name="comment" placeholder="" value=""></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn-cancel" data-bs-dismiss="modal" aria-label="Close">Abbrechen</button>
-                    <button type="submit" class="btn btn-custom" data-dismiss="modal">Anmelden</button>
-                </div>
-            </form>
+            <div class="modal-body">
+                <h6>DANKE!</h6>
+                <p>Wir haben Ihr Feedback erhalten.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-custom btn-ok" data-bs-dismiss="modal">Ok</button>
+            </div>
         </div>
     </div>
 </div>
-
 <%- include('../includes/footer'); -%>
 <%- include('../includes/default-scripts'); -%>
 
 </body>
 <script>
-    $(document).ready(async function() {
-        await fetch(`common/template?eventId=<%= event.id %>`, {
-            method: 'GET',
-        })
-            .then((res) => res.text())
-            .then((contentTemplate) => {
-                console.log("contentTemplate", contentTemplate);
-                const detailBox = document.getElementById('event-details');
-                contentTemplate && (detailBox.innerHTML = contentTemplate);
-            });
-    })
-
-    const subscribeForm = document.getElementById('subscribe-form')
-    subscribeForm.addEventListener('submit', function (event) {
-        event.preventDefault()
-        event.stopPropagation()
-        if (subscribeForm.checkValidity()) {
-            subscribeForm.classList.add('was-validated')
-            const data = new FormData(event.target);
-
-            fetch('api/mail/subscribeEvent', {
-                method: 'POST',
-                body: JSON.stringify(Object.fromEntries(data))
-            }).then(() => {
-                $('#signUpEvent').modal('toggle')
-            })
-        }
-    }, false)
+  const eventId = '<%= event.id %>';
+  const mailTo = '<%= event.mailTo %>';
+  const subject = '<%= event.subject %>';
+  const emailTemplate = '<%= event.emailTemplate %>';
 </script>
+<script type="text/javascript" src="/js/sendEventMail.js"> </script>
 </html>

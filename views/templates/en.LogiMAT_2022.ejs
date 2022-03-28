@@ -1,4 +1,4 @@
-<div class="col-12">
+<div class="col-12" id="template">
     <div>
         <h5>LogiMAT 2022</h5>
         <p>Meet our experts in Stuttgart to see the latest innovations of Logivations:</p>
@@ -21,7 +21,8 @@
 </div>
 <div class="col-md-12 col-12">
     <div id="registration" class="registration-form custom-form">
-        <div class="row input-forms" method="POST">
+        <form method="post" id="subscribe-form">
+        <div class="row input-forms" >
             <div class="col-md-12 form-holder">
                 <label for="name">Name *</label>
                 <input class="form-control" id="name" name="name" type="text" required placeholder="Your Name" value="" >
@@ -32,11 +33,11 @@
             </div>
             <div class="col-md-12 form-holder">
                 <label for="company">Company *</label>
-                <input class="form-control" id="company" name="company" type="text" placeholder="Your Company" value="" >
+                <input class="form-control" id="company" name="company" type="text" required placeholder="Your Company" value="" >
             </div>
             <div class="col-md-12 form-holder">
                 <label for="job-title">Job Title</label>
-                <input class="form-control" id="job-title" name="job-title" type="text" placeholder="Your Job Title" value="" >
+                <input class="form-control" id="job-title" name="jobTitle" type="text" placeholder="Your Job Title" value="" >
             </div>
             <div class="col-md-12 form-holder">
                 <label for="phone">Phone</label>
@@ -48,7 +49,7 @@
                 <h5 class="mt-3 mb-3">Topics of interest:</h5>
                 <ul class="checkbox-holder">
                     <li class="form-check">
-                        <input class="" id="sce" type="checkbox" name="type[]" value="">
+                        <input class="" id="sce" type="checkbox" name="topicsOfInterest" value="Supply Chain Engineering and Supply Network Planning: Holistic planning and optimization of your Supply Chain">
                         <label for="sce"><div class="checker"></div>
                             <span class="bold-text">Supply Chain Engineering and Supply Network Planning</span>: Holistic planning and optimization of your Supply Chain
                         </label>
@@ -57,66 +58,66 @@
                 <p class="bold-text">Modern optimization algorithms for operational IT systems:</p>
                 <ul class="checkbox-holder">
                     <li class="form-check">
-                        <input id="moa-1" type="checkbox" name="type[]" value="">
+                        <input id="moa-1" type="checkbox" name="moa-1" value="Advanced Slotting">
                         <label for="moa-1"><div class="checker"></div>Advanced Slotting</label>
                     </li>
                     <li class="form-check">
-                        <input id="moa-2" type="checkbox" name="type[]" value="">
+                        <input id="moa-2" type="checkbox" name="moa-2" value="Optimized tour building">
                         <label for="moa-2"><div class="checker"></div>Optimized tour building</label>
                     </li>
                     <li class="form-check">
-                        <input id="moa-3" type="checkbox" name="type[]" value="">
+                        <input id="moa-3" type="checkbox" name="moa-3" value="Capacity and workforce planning">
                         <label for="moa-3"><div class="checker"></div>Capacity and workforce planning</label>
                     </li>
                     <li class="form-check">
-                        <input id="moa-4" type="checkbox" name="type[]" value="">
+                        <input id="moa-4" type="checkbox" name="moa-4" value="3D cubing (case pack)">
                         <label for="moa-4"><div class="checker"></div>3D cubing (case pack)</label>
                     </li>
                 </ul>
                 <p class="bold-text">Digital twin, logistics planning and process optimization:</p>
                 <ul class="checkbox-holder">
                     <li class="form-check">
-                        <input id="dt-1" type="checkbox" name="type[]" value="">
+                        <input id="dt-1" type="checkbox" name="digitalTwinForPlanning-1" value="Digital Twin for planning new facilities and simulation of layout and process changes">
                         <label for="dt-1"><div class="checker"></div>Digital Twin for planning new facilities and simulation of layout and process changes</label>
                     </li>
                     <li class="form-check">
-                        <input id="dt-2" type="checkbox" name="type[]" value="">
+                        <input id="dt-2" type="checkbox" name="digitalTwinForPlanning-2" value="Digital Twin for optimization of running operations">
                         <label for="dt-2"><div class="checker"></div>Digital Twin for optimization of running operations</label>
                     </li>
                 </ul>
                 <p class="bold-text">Scanner-free logistics based on Artificial Intelligence (AI):</p>
                 <ul class="checkbox-holder">
                     <li class="form-check">
-                        <input id="ai-1" type="checkbox" name="type[]" value="">
+                        <input id="ai-1" type="checkbox" name="scannerFreeLogistics-1" value="Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed">
                         <label for="ai-1"><div class="checker"></div>Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed</label>
                     </li>
                     <li class="form-check">
-                        <input id="ai-2" type="checkbox" name="type[]" value="">
+                        <input id="ai-2" type="checkbox" name="scannerFreeLogistics-2" value="Management, optimization and control of the packing process">
                         <label for="ai-2"><div class="checker"></div>Management, optimization and control of the packing process</label>
                     </li>
                     <li class="form-check">
-                        <input id="ai-3" type="checkbox" name="type[]" value="">
+                        <input id="ai-3" type="checkbox" name="scannerFreeLogistics-3" value="Master data acquisition using AI">
                         <label for="ai-3"><div class="checker"></div>Master data acquisition using AI</label>
                     </li>
                 </ul>
                 <p class="bold-text">W2MO RTL&RS (Real Time Location & Recognition System):</p>
                 <ul class="checkbox-holder">
                     <li class="form-check">
-                        <input id="rtl-rs-1" type="checkbox" name="type[]" value="">
+                        <input id="rtl-rs-1" type="checkbox" name="w2moRTLRS-1" value="Tracking for all types of movements in a warehouse (goods, forklifts, people, ...)">
                         <label for="rtl-rs-1"><div class="checker"></div>Tracking for all types of movements in a warehouse (goods, forklifts, people, ...)</label>
                     </li>
                     <li class="form-check">
-                        <input id="rtl-rs-2" type="checkbox" name="type[]" value="">
+                        <input id="rtl-rs-2" type="checkbox" name="w2moRTLRS-2" value="Automatic Booking into WMS">
                         <label for="rtl-rs-2"><div class="checker"></div>Automatic Booking into WMS</label>
                     </li>
                     <li class="form-check">
-                        <input id="rtl-rs-3" type="checkbox" name="type[]" value="">
+                        <input id="rtl-rs-3" type="checkbox" name="w2moRTLRS-3" value="Intelligent fleet management of the forklift and AGV fleet">
                         <label for="rtl-rs-3"><div class="checker"></div>
                             <span class="bold-text">Intelligent fleet management of the forklift and AGV fleet</span>
                         </label>
                     </li>
                     <li class="form-check">
-                        <input id="rtl-rs-4" type="checkbox" name="type[]" value="">
+                        <input id="rtl-rs-4" type="checkbox" name="w2moRTLRS-4" value="Autonomous floor-to-floor transport robot developed and manufactured by Pixel Robotics">
                         <label for="rtl-rs-4"><div class="checker"></div>
                             <span class="bold-text">Autonomous floor-to-floor transport robot </span>
                             developed and manufactured by Pixel Robotics
@@ -126,11 +127,21 @@
                 <ul class="discuss-input radio-holder">
                     <p class="bold-text">I already have a specific use case that I would like to discuss *</p>
                     <li class="yes form-check">
-                        <input class="form-check-input" id="scf-1" type="radio" name="specific-case"/>
+                        <input class="form-check-input required" id="scf-1" type="radio" name="specificCase" value="Yes"
+                            onclick="(() => {
+                              document.getElementById('specific-cases-form').removeAttribute('hidden');
+                              document.getElementById('specific-cases-form').setAttribute('required', true);
+                            })()"
+                        />
                         <label class="form-check-label" for="scf-1"><div class="checker"></div>Yes</label>
                     </li>
                     <li class="form-check">
-                        <input class="form-check-input" id="scf-2" type="radio" name="specific-case"/>
+                        <input class="form-check-input required" id="scf-2" type="radio" name="specificCase" value="No"
+                            onclick="(() => {
+                              document.getElementById('specific-cases-form').setAttribute('hidden', true);
+                              document.getElementById('specific-cases-form').removeAttribute('required');
+                            })()"
+                        />
                         <label class="form-check-label" for="scf-2"><div class="checker"></div>No</label>
                     </li>
                 </ul>
@@ -143,15 +154,15 @@
                 <p class="bold-text">I want an appointment at the Logimat *</p>
                 <ul class="radio-holder">
                     <li class="form-check">
-                        <input class="form-check-input" id="app-1" type="radio" name="type2[]" value=""/>
+                        <input class="form-check-input required" id="app-1" type="radio" name="logimatAppointment" value="on Tuesday, 31 May 2022"/>
                         <label class="form-check-label" for="app-1"><div class="checker"></div>on Tuesday, 31 May 2022</label>
                     </li>
                     <li class="form-check">
-                        <input class="form-check-input" id="app-2" type="radio" name="type2[]" value=""/>
+                        <input class="form-check-input required" id="app-2" type="radio" name="logimatAppointment" value="on Wednesday, 1 June 2022"/>
                         <label class="form-check-label" for="app-2"><div class="checker"></div>on Wednesday, 1 June 2022</label>
                     </li>
                     <li class="form-check">
-                        <input class="form-check-input" id="app-3" type="radio" name="type2[]" value=""/>
+                        <input class="form-check-input required" id="app-3" type="radio" name="logimatAppointment" value="on Thursday, 2 June 2022"/>
                         <label class="form-check-label" for="app-3"><div class="checker"></div>on Thursday, 2 June 2022</label>
                     </li>
                 </ul>
@@ -161,7 +172,7 @@
                 </div>
                 <div class="buttons-container">
                     <div class="d-flex">
-                        <button id="submit-btn" type="button" name="submit" class="btn-custom">Sign up</button>
+                        <button id="submit-btn" type="submit" name="submit" class="btn-custom" >Sign up</button>
                     </div>
                 </div>
             </div>
@@ -175,6 +186,8 @@
                 <p>After sign up, you will immediately receive a written confirmation.</p>
             </div>
         </div>
+        </form>
     </div>
 </div>
+
 

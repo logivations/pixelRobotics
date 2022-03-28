@@ -70,39 +70,18 @@ export class MailService {
     }
   }
 
-  public async subscribeToEvent(subscribeData: SubscribeEventDataDto): Promise<any> {
-    const {name, email, company, phone, comment} = subscribeData;
+  public async subscribeToEvent(subscribeData: {[key: string]: any}): Promise<any> {
+    const {sendMailDetail: {mailTo, subject, emailTemplate}, mailData} = subscribeData;
     return await this.sendMailWithTemplate(
-      'subscribeEventMailTemplateToPX.ejs',
-      { name, email, company, phone, comment },
+      emailTemplate,
+      mailData,
       {
-        to: 'volodymyr.boichuk@logivations.com',
-        subject: 'Event subscription',
+        to: mailTo || 'volodymyr.boichuk@logivations.com',
+        subject: subject || 'Event subscription',
         // cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
         cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
       }
     );
-  }
-
-  public async sendRegistrationForm(registrationData: SendRegistrationFormDataDto): Promise<any> {
-    // const {name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
-    //   capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts,
-    //   managementOptimizationAndControl, masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet,
-    //   autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday, onThursday, commentForm} = registrationData;
-    // return this.mailerService.sendMail({
-    //   to: 'volodymyr.boichuk@logivations.com',
-    //   from: email,
-    //   subject: 'REGISTRATION FORM',
-    //   template: 'registrationFormMailTemplateToPX',
-    //   headers: [
-    //     { key: 'Mime-Version', value: '1.0' },
-    //     { key: 'Content-Type', value: 'text/plain;charset=UTF-8' },
-    //   ],
-    //   context: { name, company, jobTitle, email, phone, supplyChainEngineering, advancedSlotting, optimizedTourBuilding,
-    //     capacityAndWorkforce, cubing3D, digitalTwinForPlanning, digitalTwinForOptimization, measureAndCountProducts,
-    //     managementOptimizationAndControl, masterDataAcquisition, trackingForAllTypes, automaticBooking, intelligentFleet,
-    //     autonomousFloor, scfYes, scfNo, scfText, onTuesday, onWednesday, onThursday, commentForm },
-    // });
   }
 
   private sendMailWithTemplate(
@@ -115,6 +94,7 @@ export class MailService {
         path.resolve(`src/mail/templates/${templateName}`),
         templateData,
         (err, template) => {
+          console.log("renderFile error: ", err);
           const mailConfig: MessageHeaders = Object.assign({
             from: 'PixelRobotics<info@pixel-robotics.eu>',
             attachment: [{ data: template, alternative: true }],
@@ -128,8 +108,13 @@ export class MailService {
             this.mailClient.send(
               mailConfig,
               (err, message) => {
-                if (err) { reject(err); }
-                if (message) { resolve(message); }
+                if (err) {
+                  console.log("mailClient err: ", err);
+                  reject(err);
+                }
+                if (message) {
+                  resolve(message);
+                }
               }
             )
           }

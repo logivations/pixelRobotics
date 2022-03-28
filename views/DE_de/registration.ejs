@@ -370,87 +370,87 @@
     document.getElementById('modal-btn-ok').addEventListener('click', () => {
         $('#not-all-required-fields').hide();
     })
-
-    const submitted = () => {
-        let name = document.getElementById('name').value;
-        let company = document.getElementById('company').value;
-        let jobTitle = document.getElementById('job-title').value;
-        let email = document.getElementById('email').value;
-        let phone = document.getElementById('phone').value;
-        let supplyChainEngineering = document.getElementById('sce').value;
-        let advancedSlotting = document.getElementById('moa-1').value;
-        let optimizedTourBuilding = document.getElementById('moa-2').value;
-        let capacityAndWorkforce = document.getElementById('moa-3').value;
-        let cubing3D = document.getElementById('moa-4').value;
-        let digitalTwinForPlanning= document.getElementById('dt-1').value;
-        let digitalTwinForOptimization = document.getElementById('dt-2').value;
-        let measureAndCountProducts= document.getElementById('ai-1').value;
-        let managementOptimizationAndControl = document.getElementById('ai-2').value;
-        let masterDataAcquisition = document.getElementById('ai-3').value;
-        let trackingForAllTypes = document.getElementById('rtl-rs-1').value;
-        let automaticBooking = document.getElementById('rtl-rs-2').value;
-        let intelligentFleet = document.getElementById('rtl-rs-3').value;
-        let autonomousFloor = document.getElementById('rtl-rs-4').value;
-        let scfYes = document.getElementById('scf-1').value;
-        let scfNo = document.getElementById('scf-2').value;
-        let scfText = document.getElementById('specific-cases-form').value;
-        let onTuesday = document.getElementById('app-1').value;
-        let onWednesday = document.getElementById('app-2').value;
-        let onThursday = document.getElementById('app-3').value;
-        let commentForm = document.getElementById('comment-form').value;
-        const error = document.querySelector('.invalid-feedback');
-
-        if (name && company && email && (scfYes || scfNo) && (onTuesday || onWednesday || onThursday)) {
-            fetch('api/mail/sendRegistrationForm', {method: 'POST', body: JSON.stringify({
-                    name,
-                    company,
-                    jobTitle,
-                    email,
-                    phone,
-                    supplyChainEngineering,
-                    advancedSlotting,
-                    optimizedTourBuilding,
-                    capacityAndWorkforce,
-                    cubing3D,
-                    digitalTwinForPlanning,
-                    digitalTwinForOptimization,
-                    measureAndCountProducts,
-                    managementOptimizationAndControl,
-                    masterDataAcquisition,
-                    trackingForAllTypes,
-                    automaticBooking,
-                    intelligentFleet,
-                    autonomousFloor,
-                    scfYes,
-                    scfNo,
-                    scfText,
-                    onTuesday,
-                    onWednesday,
-                    onThursday,
-                    commentForm
-                })})
-                .then((res) => res.json())
-                .then((response) => {
-                    if (response.data) {
-                        console.log(response.data)
-                        error.style.display = 'none';
-                        window.location.replace("/admin/statistics");
-                    } else {
-                        error.style.display = 'block';
-                    }
-                })
-                .then(() => {
-                    $('#feedback').toggle();
-                })
-                .catch((err) => {
-                    console.error(err)
-                });
-        } else {
-            $('#not-all-required-fields').toggle();
-        }
-    };
-    document.getElementById('submit-btn').addEventListener('click', () => {
-        submitted()
-    })
+    //
+    // const submitted = () => {
+    //     let name = document.getElementById('name').value;
+    //     let company = document.getElementById('company').value;
+    //     let jobTitle = document.getElementById('job-title').value;
+    //     let email = document.getElementById('email').value;
+    //     let phone = document.getElementById('phone').value;
+    //     let supplyChainEngineering = document.getElementById('sce').value;
+    //     let advancedSlotting = document.getElementById('moa-1').value;
+    //     let optimizedTourBuilding = document.getElementById('moa-2').value;
+    //     let capacityAndWorkforce = document.getElementById('moa-3').value;
+    //     let cubing3D = document.getElementById('moa-4').value;
+    //     let digitalTwinForPlanning= document.getElementById('dt-1').value;
+    //     let digitalTwinForOptimization = document.getElementById('dt-2').value;
+    //     let measureAndCountProducts= document.getElementById('ai-1').value;
+    //     let managementOptimizationAndControl = document.getElementById('ai-2').value;
+    //     let masterDataAcquisition = document.getElementById('ai-3').value;
+    //     let trackingForAllTypes = document.getElementById('rtl-rs-1').value;
+    //     let automaticBooking = document.getElementById('rtl-rs-2').value;
+    //     let intelligentFleet = document.getElementById('rtl-rs-3').value;
+    //     let autonomousFloor = document.getElementById('rtl-rs-4').value;
+    //     let scfYes = document.getElementById('scf-1').value;
+    //     let scfNo = document.getElementById('scf-2').value;
+    //     let scfText = document.getElementById('specific-cases-form').value;
+    //     let onTuesday = document.getElementById('app-1').value;
+    //     let onWednesday = document.getElementById('app-2').value;
+    //     let onThursday = document.getElementById('app-3').value;
+    //     let commentForm = document.getElementById('comment-form').value;
+    //     const error = document.querySelector('.invalid-feedback');
+    //
+    //     if (name && company && email && (scfYes || scfNo) && (onTuesday || onWednesday || onThursday)) {
+    //         fetch('api/mail/sendRegistrationForm', {method: 'POST', body: JSON.stringify({
+    //                 name,
+    //                 company,
+    //                 jobTitle,
+    //                 email,
+    //                 phone,
+    //                 supplyChainEngineering,
+    //                 advancedSlotting,
+    //                 optimizedTourBuilding,
+    //                 capacityAndWorkforce,
+    //                 cubing3D,
+    //                 digitalTwinForPlanning,
+    //                 digitalTwinForOptimization,
+    //                 measureAndCountProducts,
+    //                 managementOptimizationAndControl,
+    //                 masterDataAcquisition,
+    //                 trackingForAllTypes,
+    //                 automaticBooking,
+    //                 intelligentFleet,
+    //                 autonomousFloor,
+    //                 scfYes,
+    //                 scfNo,
+    //                 scfText,
+    //                 onTuesday,
+    //                 onWednesday,
+    //                 onThursday,
+    //                 commentForm
+    //             })})
+    //             .then((res) => res.json())
+    //             .then((response) => {
+    //                 if (response.data) {
+    //                     console.log(response.data)
+    //                     error.style.display = 'none';
+    //                     window.location.replace("/admin/statistics");
+    //                 } else {
+    //                     error.style.display = 'block';
+    //                 }
+    //             })
+    //             .then(() => {
+    //                 $('#feedback').toggle();
+    //             })
+    //             .catch((err) => {
+    //                 console.error(err)
+    //             });
+    //     } else {
+    //         $('#not-all-required-fields').toggle();
+    //     }
+    // };
+    // document.getElementById('submit-btn').addEventListener('click', () => {
+    //     submitted()
+    // })
 
 </script>
