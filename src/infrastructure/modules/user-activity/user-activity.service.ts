@@ -68,7 +68,7 @@ export class UserActivityService {
     return await paginate<UserActivity>(
       this.userActivityEntityRepository
         .createQueryBuilder()
-        .orderBy({ date_time: 'DESC' }),
+        .orderBy({ date_time: 'ASC' }),
       options,
     );
   }
