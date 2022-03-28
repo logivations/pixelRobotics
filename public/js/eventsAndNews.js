@@ -17,7 +17,7 @@ const template = `<div class="col-md-4 col-12 event-container <%= type %>" data-
         <% if (eventPlace) { %>
             <p class="event-place"><%= eventPlace %></p>
         <% } %>
-        <p class="date"> <%= createdAt %> </p>
+        <p class="date"><span>Created at:</span> <%= createdAt %> </p>
     </div>
     </a>
 </div>`;
