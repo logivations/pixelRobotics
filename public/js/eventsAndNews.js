@@ -45,7 +45,7 @@ $(document).ready(async () => {
     .then((res) => res.json())
     .then((data) => {
       const html = data.reduce((templates, item) => {
-        const isUpcomingEvent = item.eventTime && (new Date(item.eventTime)).getTime() > Date.now();
+        const isUpcomingEvent = item.eventDate && (new Date(item.eventDate)).getTime() > Date.now();
         const html = ejs.render(template, {...item, isUpcomingEvent});
         return templates + html;
       }, '');
