@@ -7,10 +7,6 @@
         "DE_de": "Pixel Robotics: Intelligent robots for pallet handling"
       },
       "posterURL": "/images/pixel-robotics-logo.png",
-      "extraInfo": {
-        "EN_en": "Hall 8, Booth F05",
-        "DE_de": "(Dauer ca. 40 min | Sprache: Deutsch)"
-      },
       "createdAt": "28.04.2022",
       "templateName": {
         "EN_en": "en.intelligentRobotsForPalletHandling.ejs",
