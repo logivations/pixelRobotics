@@ -50,8 +50,8 @@ export class MailService {
           {
             to: 'volodymyr.boichuk@logivations.com',
             subject: 'Kontakt | Pixel Robotics',
-            // cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
-            cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
+            cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
+            // cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
           },
 
         );
@@ -78,8 +78,8 @@ export class MailService {
       {
         to: mailTo || 'volodymyr.boichuk@logivations.com',
         subject: subject || 'Event subscription',
-        // cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
-        cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
+        cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>'
+        // cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
       }
     );
   }
