@@ -5,7 +5,7 @@ const template = `<div class="col-md-4 col-12 event-container <%= type %>" data-
         <% if (isUpcomingEvent) { %>
             <div class="announcement-container">
                 <p class="announcement-title">EVENT</p>
-                <span class="announcement-date"> <%= eventTime %></span>
+                <span class="announcement-date"> <%= eventDate %></span>
             </div>
         <% } %>
     </div>
@@ -44,15 +44,15 @@ $(document).ready(async () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      const html = data.reduce((templates, item) => {
-        const isUpcomingEvent = item.eventDate && (new Date(item.eventDate)).getTime() > Date.now();
-        const html = ejs.render(template, {...item, isUpcomingEvent});
-        return templates + html;
-      }, '');
-      const domParser = new DOMParser();
-      const doc = domParser.parseFromString(html, 'text/html');
-      [...doc.body.children].forEach((node) => eventsContainer.appendChild(node));
-
+      // const html = data.reduce((templates, item) => {
+      //   const isUpcomingEvent = item.eventDate && (new Date(item.eventDate)).getTime() > Date.now();
+      //   const html = ejs.render(template, {...item, isUpcomingEvent});
+      //   return templates + html;
+      // }, '');
+      // const domParser = new DOMParser();
+      // const doc = domParser.parseFromString(html, 'text/html');
+      // [...doc.body.children].forEach((node) => eventsContainer.appendChild(node));
+      eventsContainer.innerHTML = '<h5>Coming soon</h5>';
   });
 
   const showLatestNewsAndEventsBtn = document.getElementById('latest-news-and-events');
