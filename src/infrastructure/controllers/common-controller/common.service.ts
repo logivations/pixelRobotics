@@ -16,9 +16,7 @@ export class CommonService {
           ...newsObj,
           title,
           templateName,
-          eventTime: null,
           eventDate: null,
-          eventPlace: null,
           type: 'news',
         };
       })

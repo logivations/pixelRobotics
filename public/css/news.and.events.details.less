@@ -55,6 +55,9 @@
       }
       .e-d-row {
         margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
         img {
           width: 24px;
           margin-right: 8px;
@@ -76,10 +79,13 @@
     }
     .event-image {
       max-height: 240px;
+      min-height: 200px;
       height: 100%;
-      object-fit: cover;
+      //object-fit: cover;
+      object-fit: contain;
       border-radius: 6px;
       box-shadow: 0 0 15px rgba(77, 77, 77, .10);
+      width: auto;
       @media @tablet {
         max-height: 160px;
       }
@@ -140,6 +146,7 @@
       align-content: flex-end;
       align-items: flex-end;
       justify-content: flex-start;
+      text-align: right;
       @media @tablet-md {
         margin-top: 30px;
         align-content: center;
