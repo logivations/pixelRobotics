@@ -18,21 +18,11 @@ export class MailService {
     private readonly config: EnvironmentConfigService,
     @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
   ) {
-    // this.mailClient = new SMTPClient({
-    //   user: this.config.getMailUser(),
-    //   password: this.config.getMailPassword(),
-    //   host: this.config.getMailHost(),
-    //   port: this.config.getMailPort(),
-    //   ssl: false,
-    //   logger: (...args) => {
-    //     console.log('args', args);
-    //   },
-    // });
     this.mailClient = new SMTPClient({
-      user: 'wp1169253-w2motest',
-      password: '13.test.T.79',
-      host: 'wp1169253.mailout.server-he.de',
-      port: 587,
+      user: this.config.getMailUser(),
+      password: this.config.getMailPassword(),
+      host: this.config.getMailHost(),
+      port: this.config.getMailPort(),
       ssl: false,
       logger: (...args) => {
         console.log('args', args);
@@ -102,7 +92,7 @@ export class MailService {
   ) {
     console.log(__dirname);
     const templatesPath = process.env.NODE_ENV !== 'local'
-      ? path.resolve(`dist/mail/templates/${templateName}`)
+      ? path.resolve(`../mail/templates/${templateName}`)
       : path.resolve(`src/mail/templates/${templateName}`);
     this.logger.log(templatesPath, 'templatesPath');
     return new Promise((resolve, reject) => {
