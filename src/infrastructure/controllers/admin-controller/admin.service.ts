@@ -26,7 +26,7 @@ export class AdminService {
         const { name, version } = parse(item.userAgent);
         const { isp } = JSON.parse(item.providerDetail);
         const date = new Date(item.dateTime);
-        const parsedData = `${date.getFullYear()}-${padZero2(date.getMonth() + 1)}-${padZero2(date.getDay())}
+        const parsedData = `${date.getFullYear()}-${padZero2(date.getMonth() + 1)}-${padZero2(date.getDate())}
                   ${padZero2(date.getHours())}:${padZero2(date.getMinutes())}:${padZero2(date.getSeconds())}`;
         return {
           ...item,
