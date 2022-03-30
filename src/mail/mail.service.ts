@@ -22,7 +22,7 @@ export class MailService {
       user: this.config.getMailUser(),
       password: this.config.getMailPassword(),
       host: this.config.getMailHost(),
-      port: this.config.getMailPort(),
+      port: 587,
       ssl: false,
       logger: (...args) => {
         console.log('args', args);
@@ -100,7 +100,7 @@ export class MailService {
         templatesPath,
         templateData,
         (err, template) => {
-          this.logger.log(err && err.message, 'renderFile error');
+          this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
           const mailConfig: MessageHeaders = Object.assign(
             {
               from: 'PixelRobotics<info@pixel-robotics.eu>',
@@ -114,11 +114,11 @@ export class MailService {
             configParameters,
           );
           if (!err && template) {
-            this.mailClient.send(mailConfig, (err, message) => {
-              if (err) {
-                this.logger.error(err.message, err.name, err.stack);
-                console.log('mailClient err: ', err);
-                reject(err);
+            this.mailClient.send(mailConfig, (error, message) => {
+              if (error) {
+                this.logger.error(error.message, error.name, error.stack);
+                console.log('mailClient err: ', error);
+                reject(error);
               }
               if (message) {
                 resolve(message);
