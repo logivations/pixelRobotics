@@ -41,7 +41,6 @@ export class MailService {
   }
 
   async sendMail(mailData: MailDataDto): Promise<any> {
-    this.logger.error('asd', 'asd')
     const checkCaptchaResponse: { [key: string]: any } = await this.httpService
       .request({
         url: 'https://www.google.com/recaptcha/api/siteverify',
@@ -74,10 +73,11 @@ export class MailService {
             subject: 'Kontakt | Pixel Robotics',
           },
         );
+        this.logger.log(JSON.stringify(resultToServer), 'resultToServer');
         return [resultToServer, resultToClient];
-      } catch (error) {
-        new Error(error)
-
+      } catch (err) {
+        const error = new Error(err);
+        this.logger.error(err.message, err.name, err.stack);
         console.log('error', error);
       }
     }
@@ -125,7 +125,6 @@ export class MailService {
             this.mailClient.send(mailConfig, (err, message) => {
               if (err) {
                 this.logger.error(err.message, err.name, err.stack);
-
                 console.log('mailClient err: ', err);
                 reject(err);
               }
