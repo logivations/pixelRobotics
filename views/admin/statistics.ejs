@@ -16,19 +16,15 @@
 <div id="statistics" class="container-fluid">
     <header class="header">
         <div class="col">
-            <strong class="logo lg-small"><a href=".">Pixel Robotics</a></strong>
+            <strong class="logo lg-small"><a href="./../" target="_blank">Pixel Robotics</a></strong>
         </div>
-        <div class="container-fluid">
-            <div class="row d-flex">
-                <div class="col d-flex justify-content-end">
-                    <button onclick="logout(); return false;" type="button" class="btn-custom">Log out</button>
-                    <button onclick="refresh(); return false;" type="button" class="btn-custom">Refresh</button>
-                </div>
-            </div>
+        <div class="col d-flex justify-content-end">
+            <button onclick="refresh(); return false;" type="button" class="btn-custom">Refresh</button>
+            <button onclick="logout(); return false;" type="button" class="btn-custom">Log out</button>
         </div>
     </header>
 
-    <div class="row container-fluid" id="statistics-list"></div>
+    <div id="statistics-list"></div>
     <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
     <footer id="footer">
         <div class="pagination-statistics container-fluid d-flex justify-content-center">
