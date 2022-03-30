@@ -41,6 +41,7 @@ export class MailService {
   }
 
   async sendMail(mailData: MailDataDto): Promise<any> {
+    this.logger.log(JSON.stringify(mailData), "mailData");
     const checkCaptchaResponse: { [key: string]: any } = await this.httpService
       .request({
         url: 'https://www.google.com/recaptcha/api/siteverify',
@@ -53,6 +54,7 @@ export class MailService {
       })
       .toPromise();
     if (checkCaptchaResponse.data.success) {
+      this.logger.log("CAPTCHA_OK", "CAPTCHA_OK");
       const { email, name, iWantToTalkWith, message } = mailData;
       try {
         const resultToServer = await this.sendMailWithTemplate(
@@ -73,10 +75,13 @@ export class MailService {
             subject: 'Kontakt | Pixel Robotics',
           },
         );
+        this.logger.log("SUCCESS", "SUCCESS");
         this.logger.log(JSON.stringify(resultToServer), 'resultToServer');
+        this.logger.log(JSON.stringify(resultToClient), 'resultToClient');
         return [resultToServer, resultToClient];
       } catch (err) {
         const error = new Error(err);
+        this.logger.error("ERRORR1", "ERRORR1", "ERRORR1");
         this.logger.error(err.message, err.name, err.stack);
         console.log('error', error);
       }
@@ -109,6 +114,7 @@ export class MailService {
         templateData,
         (err, template) => {
           console.log('renderFile error: ', err);
+          this.logger.log(err && err.message, 'renderFile error');
           const mailConfig: MessageHeaders = Object.assign(
             {
               from: 'PixelRobotics<info@pixel-robotics.eu>',
@@ -122,6 +128,7 @@ export class MailService {
             configParameters,
           );
           if (!err && template) {
+            this.logger.log(template, "TEMPLATE");
             this.mailClient.send(mailConfig, (err, message) => {
               if (err) {
                 this.logger.error(err.message, err.name, err.stack);
