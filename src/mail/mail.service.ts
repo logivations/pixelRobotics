@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from "@nestjs/common";
 import MailDataDto from './mail-dto/mail.data.dto';
 import { HttpService } from '@nestjs/axios';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
@@ -7,6 +7,8 @@ import { SMTPClient } from 'emailjs';
 import * as ejs from 'ejs';
 import * as path from 'path';
 import { MessageHeaders } from 'emailjs/smtp/message';
+import { WINSTON_MODULE_NEST_PROVIDER } from "nest-winston";
+import { LoggerService } from "../infrastructure/logger/logger.service";
 
 @Injectable()
 export class MailService {
@@ -14,12 +16,23 @@ export class MailService {
   constructor(
     private readonly httpService: HttpService,
     private readonly config: EnvironmentConfigService,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
   ) {
+    // this.mailClient = new SMTPClient({
+    //   user: this.config.getMailUser(),
+    //   password: this.config.getMailPassword(),
+    //   host: this.config.getMailHost(),
+    //   port: this.config.getMailPort(),
+    //   ssl: false,
+    //   logger: (...args) => {
+    //     console.log('args', args);
+    //   },
+    // });
     this.mailClient = new SMTPClient({
-      user: this.config.getMailUser(),
-      password: this.config.getMailPassword(),
-      host: this.config.getMailHost(),
-      port: this.config.getMailPort(),
+      user: 'wp1169253-w2motest',
+      password: '13.test.T.79',
+      host: 'wp1169253.mailout.server-he.de',
+      port: 587,
       ssl: false,
       logger: (...args) => {
         console.log('args', args);
@@ -28,6 +41,7 @@ export class MailService {
   }
 
   async sendMail(mailData: MailDataDto): Promise<any> {
+    this.logger.error('asd', 'asd')
     const checkCaptchaResponse: { [key: string]: any } = await this.httpService
       .request({
         url: 'https://www.google.com/recaptcha/api/siteverify',
@@ -62,6 +76,8 @@ export class MailService {
         );
         return [resultToServer, resultToClient];
       } catch (error) {
+        new Error(error)
+
         console.log('error', error);
       }
     }
@@ -108,6 +124,8 @@ export class MailService {
           if (!err && template) {
             this.mailClient.send(mailConfig, (err, message) => {
               if (err) {
+                this.logger.error(err.message, err.name, err.stack);
+
                 console.log('mailClient err: ', err);
                 reject(err);
               }
