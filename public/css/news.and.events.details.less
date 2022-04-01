@@ -28,7 +28,6 @@
       a {
         font-size: 16px;
         line-height: 24px;
-        //color: @main-orange-color;
         color: @white-color;
         display: flex;
         align-items: center;
@@ -81,16 +80,22 @@
       max-height: 240px;
       min-height: 200px;
       height: 100%;
-      //object-fit: cover;
-      object-fit: contain;
+      object-fit: cover;
+      object-position: center;
       border-radius: 6px;
       box-shadow: 0 0 15px rgba(77, 77, 77, .10);
       width: auto;
+      max-width: 100%;
       @media @tablet {
         max-height: 160px;
+        min-height: 140px;
       }
       @media @tablet-md {
         max-height: 240px;
+      }
+      @media @mobile {
+        max-height: inherit;
+        object-fit: inherit;
       }
     }
   }
