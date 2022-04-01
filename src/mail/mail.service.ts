@@ -95,6 +95,8 @@ export class MailService {
       ? path.resolve(`../mail/templates/${templateName}`)
       : path.resolve(`src/mail/templates/${templateName}`);
     this.logger.log(templatesPath, 'templatesPath');
+    console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+    console.log("templatesPath", templatesPath);
     return new Promise((resolve, reject) => {
       ejs.renderFile(
         templatesPath,
