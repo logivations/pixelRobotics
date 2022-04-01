@@ -52,7 +52,7 @@ $(document).ready(async function() {
       [...doc.body.children].forEach((node) => detailBox.appendChild(node));
     }).then(() => {
       const subscribeForm = document.getElementById('subscribe-form');
-      subscribeForm.addEventListener('submit', function (event) {
+      subscribeForm && subscribeForm.addEventListener('submit', function (event) {
         event.preventDefault();
         event.stopPropagation();
 
@@ -75,6 +75,6 @@ $(document).ready(async function() {
               document.getElementById('specific-cases-form').removeAttribute('required');
             });
         }
-      }, false)
+      }, false);
     });
 });
