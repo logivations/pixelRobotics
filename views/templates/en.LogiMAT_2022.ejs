@@ -2,26 +2,84 @@
     <div>
         <h5>LogiMAT 2022</h5>
         <p>Meet our experts in Stuttgart to see the latest innovations of Logivations:</p>
-        <p><span class="bold-text">W2MO: Digital Twin powered by Artificial Intelligence</span></p>
-        <p>Supply Chain, Production, Warehouse</p>
-        <p>Get an inspiration for innovative projects and learn how significant increases in efficiency can be achieved with the integrated solution portfolio of Logivations:</p>
-        <div>
-            <ul class="ul-list">
-                <li>Supply Chain Design & Optimization</li>
-                <li>AI-guided AGV with fully integrated, optimized navigation</li>
-                <li>AI-based Object Identification directly integrated into the process flow</li>
-                <li>Real Time Location System (RTLS) based on Artificial Intelligence</li>
-                <li>Digital Twin, Logistics Planning and Process Optimization</li>
-                <li>Computational Optimization: Innovative Algorithms</li>
-                <li>3D Case Pack Optimization: cartons, pallets, containers, trucks</li>
-                <li>Capacity and Workforce Planning</li>
-            </ul>
-        </div>
+        <h6><span class="bold-text">Vision-based Robotics</span></h6>
+        <p>Get an inspiration for innovative projects and learn how significant increases in efficiency can be achieved with the innovative technologies of Pixel Robotics.</p>
+<!--        <p>Get an inspiration for innovative projects and learn how significant increases in efficiency can be achieved with the integrated solution portfolio of Logivations:</p>-->
+<!--        <div>-->
+<!--            <ul class="ul-list">-->
+<!--                <li>Supply Chain Design & Optimization</li>-->
+<!--                <li>AI-guided AGV with fully integrated, optimized navigation</li>-->
+<!--                <li>AI-based Object Identification directly integrated into the process flow</li>-->
+<!--                <li>Real Time Location System (RTLS) based on Artificial Intelligence</li>-->
+<!--                <li>Digital Twin, Logistics Planning and Process Optimization</li>-->
+<!--                <li>Computational Optimization: Innovative Algorithms</li>-->
+<!--                <li>3D Case Pack Optimization: cartons, pallets, containers, trucks</li>-->
+<!--                <li>Capacity and Workforce Planning</li>-->
+<!--            </ul>-->
+<!--        </div>-->
     </div>
 </div>
 <div class="col-md-12 col-12">
     <div id="registration" class="registration-form custom-form">
         <form method="post" id="subscribe-form">
+            <div class="row check-input-forms">
+                <div class="checkbox col-md-12">
+                    <p class="bold-text mt-3 mb-3">Topics of interest: *</p>
+                    <ul class="checkbox-holder">
+                        <li class="form-check">
+                            <input class="required" id="sce-1" type="checkbox" name="topicsOfInterest" value="AI-based Navigation & Autonomous Mobile Robots – meet our PIXEL PT">
+                            <label for="sce-1"><div class="checker"></div>
+                                AI-based Navigation & Autonomous Mobile Robots – meet our PIXEL PT
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="required" id="sce-2" type="checkbox" name="topicsOfInterest" value="AI-based Object Identification directly integrated into the process flow">
+                            <label for="sce-2"><div class="checker"></div>
+                                AI-based Object Identification directly integrated into the process flow
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="required" id="sce-3" type="checkbox" name="topicsOfInterest" value="Real Time Location System (RTLS) based on Artificial Intelligence">
+                            <label for="sce-3"><div class="checker"></div>
+                                Real Time Location System (RTLS) based on Artificial Intelligence
+                            </label>
+                        </li>
+                        <li class="form-check">
+                            <input class="required" id="sce-4" type="checkbox" name="topicsOfInterest" value="Digital Twin and Process Optimization">
+                            <label for="sce-4"><div class="checker"></div>
+                                Digital Twin and Process Optimization
+                            </label>
+                        </li>
+                    </ul>
+                    <ul class="discuss-input radio-holder">
+                        <p class="bold-text">I already have a specific use case that I would like to discuss *</p>
+                        <li class="yes form-check">
+                            <input class="form-check-input required" id="scf-1" type="radio" name="specificCase" value="Yes"
+                                   onclick="(() => {
+                              document.getElementById('specific-cases-form').removeAttribute('hidden');
+                              document.getElementById('specific-cases-form').setAttribute('required', true);
+                            })()"
+                            />
+                            <label class="form-check-label" for="scf-1"><div class="checker"></div>Yes</label>
+                        </li>
+                        <li class="form-check">
+                            <input class="form-check-input required" id="scf-2" type="radio" name="specificCase" value="No"
+                                   onclick="(() => {
+                              document.getElementById('specific-cases-form').setAttribute('hidden', true);
+                              document.getElementById('specific-cases-form').removeAttribute('required');
+                            })()"
+                            />
+                            <label class="form-check-label" for="scf-2"><div class="checker"></div>No</label>
+                        </li>
+                    </ul>
+                    <textarea id="specific-cases-form" class="form-control" rows="3" name="specificCases" placeholder="Please describe your use case" hidden></textarea>
+                    <p class="text-under-radio-input">
+                        We will gladly inform you about our innovative solution portfolio and discuss how we can
+                        support your current logistics tasks. Feel free to contact our experts for a discussion
+                        and set up a date.
+                    </p>
+                </div>
+            </div>
         <div class="row input-forms" >
             <div class="col-md-12 form-holder">
                 <label for="name">Name *</label>
@@ -46,111 +104,76 @@
         </div>
         <div class="row check-input-forms">
             <div class="checkbox col-md-12">
-                <h5 class="mt-3 mb-3">Topics of interest:</h5>
-                <ul class="checkbox-holder">
-                    <li class="form-check">
-                        <input class="" id="sce" type="checkbox" name="topicsOfInterest" value="Supply Chain Engineering and Supply Network Planning: Holistic planning and optimization of your Supply Chain">
-                        <label for="sce"><div class="checker"></div>
-                            <span class="bold-text">Supply Chain Engineering and Supply Network Planning</span>: Holistic planning and optimization of your Supply Chain
-                        </label>
-                    </li>
-                </ul>
-                <p class="bold-text">Modern optimization algorithms for operational IT systems:</p>
-                <ul class="checkbox-holder">
-                    <li class="form-check">
-                        <input id="moa-1" type="checkbox" name="moa-1" value="Advanced Slotting">
-                        <label for="moa-1"><div class="checker"></div>Advanced Slotting</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="moa-2" type="checkbox" name="moa-2" value="Optimized tour building">
-                        <label for="moa-2"><div class="checker"></div>Optimized tour building</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="moa-3" type="checkbox" name="moa-3" value="Capacity and workforce planning">
-                        <label for="moa-3"><div class="checker"></div>Capacity and workforce planning</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="moa-4" type="checkbox" name="moa-4" value="3D cubing (case pack)">
-                        <label for="moa-4"><div class="checker"></div>3D cubing (case pack)</label>
-                    </li>
-                </ul>
-                <p class="bold-text">Digital twin, logistics planning and process optimization:</p>
-                <ul class="checkbox-holder">
-                    <li class="form-check">
-                        <input id="dt-1" type="checkbox" name="digitalTwinForPlanning-1" value="Digital Twin for planning new facilities and simulation of layout and process changes">
-                        <label for="dt-1"><div class="checker"></div>Digital Twin for planning new facilities and simulation of layout and process changes</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="dt-2" type="checkbox" name="digitalTwinForPlanning-2" value="Digital Twin for optimization of running operations">
-                        <label for="dt-2"><div class="checker"></div>Digital Twin for optimization of running operations</label>
-                    </li>
-                </ul>
-                <p class="bold-text">Scanner-free logistics based on Artificial Intelligence (AI):</p>
-                <ul class="checkbox-holder">
-                    <li class="form-check">
-                        <input id="ai-1" type="checkbox" name="scannerFreeLogistics-1" value="Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed">
-                        <label for="ai-1"><div class="checker"></div>Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="ai-2" type="checkbox" name="scannerFreeLogistics-2" value="Management, optimization and control of the packing process">
-                        <label for="ai-2"><div class="checker"></div>Management, optimization and control of the packing process</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="ai-3" type="checkbox" name="scannerFreeLogistics-3" value="Master data acquisition using AI">
-                        <label for="ai-3"><div class="checker"></div>Master data acquisition using AI</label>
-                    </li>
-                </ul>
-                <p class="bold-text">W2MO RTL&RS (Real Time Location & Recognition System):</p>
-                <ul class="checkbox-holder">
-                    <li class="form-check">
-                        <input id="rtl-rs-1" type="checkbox" name="w2moRTLRS-1" value="Tracking for all types of movements in a warehouse (goods, forklifts, people, ...)">
-                        <label for="rtl-rs-1"><div class="checker"></div>Tracking for all types of movements in a warehouse (goods, forklifts, people, ...)</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="rtl-rs-2" type="checkbox" name="w2moRTLRS-2" value="Automatic Booking into WMS">
-                        <label for="rtl-rs-2"><div class="checker"></div>Automatic Booking into WMS</label>
-                    </li>
-                    <li class="form-check">
-                        <input id="rtl-rs-3" type="checkbox" name="w2moRTLRS-3" value="Intelligent fleet management of the forklift and AGV fleet">
-                        <label for="rtl-rs-3"><div class="checker"></div>
-                            <span class="bold-text">Intelligent fleet management of the forklift and AGV fleet</span>
-                        </label>
-                    </li>
-                    <li class="form-check">
-                        <input id="rtl-rs-4" type="checkbox" name="w2moRTLRS-4" value="Autonomous floor-to-floor transport robot developed and manufactured by Pixel Robotics">
-                        <label for="rtl-rs-4"><div class="checker"></div>
-                            <span class="bold-text">Autonomous floor-to-floor transport robot </span>
-                            developed and manufactured by Pixel Robotics
-                        </label>
-                    </li>
-                </ul>
-                <ul class="discuss-input radio-holder">
-                    <p class="bold-text">I already have a specific use case that I would like to discuss *</p>
-                    <li class="yes form-check">
-                        <input class="form-check-input required" id="scf-1" type="radio" name="specificCase" value="Yes"
-                            onclick="(() => {
-                              document.getElementById('specific-cases-form').removeAttribute('hidden');
-                              document.getElementById('specific-cases-form').setAttribute('required', true);
-                            })()"
-                        />
-                        <label class="form-check-label" for="scf-1"><div class="checker"></div>Yes</label>
-                    </li>
-                    <li class="form-check">
-                        <input class="form-check-input required" id="scf-2" type="radio" name="specificCase" value="No"
-                            onclick="(() => {
-                              document.getElementById('specific-cases-form').setAttribute('hidden', true);
-                              document.getElementById('specific-cases-form').removeAttribute('required');
-                            })()"
-                        />
-                        <label class="form-check-label" for="scf-2"><div class="checker"></div>No</label>
-                    </li>
-                </ul>
-                <textarea id="specific-cases-form" class="form-control" rows="3" name="specificCases" placeholder="Please describe your use case" hidden></textarea>
-                <p class="text-under-radio-input">
-                    We will gladly inform you about our innovative solution portfolio and discuss how we can
-                    support your current logistics tasks. Feel free to contact our experts for a discussion
-                    and set up a date.
-                </p>
+<!--                <p class="bold-text">Modern optimization algorithms for operational IT systems:</p>-->
+<!--                <ul class="checkbox-holder">-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="moa-1" type="checkbox" name="moa-1" value="Advanced Slotting">-->
+<!--                        <label for="moa-1"><div class="checker"></div>Advanced Slotting</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="moa-2" type="checkbox" name="moa-2" value="Optimized tour building">-->
+<!--                        <label for="moa-2"><div class="checker"></div>Optimized tour building</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="moa-3" type="checkbox" name="moa-3" value="Capacity and workforce planning">-->
+<!--                        <label for="moa-3"><div class="checker"></div>Capacity and workforce planning</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="moa-4" type="checkbox" name="moa-4" value="3D cubing (case pack)">-->
+<!--                        <label for="moa-4"><div class="checker"></div>3D cubing (case pack)</label>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                <p class="bold-text">Digital twin, logistics planning and process optimization:</p>-->
+<!--                <ul class="checkbox-holder">-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="dt-1" type="checkbox" name="digitalTwinForPlanning-1" value="Digital Twin for planning new facilities and simulation of layout and process changes">-->
+<!--                        <label for="dt-1"><div class="checker"></div>Digital Twin for planning new facilities and simulation of layout and process changes</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="dt-2" type="checkbox" name="digitalTwinForPlanning-2" value="Digital Twin for optimization of running operations">-->
+<!--                        <label for="dt-2"><div class="checker"></div>Digital Twin for optimization of running operations</label>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                <p class="bold-text">Scanner-free logistics based on Artificial Intelligence (AI):</p>-->
+<!--                <ul class="checkbox-holder">-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="ai-1" type="checkbox" name="scannerFreeLogistics-1" value="Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed">-->
+<!--                        <label for="ai-1"><div class="checker"></div>Measure and count products, find barcodes and QR-codes and read them, locate and read text – no manual scanning needed</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="ai-2" type="checkbox" name="scannerFreeLogistics-2" value="Management, optimization and control of the packing process">-->
+<!--                        <label for="ai-2"><div class="checker"></div>Management, optimization and control of the packing process</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="ai-3" type="checkbox" name="scannerFreeLogistics-3" value="Master data acquisition using AI">-->
+<!--                        <label for="ai-3"><div class="checker"></div>Master data acquisition using AI</label>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                <p class="bold-text">W2MO RTL&RS (Real Time Location & Recognition System):</p>-->
+<!--                <ul class="checkbox-holder">-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="rtl-rs-1" type="checkbox" name="w2moRTLRS-1" value="Tracking for all types of movements in a warehouse (goods, forklifts, people, ...)">-->
+<!--                        <label for="rtl-rs-1"><div class="checker"></div>Tracking for all types of movements in a warehouse (goods, forklifts, people, ...)</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="rtl-rs-2" type="checkbox" name="w2moRTLRS-2" value="Automatic Booking into WMS">-->
+<!--                        <label for="rtl-rs-2"><div class="checker"></div>Automatic Booking into WMS</label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="rtl-rs-3" type="checkbox" name="w2moRTLRS-3" value="Intelligent fleet management of the forklift and AGV fleet">-->
+<!--                        <label for="rtl-rs-3"><div class="checker"></div>-->
+<!--                            <span class="bold-text">Intelligent fleet management of the forklift and AGV fleet</span>-->
+<!--                        </label>-->
+<!--                    </li>-->
+<!--                    <li class="form-check">-->
+<!--                        <input id="rtl-rs-4" type="checkbox" name="w2moRTLRS-4" value="Autonomous floor-to-floor transport robot developed and manufactured by Pixel Robotics">-->
+<!--                        <label for="rtl-rs-4"><div class="checker"></div>-->
+<!--                            <span class="bold-text">Autonomous floor-to-floor transport robot </span>-->
+<!--                            developed and manufactured by Pixel Robotics-->
+<!--                        </label>-->
+<!--                    </li>-->
+<!--                </ul>-->
+
                 <p class="bold-text">I want an appointment at the Logimat *</p>
                 <ul class="radio-holder">
                     <li class="form-check">
