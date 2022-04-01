@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from "@nestjs/common";
 import MailDataDto from './mail-dto/mail.data.dto';
 import { HttpService } from '@nestjs/axios';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
@@ -7,6 +7,8 @@ import { SMTPClient } from 'emailjs';
 import * as ejs from 'ejs';
 import * as path from 'path';
 import { MessageHeaders } from 'emailjs/smtp/message';
+import { WINSTON_MODULE_NEST_PROVIDER } from "nest-winston";
+import { LoggerService } from "../infrastructure/logger/logger.service";
 
 @Injectable()
 export class MailService {
@@ -14,12 +16,13 @@ export class MailService {
   constructor(
     private readonly httpService: HttpService,
     private readonly config: EnvironmentConfigService,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
   ) {
     this.mailClient = new SMTPClient({
       user: this.config.getMailUser(),
       password: this.config.getMailPassword(),
       host: this.config.getMailHost(),
-      port: this.config.getMailPort(),
+      port: 587,
       ssl: false,
       logger: (...args) => {
         console.log('args', args);
@@ -61,8 +64,8 @@ export class MailService {
           },
         );
         return [resultToServer, resultToClient];
-      } catch (error) {
-        console.log('error', error);
+      } catch (err) {
+        console.log('error', err);
       }
     }
   }
@@ -87,12 +90,17 @@ export class MailService {
     templateData: { [key: string]: string },
     configParameters: { to: string; subject: string; cc?: string },
   ) {
+    console.log(__dirname);
+    const templatesPath = process.env.NODE_ENV !== 'local'
+      ? path.resolve(`../mail/templates/${templateName}`)
+      : path.resolve(`src/mail/templates/${templateName}`);
+    this.logger.log(templatesPath, 'templatesPath');
     return new Promise((resolve, reject) => {
       ejs.renderFile(
-        path.resolve(`src/mail/templates/${templateName}`),
+        templatesPath,
         templateData,
         (err, template) => {
-          console.log('renderFile error: ', err);
+          this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
           const mailConfig: MessageHeaders = Object.assign(
             {
               from: 'PixelRobotics<info@pixel-robotics.eu>',
@@ -106,10 +114,11 @@ export class MailService {
             configParameters,
           );
           if (!err && template) {
-            this.mailClient.send(mailConfig, (err, message) => {
-              if (err) {
-                console.log('mailClient err: ', err);
-                reject(err);
+            this.mailClient.send(mailConfig, (error, message) => {
+              if (error) {
+                this.logger.error(error.message, error.name, error.stack);
+                console.log('mailClient err: ', error);
+                reject(error);
               }
               if (message) {
                 resolve(message);

@@ -20,20 +20,22 @@ export class AdminService {
       }
       return s;
     };
-    return items.map((item, index) => {
-      const { name, version } = parse(item.userAgent);
-      const { isp } = JSON.parse(item.providerDetail);
-      const date = new Date(item.dateTime);
-      const parsedData = `${date.getFullYear()}-${padZero2(date.getMonth() + 1)}-${padZero2(date.getDay())}
-                ${padZero2(date.getHours())}:${padZero2(date.getMinutes())}:${padZero2(date.getSeconds())}`;
-      return {
-        ...item,
-        provider: isp || 'Provider not found',
-        browser: `${name} ${version}`,
-        dateTime: parsedData,
-        itemNumber:
-          index + 1 + parseInt(meta.itemsPerPage) * (meta.currentPage - 1),
-      };
-    });
+    return items
+      .sort((itemA, itemB) => ((new Date(itemB.dateTime)).getTime() - (new Date(itemA.dateTime)).getTime()))
+      .map((item, index) => {
+        const { name, version } = parse(item.userAgent);
+        const { isp } = JSON.parse(item.providerDetail);
+        const date = new Date(item.dateTime);
+        const parsedData = `${date.getFullYear()}-${padZero2(date.getMonth() + 1)}-${padZero2(date.getDate())}
+                  ${padZero2(date.getHours())}:${padZero2(date.getMinutes())}:${padZero2(date.getSeconds())}`;
+        return {
+          ...item,
+          provider: isp || 'Provider not found',
+          browser: `${name} ${version}`,
+          dateTime: parsedData,
+          itemNumber:
+            index + 1 + parseInt(meta.itemsPerPage) * (meta.currentPage - 1),
+        };
+      });
   }
 }
