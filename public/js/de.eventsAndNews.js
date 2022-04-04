@@ -11,7 +11,7 @@ const template = `<div class="col-md-4 col-12 event-container <%= type %>" data-
     </div>
     <div class="info-holder">
         <% if (isUpcomingEvent) { %>
-            <p class="sub-title">Upcoming Event</p>
+            <p class="sub-title">kommende Events</p>
         <% } %>
         <p class="title"><%= title %></p>
         <% if (eventPlace) { %>
@@ -64,14 +64,14 @@ $(document).ready(async () => {
         [...eventsBlocks].forEach((block) => showHideElement(block, false));
         showHideElement(showLatestNewsBtn, false);
         showHideElement([showLatestNewsAndEventsBtn, showLatestEventBtn], true);
-        changePageTitle('Latest News');
+        changePageTitle('Aktuelle News');
     });
     showLatestEventBtn.addEventListener('click', () => {
         [...newsBlocks].forEach((block) => showHideElement(block, false));
         [...eventsBlocks].forEach((block) => showHideElement(block, true));
         showHideElement(showLatestEventBtn, false);
         showHideElement([showLatestNewsAndEventsBtn, showLatestNewsBtn], true);
-        changePageTitle('Upcoming Events');
+        changePageTitle('kommende Events');
     });
     showLatestNewsAndEventsBtn.addEventListener('click', () => {
         [...newsBlocks].forEach((block) => showHideElement(block, true));
