@@ -27,7 +27,7 @@ function combineData(data) {
         acc[splitKey] = Array.isArray(acc[splitKey]) ? [...acc[splitKey], field] : [field];
         return acc;
       }
-      return {...acc, [splitKey]: field};
+      return {...acc, [splitKey]: [field]};
     }
     return acc;
   }, {});
