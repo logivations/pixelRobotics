@@ -49,10 +49,10 @@ export class MailService {
           'mailToPixelInfoTemplate.ejs',
           { name, email, message, iWantToTalkWith },
           {
-            to: 'volodymyr.boichuk@logivations.com',
+            to: 'christina.kiselova@pixel-robotics.eu',
             subject: 'Kontakt | Pixel Robotics',
-            cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
-            bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
+            cc: ['christina.kiselova@pixel-robotics.eu'],
+            bcc: ['christina.kiselova@pixel-robotics.eu'],
           },
         );
         const resultToClient = await this.sendMailWithTemplate(
@@ -78,10 +78,10 @@ export class MailService {
       mailData,
     } = subscribeData;
     return await this.sendMailWithTemplate(emailTemplate, {...mailData, lang}, {
-      to: mailTo || 'rilhad1@gmail.com',
+      to: mailTo || 'christina.kiselova@pixel-robotics.eu',
       subject: subject || 'Event subscription',
-      cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
-      bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
+      cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
+      bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
     });
   }
 
