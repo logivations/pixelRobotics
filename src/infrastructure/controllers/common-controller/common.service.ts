@@ -16,9 +16,7 @@ export class CommonService {
           ...newsObj,
           title,
           templateName,
-          eventTime: null,
           eventDate: null,
-          eventPlace: null,
           type: 'news',
         };
       })
@@ -30,7 +28,8 @@ export class CommonService {
       .map((newsObj) => {
         const title = newsObj.title[lang];
         const templateName = newsObj.templateName[lang];
-        return { ...newsObj, title, templateName, type: 'event' };
+        const eventTime = newsObj.eventTime[lang];
+        return { ...newsObj, title, templateName, eventTime, type: 'event' };
       })
       .sort((itemA, itemB) => sortByDate(itemA.createdAt, itemB.createdAt));
   }

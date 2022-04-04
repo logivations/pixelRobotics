@@ -44,15 +44,14 @@ $(document).ready(async () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // const html = data.reduce((templates, item) => {
-      //   const isUpcomingEvent = item.eventDate && (new Date(item.eventDate)).getTime() > Date.now();
-      //   const html = ejs.render(template, {...item, isUpcomingEvent});
-      //   return templates + html;
-      // }, '');
-      // const domParser = new DOMParser();
-      // const doc = domParser.parseFromString(html, 'text/html');
-      // [...doc.body.children].forEach((node) => eventsContainer.appendChild(node));
-      eventsContainer.innerHTML = '<h5>Coming soon</h5>';
+      const html = data.reduce((templates, item) => {
+        const isUpcomingEvent = item.eventDate && (new Date(item.eventDate)).getTime() > Date.now();
+        const html = ejs.render(template, {...item, isUpcomingEvent});
+        return templates + html;
+      }, '');
+      const domParser = new DOMParser();
+      const doc = domParser.parseFromString(html, 'text/html');
+      [...doc.body.children].forEach((node) => eventsContainer.appendChild(node));
   });
 
   const showLatestNewsAndEventsBtn = document.getElementById('latest-news-and-events');

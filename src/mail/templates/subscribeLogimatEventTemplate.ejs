@@ -1,43 +1,26 @@
-<p><b>Name:</b> <%= locals.name %></p>
-<p><b>Email:</b> <%= locals.email %></p>
-<p><b>Company:</b> <%= locals.company %></p>
-<p><b>Phone:</b> <%= locals.phone %></p>
+<p><b><% if (locals.lang === 'EN_en') { %>Name:<% } else { %>Name:<% } %> </b> <%= locals.name %></p>
+<p><b><% if (locals.lang === 'EN_en') { %>Email:<% } else { %>Email:<% } %> </b> <%= locals.email %></p>
+<p><b><% if (locals.lang === 'EN_en') { %>Company:<% } else { %>Unternehmen:<% } %> </b> <%= locals.company %></p>
+<p><b><% if (locals.lang === 'EN_en') { %>Job Title:<% } else {%>Funktion:<% } %> </b> <%= locals.jobTitle %></p>
+<p><b><% if (locals.lang === 'EN_en') { %>Phone:<% } else { %>Telefon:<% } %> </b> <%= locals.phone %></p>
 
 <% if (locals.topicsOfInterest) {%>
-    <p><b>Topics of interest: </b></p>
-    <span style="margin-left: 10px;"><%= locals.topicsOfInterest %></span>
-<% } %>
-<% if (locals.moa && locals.moa.length) {%>
-    <p><b>Modern optimization algorithms for operational IT systems: </b></p>
-    <% locals.moa.forEach(function(elem){ %>
-        <span style="margin-left: 10px;"><%= elem %></span><br>
-    <% }); %>
-<% } %>
-<% if (locals.digitalTwinForPlanning && locals.digitalTwinForPlanning.length) {%>
-    <p><b>Digital twin, logistics planning and process optimization: </b></p>
-    <% locals.digitalTwinForPlanning.forEach(function(elem){ %>
-        <span style="margin-left: 10px;"><%= elem %></span><br>
-    <% }); %>
-<% } %>
-<% if (locals.scannerFreeLogistics && locals.scannerFreeLogistics.length) {%>
-    <p><b>Scanner-free logistics based on Artificial Intelligence (AI): </b></p>
-    <% locals.scannerFreeLogistics.forEach(function(elem){ %>
-        <span style="margin-left: 10px;"><%= elem %></span><br>
-    <% }); %>
-<% } %>
-<% if (locals.w2moRTLRS && locals.w2moRTLRS.length) {%>
-    <p><b>W2MO RTL&RS (Real Time Location & Recognition System): </b></p>
-    <% locals.w2moRTLRS.forEach(function(elem){ %>
+    <p><b><% if (locals.lang === 'EN_en') { %>Topics of interest:<% } else { %>Interessen/Themen:<% } %></b></p>
+    <% locals.topicsOfInterest.forEach(function(elem){ %>
         <span style="margin-left: 10px;"><%= elem %></span><br>
     <% }); %>
 <% } %>
 <% if (locals.specificCase) {%>
-    <p><b>I already have a specific use case that I would like to discuss: </b><%= locals.specificCase %></p>
+    <p><b><% if (locals.lang === 'EN_en') { %>I already have a specific use case that I would like to discuss:<% } else { %>Ich habe bereits einen konkreten Anwendungsfall den ich besprechen möchte:<% } %></b><%= locals.specificCase %></p>
     <% if (locals.specificCases) { %>
         <span style="margin-left: 10px;"><%= locals.specificCases %></span><br>
     <% } %>
 <% } %>
+<% if (locals.logimatAppointment) { %>
+    <p><b><% if (locals.lang === 'EN_en') { %>I want an appointment at the Logimat:<% } else { %>Ich möchte einen Termin auf der Logimat:<% } %></b></p>
+    <span style="margin-left: 10px;"><%= locals.logimatAppointment %></span><br>
+<% } %>
 <% if (locals.remarks) { %>
-    <p><b>At the following time: (You can also use this box for comments / further topics):</b></p>
+    <p><b><% if (locals.lang === 'EN_en') { %>At the following time: (You can also use this box for comments / further topics):<% } else { %>Zur folgenden Uhrzeit: (Sie können die Box auch für Kommentare / weitere Themen verwenden):<% } %></b></p>
     <span style="margin-left: 10px;"><%= locals.remarks %></span><br>
 <% } %>

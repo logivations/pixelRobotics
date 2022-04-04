@@ -1,6 +1,8 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Req } from "@nestjs/common";
 import { MailService } from './mail.service';
 import { SentMessageInfo } from 'nodemailer';
+import { getLangFromCookie } from "../infrastructure/utils";
+import { FastifyRequest } from "fastify";
 
 @Controller('api/mail')
 export class MailController {
@@ -12,7 +14,8 @@ export class MailController {
   }
 
   @Post('subscribeEvent')
-  async subscribeEvent(@Body() subscriberData: any): Promise<SentMessageInfo> {
-    return this.mailService.subscribeToEvent(JSON.parse(subscriberData));
+  async subscribeEvent(@Req() request: FastifyRequest, @Body() subscriberData: any): Promise<SentMessageInfo> {
+    const lang = getLangFromCookie(request);
+    return this.mailService.subscribeToEvent(JSON.parse(subscriberData), lang);
   }
 }
