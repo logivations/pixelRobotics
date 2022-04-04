@@ -7,12 +7,15 @@
         "DE_de": "Terminvereinbarung LogiMAT 2022"
       },
       "posterURL": "/images/newsAndEvents/logimat-2022.jpg",
-      "eventTime": "31 May - 2 June 2022 | 9:00 – 17:00",
+      "eventTime": {
+        "EN_en": "31 May - 2 June 2022 | 9:00 – 17:00",
+        "DE_de": "31. Mai - 02. Juni 2022"
+      },
       "eventDate": "05.30.2022",
       "eventPlace": "Stuttgart Trade Fair Centre",
       "extraInfo": {
         "EN_en": "Hall 8, Booth F05",
-        "DE_de": "(Dauer ca. 40 min | Sprache: Deutsch)"
+        "DE_de": "(Messe Stuttgart | Halle 8, Standnummer F05)"
       },
       "createdAt": "28.02.2022",
       "templateName": {
