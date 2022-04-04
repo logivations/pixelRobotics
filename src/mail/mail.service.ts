@@ -72,12 +72,12 @@ export class MailService {
 
   public async subscribeToEvent(subscribeData: {
     [key: string]: any;
-  }): Promise<any> {
+  }, lang: string): Promise<any> {
     const {
       sendMailDetail: { mailTo, subject, emailTemplate },
       mailData,
     } = subscribeData;
-    return await this.sendMailWithTemplate(emailTemplate, mailData, {
+    return await this.sendMailWithTemplate(emailTemplate, {...mailData, lang}, {
       to: mailTo || 'volodymyr.boichuk@logivations.com',
       subject: subject || 'Event subscription',
       cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>',
@@ -90,7 +90,6 @@ export class MailService {
     templateData: { [key: string]: string },
     configParameters: { to: string; subject: string; cc?: string },
   ) {
-    console.log(__dirname);
     const templatesPath = process.env.NODE_ENV !== 'local'
       ? path.resolve(`../mail/templates/${templateName}`)
       : path.resolve(`src/mail/templates/${templateName}`);
