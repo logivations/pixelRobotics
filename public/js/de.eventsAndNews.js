@@ -71,7 +71,7 @@ $(document).ready(async () => {
         [...eventsBlocks].forEach((block) => showHideElement(block, true));
         showHideElement(showLatestEventBtn, false);
         showHideElement([showLatestNewsAndEventsBtn, showLatestNewsBtn], true);
-        changePageTitle('kommende Events');
+        changePageTitle('Kommende Events');
     });
     showLatestNewsAndEventsBtn.addEventListener('click', () => {
         [...newsBlocks].forEach((block) => showHideElement(block, true));

@@ -19,9 +19,9 @@ export class MailService {
     @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
   ) {
     this.mailClient = new SMTPClient({
-      user: this.config.getMailUser(),
-      password: this.config.getMailPassword(),
-      host: this.config.getMailHost(),
+      user: 'wp1169253-w2motest',
+      password: '13.test.T.79',
+      host: 'wp1169253.mailout.server-he.de',
       port: 587,
       ssl: false,
       logger: (...args) => {
@@ -49,7 +49,7 @@ export class MailService {
           'mailToPixelInfoTemplate.ejs',
           { name, email, message, iWantToTalkWith },
           {
-            to: 'christina.kiselova@pixel-robotics.eu',
+            to: 'volodymyr.boichuk@logivations.com',
             subject: 'Kontakt | Pixel Robotics',
             cc: ['christina.kiselova@pixel-robotics.eu'],
             bcc: ['christina.kiselova@pixel-robotics.eu'],
@@ -78,7 +78,7 @@ export class MailService {
       mailData,
     } = subscribeData;
     return await this.sendMailWithTemplate(emailTemplate, {...mailData, lang}, {
-      to: mailTo || 'christina.kiselova@pixel-robotics.eu',
+      to: mailTo || 'volodymyr.boichuk@logivations.com',
       subject: subject || 'Event subscription',
       cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
       bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
