@@ -51,8 +51,8 @@ export class MailService {
           {
             to: 'volodymyr.boichuk@logivations.com',
             subject: 'Kontakt | Pixel Robotics',
-            cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>',
-            // cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
+            cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
+            bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
           },
         );
         const resultToClient = await this.sendMailWithTemplate(
@@ -78,17 +78,17 @@ export class MailService {
       mailData,
     } = subscribeData;
     return await this.sendMailWithTemplate(emailTemplate, {...mailData, lang}, {
-      to: mailTo || 'volodymyr.boichuk@logivations.com',
+      to: mailTo || 'rilhad1@gmail.com',
       subject: subject || 'Event subscription',
-      // cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>',
-      cc: ['rilhad1@gmail.com', 'christina.kiselova@pixel-robotics.eu']
+      cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
+      bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
     });
   }
 
   private sendMailWithTemplate(
     templateName: string,
     templateData: { [key: string]: string },
-    configParameters: { to: string; subject: string; cc?: string | string[] },
+    configParameters: { to: string; subject: string; cc?: string | string[], bcc?: string | string[] },
   ) {
     const templatesPath = process.env.NODE_ENV !== 'local'
       ? path.resolve(`../mail/templates/${templateName}`)
