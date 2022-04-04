@@ -11,7 +11,7 @@
     <% }); %>
 <% } %>
 <% if (locals.specificCase) {%>
-    <p><b><% if (locals.lang === 'EN_en') { %>I already have a specific use case that I would like to discuss:<% } else { %>Ich habe bereits einen konkreten Anwendungsfall den ich besprechen möchte:<% } %></b><%= locals.specificCase %></p>
+    <p><b><% if (locals.lang === 'EN_en') { %>I already have a specific use case that I would like to discuss: <% } else { %>Ich habe bereits einen konkreten Anwendungsfall den ich besprechen möchte: <% } %></b><%= locals.specificCase %></p>
     <% if (locals.specificCases) { %>
         <span style="margin-left: 10px;"><%= locals.specificCases %></span><br>
     <% } %>

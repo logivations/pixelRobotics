@@ -80,15 +80,15 @@ export class MailService {
     return await this.sendMailWithTemplate(emailTemplate, {...mailData, lang}, {
       to: mailTo || 'volodymyr.boichuk@logivations.com',
       subject: subject || 'Event subscription',
-      cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>',
-      // cc: 'Volodymyr <volodymyr.boichuk@logivations.com>'
+      // cc: 'Сhristina <christina.kiselova@pixel-robotics.eu>',
+      cc: ['rilhad1@gmail.com', 'christina.kiselova@pixel-robotics.eu']
     });
   }
 
   private sendMailWithTemplate(
     templateName: string,
     templateData: { [key: string]: string },
-    configParameters: { to: string; subject: string; cc?: string },
+    configParameters: { to: string; subject: string; cc?: string | string[] },
   ) {
     const templatesPath = process.env.NODE_ENV !== 'local'
       ? path.resolve(`../mail/templates/${templateName}`)
