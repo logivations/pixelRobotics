@@ -28,7 +28,7 @@ export class MailService {
   private static createSMTPClient(): SMTPClient {
     return new SMTPClient({
       user: 'info@pixelrobotics.eu',
-      password: '3s&3h4R&A6Lu@rsf',
+      password: '134679vV!',
       host: 'pixelrobotics.eu',
       port: 465,
       ssl: true,
@@ -47,7 +47,7 @@ export class MailService {
         auth: {
           type: 'LOGIN',
           user: 'info@pixelrobotics.eu',
-          pass: '3s&3h4R&A6Lu@rsf'
+          pass: '134679vV!'
         },
         transactionLog: true // include SMTP traffic in the logs
       },
