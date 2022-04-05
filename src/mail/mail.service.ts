@@ -9,7 +9,7 @@ import * as path from 'path';
 import { MessageHeaders } from 'emailjs/smtp/message';
 import { WINSTON_MODULE_NEST_PROVIDER } from "nest-winston";
 import { LoggerService } from "../infrastructure/logger/logger.service";
-import nodemailer, { Transporter } from "nodemailer";
+import { Transporter, createTransport, getTestMessageUrl } from "nodemailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 @Injectable()
@@ -39,7 +39,7 @@ export class MailService {
   }
 
   private static createNodeMailerTransporter(): Transporter<SMTPTransport.SentMessageInfo> {
-    return nodemailer.createTransport(
+    return createTransport(
       {
         host: "mail.test.pixel-robotics.com",
         port: 587,
@@ -101,9 +101,7 @@ export class MailService {
     }
   }
 
-  public async subscribeToEvent(subscribeData: {
-    [key: string]: any;
-  }, lang: string): Promise<any> {
+  public async subscribeToEvent(subscribeData: { [key: string]: any }, lang: string): Promise<any> {
     const {
       sendMailDetail: { mailTo, subject, emailTemplate },
       mailData,
@@ -125,16 +123,16 @@ export class MailService {
     this.nodeMailerTransporter.sendMail(mailConfig, (error, info) => {
       if (error) {
         console.log('Error occurred');
-        console.log(error.message);
+        this.logger.error(error.message, 'Error occurred: ');
         reject(error.message);
       }
 
-      console.log('Message sent successfully!');
-      console.log(nodemailer.getTestMessageUrl(info));
+      const messageUrl = getTestMessageUrl(info);
+      if (messageUrl) {
+        this.logger.log(messageUrl, 'Message sent successfully!: ');
+      }
 
-      // only needed when using pooled connections
-      // this.nodeMailerTransporter.close();
-      resolve(nodemailer.getTestMessageUrl(info));
+      resolve(getTestMessageUrl(info));
     });
   }
 
