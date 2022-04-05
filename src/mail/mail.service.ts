@@ -27,9 +27,9 @@ export class MailService {
 
   private static createSMTPClient(): SMTPClient {
     return new SMTPClient({
-      user: 'info@test.pixel-robotics.com',
-      password: 'k8%9G7cDYHK4RAgp',
-      host: 'test.pixel-robotics.com',
+      user: 'info@pixelrobotics.eu',
+      password: '3s&3h4R&A6Lu@rsf',
+      host: 'pixelrobotics.eu',
       port: 465,
       ssl: true,
       logger: (...args) => {
@@ -41,13 +41,13 @@ export class MailService {
   private static createNodeMailerTransporter(): Transporter<SMTPTransport.SentMessageInfo> {
     return createTransport(
       {
-        host: "test.pixel-robotics.com",
+        host: "pixelrobotics.eu",
         port: 465,
         secure: true,
         auth: {
           type: 'LOGIN',
-          user: '_mainaccount@test.pixel-robotics.com',
-          pass: 'k8%9G7cDYHK4RAgp'
+          user: 'info@pixelrobotics.eu',
+          pass: '3s&3h4R&A6Lu@rsf'
         },
         transactionLog: true // include SMTP traffic in the logs
       },
