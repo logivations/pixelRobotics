@@ -29,9 +29,9 @@ export class MailService {
     return new SMTPClient({
       user: 'info@test.pixel-robotics.com',
       password: 'k8%9G7cDYHK4RAgp',
-      host: 'mail.test.pixel-robotics.com',
-      port: 587,
-      ssl: false,
+      host: 'test.pixel-robotics.com',
+      port: 465,
+      ssl: true,
       logger: (...args) => {
         console.log('args', args);
       },
@@ -41,12 +41,12 @@ export class MailService {
   private static createNodeMailerTransporter(): Transporter<SMTPTransport.SentMessageInfo> {
     return createTransport(
       {
-        host: "mail.test.pixel-robotics.com",
-        port: 587,
-        secure: false,
+        host: "test.pixel-robotics.com",
+        port: 465,
+        secure: true,
         auth: {
           type: 'LOGIN',
-          user: 'info@test.pixel-robotics.com',
+          user: '_mainaccount@test.pixel-robotics.com',
           pass: 'k8%9G7cDYHK4RAgp'
         },
         transactionLog: true // include SMTP traffic in the logs
@@ -121,20 +121,20 @@ export class MailService {
       to: configParameters.to,
       subject: configParameters.subject,
       html: template,
+      cc: configParameters.cc,
+      bcc: configParameters.bcc,
     };
+    console.log("mailConfig", mailConfig);
     this.nodeMailerTransporter.sendMail(mailConfig, (error, info) => {
+      console.log("error, info", error, info);
       if (error) {
-        console.log('Error occurred');
+        console.log('Error occurred:', error.message);
         this.logger.error(error.message, 'Error occurred: ');
         reject(error.message);
       }
 
-      const messageUrl = getTestMessageUrl(info);
-      if (messageUrl) {
-        this.logger.log(messageUrl, 'Message sent successfully!: ');
-      }
-
-      resolve(getTestMessageUrl(info));
+      this.logger.log(JSON.stringify(info), 'Message sent successfully!: ');
+      resolve(info);
     });
   }
 
@@ -179,6 +179,7 @@ export class MailService {
         templateData,
         (err, template) => {
           this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
+          console.log("err, template", err, template);
           if (!err && template) {
             if (iWantToTalkWith === 'Vertriebsmitarbeiter') {
               this.sendMailViaNodeMailer(template, configParameters, resolve, reject);
