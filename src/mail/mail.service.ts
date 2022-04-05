@@ -9,16 +9,24 @@ import * as path from 'path';
 import { MessageHeaders } from 'emailjs/smtp/message';
 import { WINSTON_MODULE_NEST_PROVIDER } from "nest-winston";
 import { LoggerService } from "../infrastructure/logger/logger.service";
+import nodemailer, { Transporter } from "nodemailer";
+import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 @Injectable()
 export class MailService {
   private mailClient: SMTPClient;
+  private nodeMailerTransporter: Transporter<SMTPTransport.SentMessageInfo>;
   constructor(
     private readonly httpService: HttpService,
     private readonly config: EnvironmentConfigService,
     @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
   ) {
-    this.mailClient = new SMTPClient({
+    this.mailClient = MailService.createSMTPClient();
+    this.nodeMailerTransporter = MailService.createNodeMailerTransporter();
+  }
+
+  private static createSMTPClient(): SMTPClient {
+    return new SMTPClient({
       user: 'wp1169253-w2motest',
       password: '13.test.T.79',
       host: 'wp1169253.mailout.server-he.de',
@@ -28,6 +36,29 @@ export class MailService {
         console.log('args', args);
       },
     });
+  }
+
+  private static createNodeMailerTransporter(): Transporter<SMTPTransport.SentMessageInfo> {
+    return nodemailer.createTransport(
+      {
+        host: "mail.test.pixel-robotics.com",
+        port: 587,
+        secure: false,
+        auth: {
+          type: 'LOGIN',
+          user: 'info@test.pixel-robotics.com',
+          pass: 'k8%9G7cDYHK4RAgp'
+        },
+        transactionLog: true // include SMTP traffic in the logs
+      },
+      {
+        from: 'PixelRobotics <info@pixel-robotics.eu>',
+        headers: {
+          'Mime-Version': '1.0',
+          'Content-Type': 'text/plain;charset=UTF-8',
+        }
+      }
+    );
   }
 
   async sendMail(mailData: MailDataDto): Promise<any> {
@@ -85,6 +116,52 @@ export class MailService {
     });
   }
 
+  private sendMailViaNodeMailer(template, configParameters, resolve, reject) {
+    const mailConfig = {
+      to: configParameters.to,
+      subject: configParameters.subject,
+      html: template,
+    };
+    this.nodeMailerTransporter.sendMail(mailConfig, (error, info) => {
+      if (error) {
+        console.log('Error occurred');
+        console.log(error.message);
+        reject(error.message);
+      }
+
+      console.log('Message sent successfully!');
+      console.log(nodemailer.getTestMessageUrl(info));
+
+      // only needed when using pooled connections
+      // this.nodeMailerTransporter.close();
+      resolve(nodemailer.getTestMessageUrl(info));
+    });
+  }
+
+  private sendMailViaEmailJs(template, configParameters, resolve, reject) {
+    const mailConfig: MessageHeaders = Object.assign(
+      {
+        from: 'PixelRobotics<info@pixel-robotics.eu>',
+        attachment: [{ data: template, alternative: true }],
+        headers: {
+          'Mime-Version': '1.0',
+          'Content-Type': 'text/plain;charset=UTF-8',
+        },
+        text: null,
+      },
+      configParameters,
+    );
+    this.mailClient.send(mailConfig, (error, message) => {
+      if (error) {
+        this.logger.error(error.message, error.name, error.stack);
+        reject(error);
+      }
+      if (message) {
+        resolve(message);
+      }
+    });
+  }
+
   private sendMailWithTemplate(
     templateName: string,
     templateData: { [key: string]: string },
@@ -101,28 +178,9 @@ export class MailService {
         templateData,
         (err, template) => {
           this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
-          const mailConfig: MessageHeaders = Object.assign(
-            {
-              from: 'PixelRobotics<info@pixel-robotics.eu>',
-              attachment: [{ data: template, alternative: true }],
-              headers: {
-                'Mime-Version': '1.0',
-                'Content-Type': 'text/plain;charset=UTF-8',
-              },
-              text: null,
-            },
-            configParameters,
-          );
           if (!err && template) {
-            this.mailClient.send(mailConfig, (error, message) => {
-              if (error) {
-                this.logger.error(error.message, error.name, error.stack);
-                reject(error);
-              }
-              if (message) {
-                resolve(message);
-              }
-            });
+            this.sendMailViaEmailJs(template, configParameters, resolve, reject);
+            this.sendMailViaNodeMailer(template, configParameters, resolve, reject);
           } else {
             reject(err);
           }
