@@ -80,10 +80,10 @@ export class MailService {
           'mailToPixelInfoTemplate.ejs',
           { name, email, message, iWantToTalkWith },
           {
-            to: 'volodymyr.boichuk@logivations.com',
+            to: 'olena.antonova@pixel-robotics.eu',
             subject: 'Kontakt | Pixel Robotics',
-            cc: ['christina.kiselova@pixel-robotics.eu'],
-            bcc: ['christina.kiselova@pixel-robotics.eu'],
+            cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
+            bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
           },
           iWantToTalkWith
         );
