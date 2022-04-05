@@ -30,7 +30,7 @@ export class MailService {
       user: 'info@pixelrobotics.eu',
       password: '134679vV!',
       host: 'pixelrobotics.eu',
-      port: 587,
+      port: 465,
       ssl: true,
       logger: (...args) => {
         console.log('args', args);
@@ -42,7 +42,7 @@ export class MailService {
     return createTransport(
       {
         host: "pixelrobotics.eu",
-        port: 587,
+        port: 465,
         secure: true,
         auth: {
           type: 'LOGIN',
