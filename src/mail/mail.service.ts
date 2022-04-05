@@ -117,13 +117,14 @@ export class MailService {
             this.mailClient.send(mailConfig, (error, message) => {
               if (error) {
                 this.logger.error(error.message, error.name, error.stack);
-                console.log('mailClient err: ', error);
                 reject(error);
               }
               if (message) {
                 resolve(message);
               }
             });
+          } else {
+            reject(err);
           }
         },
       );
