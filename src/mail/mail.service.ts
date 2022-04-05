@@ -30,7 +30,7 @@ export class MailService {
       user: 'info@pixelrobotics.eu',
       password: '134679vV!',
       host: 'pixelrobotics.eu',
-      port: 465,
+      port: 587,
       ssl: true,
       logger: (...args) => {
         console.log('args', args);
@@ -42,7 +42,7 @@ export class MailService {
     return createTransport(
       {
         host: "pixelrobotics.eu",
-        port: 465,
+        port: 587,
         secure: true,
         auth: {
           type: 'LOGIN',
@@ -181,11 +181,12 @@ export class MailService {
           this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
           console.log("err, template", err, template);
           if (!err && template) {
-            if (iWantToTalkWith === 'Vertriebsmitarbeiter') {
-              this.sendMailViaNodeMailer(template, configParameters, resolve, reject);
-            } else {
-              this.sendMailViaEmailJs(template, configParameters, resolve, reject);
-            }
+            this.sendMailViaNodeMailer(template, configParameters, resolve, reject);
+            // if (iWantToTalkWith === 'Vertriebsmitarbeiter') {
+            //
+            // } else {
+            //   this.sendMailViaEmailJs(template, configParameters, resolve, reject);
+            // }
           } else {
             reject(err);
           }
