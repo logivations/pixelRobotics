@@ -85,6 +85,7 @@ export class MailService {
             cc: ['christina.kiselova@pixel-robotics.eu'],
             bcc: ['christina.kiselova@pixel-robotics.eu'],
           },
+          iWantToTalkWith
         );
         const resultToClient = await this.sendMailWithTemplate(
           'mailToClientTemplate.ejs',
@@ -93,6 +94,7 @@ export class MailService {
             to: email,
             subject: 'Kontakt | Pixel Robotics',
           },
+          iWantToTalkWith
         );
         return [resultToServer, resultToClient];
       } catch (err) {
@@ -164,6 +166,7 @@ export class MailService {
     templateName: string,
     templateData: { [key: string]: string },
     configParameters: { to: string; subject: string; cc?: string | string[], bcc?: string | string[] },
+    iWantToTalkWith?: string
   ) {
     const templatesPath = process.env.NODE_ENV !== 'local'
       ? path.resolve(`../mail/templates/${templateName}`)
@@ -177,8 +180,11 @@ export class MailService {
         (err, template) => {
           this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
           if (!err && template) {
-            this.sendMailViaEmailJs(template, configParameters, resolve, reject);
-            this.sendMailViaNodeMailer(template, configParameters, resolve, reject);
+            if (iWantToTalkWith === 'Vertriebsmitarbeiter') {
+              this.sendMailViaNodeMailer(template, configParameters, resolve, reject);
+            } else {
+              this.sendMailViaEmailJs(template, configParameters, resolve, reject);
+            }
           } else {
             reject(err);
           }
