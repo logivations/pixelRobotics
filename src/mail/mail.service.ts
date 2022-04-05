@@ -27,9 +27,9 @@ export class MailService {
 
   private static createSMTPClient(): SMTPClient {
     return new SMTPClient({
-      user: 'wp1169253-w2motest',
-      password: '13.test.T.79',
-      host: 'wp1169253.mailout.server-he.de',
+      user: 'info@test.pixel-robotics.com',
+      password: 'k8%9G7cDYHK4RAgp',
+      host: 'mail.test.pixel-robotics.com',
       port: 587,
       ssl: false,
       logger: (...args) => {
