@@ -49,7 +49,16 @@ export class MailService {
     port,
     ssl,
   }): SMTPClient {
-    return new SMTPClient({ user, password, host, port, ssl });
+    return new SMTPClient({
+      timeout: undefined,
+      user,
+      password,
+      host,
+      port: 587,
+      ssl: false,
+      authentication: ['LOGIN'],
+      tls: true
+    });
   }
 
   private static createNodeMailerTransporter({
@@ -62,9 +71,16 @@ export class MailService {
     return createTransport(
       {
         host,
-        port,
+        port: 587,
         secure: ssl,
+        requireTLS: true,
+        opportunisticTLS: true,
         auth: { type: 'LOGIN', user, pass: password },
+        tls: {
+          host,
+          port,
+          rejectUnauthorized: false
+        }
       },
       {
         from: 'PixelRobotics <info@pixel-robotics.eu>',
