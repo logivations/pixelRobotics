@@ -1,4 +1,4 @@
-import { Inject, Injectable } from "@nestjs/common";
+import { Inject, Injectable } from '@nestjs/common';
 import MailDataDto from './mail-dto/mail.data.dto';
 import { HttpService } from '@nestjs/axios';
 import { EnvironmentConfigService } from '../infrastructure/config/environment-config/environment-config.service';
@@ -7,10 +7,11 @@ import { SMTPClient } from 'emailjs';
 import * as ejs from 'ejs';
 import * as path from 'path';
 import { MessageHeaders } from 'emailjs/smtp/message';
-import { WINSTON_MODULE_NEST_PROVIDER } from "nest-winston";
-import { LoggerService } from "../infrastructure/logger/logger.service";
-import { Transporter, createTransport, getTestMessageUrl } from "nodemailer";
-import SMTPTransport from "nodemailer/lib/smtp-transport";
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
+import { LoggerService } from '../infrastructure/logger/logger.service';
+import { createTransport, Transporter } from 'nodemailer';
+import SMTPTransport from 'nodemailer/lib/smtp-transport';
+import { ConfigService } from '../infrastructure/modules/configs/config.service';
 
 @Injectable()
 export class MailService {
@@ -18,46 +19,60 @@ export class MailService {
   private nodeMailerTransporter: Transporter<SMTPTransport.SentMessageInfo>;
   constructor(
     private readonly httpService: HttpService,
+    private readonly configService: ConfigService,
     private readonly config: EnvironmentConfigService,
-    @Inject(WINSTON_MODULE_NEST_PROVIDER) private readonly logger: LoggerService,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER)
+    private readonly logger: LoggerService,
   ) {
-    this.mailClient = MailService.createSMTPClient();
-    this.nodeMailerTransporter = MailService.createNodeMailerTransporter();
+    this.createSMTPClients();
   }
 
-  private static createSMTPClient(): SMTPClient {
-    return new SMTPClient({
-      user: 'info@pixelrobotics.eu',
-      password: '134679vV!',
-      host: 'pixelrobotics.eu',
-      port: 465,
-      ssl: true,
-      logger: (...args) => {
-        console.log('args', args);
-      },
+  private createSMTPClients() {
+    this.configService.getAll().then((configMap) => {
+      const clientConfig = {
+        host: configMap.get('MAIL_HOST'),
+        user: configMap.get('MAIL_USER'),
+        password: configMap.get('MAIL_PASSWORD'),
+        port: configMap.get('MAIL_PORT'),
+        ssl: !!Number(configMap.get('MAIL_SSL')),
+      };
+      this.mailClient = MailService.createSMTPClient(clientConfig);
+      this.nodeMailerTransporter =
+        MailService.createNodeMailerTransporter(clientConfig);
     });
   }
 
-  private static createNodeMailerTransporter(): Transporter<SMTPTransport.SentMessageInfo> {
+  private static createSMTPClient({
+    user,
+    password,
+    host,
+    port,
+    ssl,
+  }): SMTPClient {
+    return new SMTPClient({ user, password, host, port, ssl });
+  }
+
+  private static createNodeMailerTransporter({
+    user,
+    password,
+    host,
+    port,
+    ssl,
+  }): Transporter<SMTPTransport.SentMessageInfo> {
     return createTransport(
       {
-        host: "pixelrobotics.eu",
-        port: 465,
-        secure: true,
-        auth: {
-          type: 'LOGIN',
-          user: 'info@pixelrobotics.eu',
-          pass: '134679vV!'
-        },
-        transactionLog: true // include SMTP traffic in the logs
+        host,
+        port,
+        secure: ssl,
+        auth: { type: 'LOGIN', user, pass: password },
       },
       {
         from: 'PixelRobotics <info@pixel-robotics.eu>',
         headers: {
           'Mime-Version': '1.0',
           'Content-Type': 'text/plain;charset=UTF-8',
-        }
-      }
+        },
+      },
     );
   }
 
@@ -80,12 +95,17 @@ export class MailService {
           'mailToPixelInfoTemplate.ejs',
           { name, email, message, iWantToTalkWith },
           {
-            to: 'olena.antonova@pixel-robotics.eu',
+            to: 'volodymyr.boichuk@logivations.com',
             subject: 'Kontakt | Pixel Robotics',
-            cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
-            bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
+            cc: [
+              'volodymyr.boichuk@logivations.com',
+              'christina.kiselova@pixel-robotics.eu',
+            ],
+            bcc: [
+              'volodymyr.boichuk@logivations.com',
+              'christina.kiselova@pixel-robotics.eu',
+            ],
           },
-          iWantToTalkWith
         );
         const resultToClient = await this.sendMailWithTemplate(
           'mailToClientTemplate.ejs',
@@ -94,7 +114,6 @@ export class MailService {
             to: email,
             subject: 'Kontakt | Pixel Robotics',
           },
-          iWantToTalkWith
         );
         return [resultToServer, resultToClient];
       } catch (err) {
@@ -103,17 +122,30 @@ export class MailService {
     }
   }
 
-  public async subscribeToEvent(subscribeData: { [key: string]: any }, lang: string): Promise<any> {
+  public async subscribeToEvent(
+    subscribeData: { [key: string]: any },
+    lang: string,
+  ): Promise<any> {
     const {
       sendMailDetail: { mailTo, subject, emailTemplate },
       mailData,
     } = subscribeData;
-    return await this.sendMailWithTemplate(emailTemplate, {...mailData, lang}, {
-      to: mailTo || 'volodymyr.boichuk@logivations.com',
-      subject: subject || 'Event subscription',
-      cc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
-      bcc: ['volodymyr.boichuk@logivations.com', 'christina.kiselova@pixel-robotics.eu'],
-    });
+    return await this.sendMailWithTemplate(
+      emailTemplate,
+      { ...mailData, lang },
+      {
+        to: mailTo || 'volodymyr.boichuk@logivations.com',
+        subject: subject || 'Event subscription',
+        cc: [
+          'volodymyr.boichuk@logivations.com',
+          'christina.kiselova@pixel-robotics.eu',
+        ],
+        bcc: [
+          'volodymyr.boichuk@logivations.com',
+          'christina.kiselova@pixel-robotics.eu',
+        ],
+      },
+    );
   }
 
   private sendMailViaNodeMailer(template, configParameters, resolve, reject) {
@@ -124,9 +156,8 @@ export class MailService {
       cc: configParameters.cc,
       bcc: configParameters.bcc,
     };
-    console.log("mailConfig", mailConfig);
     this.nodeMailerTransporter.sendMail(mailConfig, (error, info) => {
-      console.log("error, info", error, info);
+      console.log('error, info', error, info);
       if (error) {
         console.log('Error occurred:', error.message);
         this.logger.error(error.message, 'Error occurred: ');
@@ -165,33 +196,34 @@ export class MailService {
   private sendMailWithTemplate(
     templateName: string,
     templateData: { [key: string]: string },
-    configParameters: { to: string; subject: string; cc?: string | string[], bcc?: string | string[] },
-    iWantToTalkWith?: string
+    configParameters: {
+      to: string;
+      subject: string;
+      cc?: string | string[];
+      bcc?: string | string[];
+    }
   ) {
-    const templatesPath = process.env.NODE_ENV !== 'local'
-      ? path.resolve(`../mail/templates/${templateName}`)
-      : path.resolve(`src/mail/templates/${templateName}`);
+    const templatesPath =
+      process.env.NODE_ENV !== 'local'
+        ? path.resolve(`../mail/templates/${templateName}`)
+        : path.resolve(`src/mail/templates/${templateName}`);
     this.logger.log(templatesPath, 'templatesPath');
 
     return new Promise((resolve, reject) => {
-      ejs.renderFile(
-        templatesPath,
-        templateData,
-        (err, template) => {
-          this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
-          console.log("err, template", err, template);
-          if (!err && template) {
-            this.sendMailViaNodeMailer(template, configParameters, resolve, reject);
-            // if (iWantToTalkWith === 'Vertriebsmitarbeiter') {
-            //
-            // } else {
-            //   this.sendMailViaEmailJs(template, configParameters, resolve, reject);
-            // }
-          } else {
-            reject(err);
-          }
-        },
-      );
+      ejs.renderFile(templatesPath, templateData, (err, template) => {
+        this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
+        console.log('err, template', err, template);
+        if (!err && template) {
+          this.sendMailViaNodeMailer(
+            template,
+            configParameters,
+            resolve,
+            reject,
+          );
+        } else {
+          reject(err);
+        }
+      });
     });
   }
 }

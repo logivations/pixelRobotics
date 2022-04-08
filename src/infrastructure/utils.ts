@@ -2,8 +2,9 @@ import { FastifyRequest } from 'fastify';
 
 export const getLangFromCookie = (request: FastifyRequest) => {
   const cookiesLang = request.cookies['lang'];
-  const headerLang = request.headers['accept-language']
-    && request.headers['accept-language'].includes('de')
+  const headerLang =
+    request.headers['accept-language'] &&
+    request.headers['accept-language'].includes('de')
       ? 'DE_de'
       : 'EN_en';
   const finallyLang = cookiesLang || headerLang;

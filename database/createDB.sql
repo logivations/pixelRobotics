@@ -17,3 +17,10 @@ create table if not exists user_activity
     referer             varchar(255)   not null default '',
     primary key (user_IP, visited_page, user_agent, provider_detail)
 ) engine=InnoDB default charset=latin1;
+
+create table if not exists config
+(
+    config_name        varchar(64)    not null default '',
+    config_value       varchar(128)   not null default '',
+    primary key (config_name)
+) engine=InnoDB default charset=latin1;

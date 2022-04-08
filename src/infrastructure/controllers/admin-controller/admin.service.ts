@@ -21,13 +21,21 @@ export class AdminService {
       return s;
     };
     return items
-      .sort((itemA, itemB) => ((new Date(itemB.dateTime)).getTime() - (new Date(itemA.dateTime)).getTime()))
+      .sort(
+        (itemA, itemB) =>
+          new Date(itemB.dateTime).getTime() -
+          new Date(itemA.dateTime).getTime(),
+      )
       .map((item, index) => {
         const { name, version } = parse(item.userAgent);
         const { isp } = JSON.parse(item.providerDetail);
         const date = new Date(item.dateTime);
-        const parsedData = `${date.getFullYear()}-${padZero2(date.getMonth() + 1)}-${padZero2(date.getDate())}
-                  ${padZero2(date.getHours())}:${padZero2(date.getMinutes())}:${padZero2(date.getSeconds())}`;
+        const parsedData = `${date.getFullYear()}-${padZero2(
+          date.getMonth() + 1,
+        )}-${padZero2(date.getDate())}
+                  ${padZero2(date.getHours())}:${padZero2(
+          date.getMinutes(),
+        )}:${padZero2(date.getSeconds())}`;
         return {
           ...item,
           provider: isp || 'Provider not found',

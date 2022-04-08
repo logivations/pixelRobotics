@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import typeOrmConfig from './infrastructure/config/typeorm/typeorm.config';
 import winstonConfig from './infrastructure/config/winston/config';
 import { WinstonModule } from 'nest-winston';
+import { ConfigModule } from './infrastructure/modules/configs/config.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { WinstonModule } from 'nest-winston';
     EnvironmentConfigModule,
     TypeOrmModule.forRoot(typeOrmConfig),
     UserActivityModule,
+    ConfigModule,
     WinstonModule.forRoot(winstonConfig),
   ],
   controllers: [],
