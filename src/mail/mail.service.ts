@@ -33,10 +33,14 @@ export class MailService {
         host: configMap.get('MAIL_HOST'),
         user: configMap.get('MAIL_USER'),
         password: configMap.get('MAIL_PASSWORD'),
-        port: configMap.get('MAIL_PORT'),
+        port: parseInt(configMap.get('MAIL_PORT'), 10),
         ssl: !!Number(configMap.get('MAIL_SSL')),
       };
+
+      this.logger.log(JSON.stringify(clientConfig), 'clientConfig: ');
+
       this.mailClient = MailService.createSMTPClient(clientConfig);
+
       this.nodeMailerTransporter =
         MailService.createNodeMailerTransporter(clientConfig);
     });
