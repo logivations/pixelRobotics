@@ -49,15 +49,14 @@ export class MailService {
     port,
     ssl,
   }): SMTPClient {
+    console.log("typeof port", typeof port);
     return new SMTPClient({
       timeout: undefined,
       user,
       password,
       host,
-      port: 587,
-      ssl: false,
-      authentication: ['LOGIN'],
-      tls: true
+      port: parseInt(port, 10),
+      ssl,
     });
   }
 
@@ -68,17 +67,14 @@ export class MailService {
     port,
     ssl,
   }): Transporter<SMTPTransport.SentMessageInfo> {
+    console.log("typeof port", typeof port);
     return createTransport(
       {
         host,
-        port: 587,
+        port: parseInt(port, 10),
         secure: ssl,
-        requireTLS: true,
-        opportunisticTLS: true,
         auth: { type: 'LOGIN', user, pass: password },
         tls: {
-          host,
-          port,
           rejectUnauthorized: false
         }
       },
@@ -226,18 +222,18 @@ export class MailService {
     this.logger.log(templatesPath, 'templatesPath');
 
     return new Promise((resolve, reject) => {
-      ejs.renderFile(templatesPath, templateData, (err, template) => {
+      ejs.renderFile(templatesPath, templateData, async (err, template) => {
         this.logger.log(err ? err : 'NO_ERROR', 'renderFile error');
         console.log('err, template', err, template);
         if (!err && template) {
-          this.sendMailViaNodeMailer(
+          await this.sendMailViaNodeMailer(
             template,
             configParameters,
             resolve,
             reject,
           );
         } else {
-          reject(err);
+          resolve(err);
         }
       });
     });
