@@ -18,18 +18,20 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 40%;
+      width: 50%;
+      padding-right: 30px;
       @media @desktop-sm {
         padding-top: 96px;
         padding-bottom: 96px;
       }
       @media @tablet {
-        width: 55%;
+        width: 50%;
       }
       @media @tablet-sm {
         width: 100%;
         height: auto;
         padding-bottom: 48px;
+        padding-right: 0;
       }
       .btn-container {
         justify-content: flex-start;
@@ -42,7 +44,7 @@
     .main-image-holder {
       position: absolute;
       z-index: 0;
-      width: 55%;
+      width: 50%;
       top: 0;
       right: 0;
       display: block;
@@ -52,11 +54,11 @@
         height: 55vw;
       }
       @media @tablet {
-        width: 40%;
-        height: 63vw;
+        width: 50%;
+        height: 67vw;
       }
       @media screen and (max-width: 768px)  {
-        height: 60%;
+        height: 100%;
       }
       @media @tablet-sm {
         position: relative;
@@ -76,8 +78,11 @@
         @media @tablet-sm {
           border-radius: 6px;
           width: 80%;
-          height: 300px;
+          height: 440px;
           box-shadow: @custom-shadow;
+        }
+        @media @mobile {
+          width: 100%;
         }
       }
     }
