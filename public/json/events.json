@@ -22,7 +22,7 @@
         "EN_en": "en.LogiMAT_2022.ejs",
         "DE_de": "de.LogiMAT_2022.ejs"
       },
-      "mailTo": "volodymyr.boichuk@logivations.com",
+      "mailTo": "sales@pixel-robotics.eu",
       "subject": "Appointment to LogiMAT 2022",
       "emailTemplate": "subscribeLogimatEventTemplate.ejs"
     }
