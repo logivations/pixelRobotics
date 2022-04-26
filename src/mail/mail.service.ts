@@ -82,7 +82,6 @@ export class MailService {
           'mailToPixelInfoTemplate.ejs',
           { name, email, message, iWantToTalkWith },
           {
-            from: `${name}<${email}>`,
             to: 'info@pixel-robotics.eu',
             subject: 'Kontakt | Pixel Robotics',
             bcc: ['christina.kiselova@pixel-robotics.eu'],
@@ -115,7 +114,6 @@ export class MailService {
       emailTemplate,
       { ...mailData, lang },
       {
-        from: `${mailData.name[0]}<${mailData.email[0]}>`,
         to: mailTo || 'sales@pixel-robotics.eu',
         subject: subject || 'Event subscription',
         bcc: ['christina.kiselova@pixel-robotics.eu'],
@@ -131,7 +129,6 @@ export class MailService {
       cc: configParameters.cc,
       bcc: configParameters.bcc,
     };
-    configParameters.from && Object.assign(mailConfig, {from: configParameters.from});
     this.nodeMailerTransporter.sendMail(mailConfig, (error, info) => {
       console.log('error, info', error, info);
       if (error) {
@@ -139,8 +136,6 @@ export class MailService {
         this.logger.error(error.message, 'Error occurred: ');
         reject(error.message);
       }
-
-      this.logger.log(JSON.stringify(info), 'Message sent successfully!: ');
       resolve(info);
     });
   }
