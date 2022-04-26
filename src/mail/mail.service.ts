@@ -115,7 +115,7 @@ export class MailService {
       emailTemplate,
       { ...mailData, lang },
       {
-        from: `${mailData.name}<${mailData.email}>`,
+        from: `${mailData.name[0]}<${mailData.email[0]}>`,
         to: mailTo || 'sales@pixel-robotics.eu',
         subject: subject || 'Event subscription',
         bcc: ['christina.kiselova@pixel-robotics.eu'],
