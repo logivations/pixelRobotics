@@ -130,6 +130,7 @@ ul, li {
 h1 {
   font-size: 4em;
   font-weight: 600;
+  margin-bottom: 16px;
   @media @desktop-sm {
     font-size: 3em;
   }
@@ -162,6 +163,35 @@ h6 {
   width: 100%;
   z-index: 100;
   padding: 15px 0;
+  transition: .2s;
+  &.header-transparent {
+    background: transparent;
+    box-shadow: none;
+    .pr-logo {
+      width: 120px;
+      height: 34px;
+      background-image: url("../images/pr-logo-white.svg");
+      background-repeat: no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
+      text-indent: -99999px;
+      overflow: hidden;
+      z-index: 1;
+      display: flex;
+    }
+    li a, span {
+      color: @white-color;
+      transition: all .2s;
+      &:hover {
+        color: @main-orange-color;
+      }
+    }
+    .language-list {
+      span {
+        color: inherit;
+      }
+    }
+  }
 
   .navbar-collapse {
     transition: height .7s;
@@ -223,6 +253,19 @@ h6 {
   }
   .header-logo {
     max-width: 120px;
+  }
+  .pr-logo {
+    width: 120px;
+    height: 34px;
+    background-image: url("../images/pr-logo-white.svg");
+    background-image: url("../images/pixel-robotics-logo.svg");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    text-indent: -99999px;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
   }
   .refugee-link {
     position: absolute;

@@ -7,7 +7,7 @@
 <body>
 <section id="first-screen">
   <%- include('../includes/header', {hideHomeLink: true, activeTab: 'home', lang: 'EN_en'}); -%>
-  <div class="banner d-flex container-fluid">
+  <div class="banner d-flex container-xxl container-md">
     <div class="">
       <div class="main-heading d-flex">
         <h1>Vision-based Robotics</h1>
@@ -15,10 +15,21 @@
         <div class="btn-container">
           <a href="/contact" class="btn-custom scroll-to">Contact us</a>
         </div>
+<!--        <div class="full-video-btn">-->
+<!--          <a href="">-->
+<!--            <span>Watch full video</span>-->
+<!--            <img src="images/icons/play-icon.svg" alt="">-->
+<!--          </a>-->
+<!--        </div>-->
       </div>
-      <div class="main-image-holder">
-        <div class="main-image"></div>
-      </div>
+
+      <video class="bg-video" playsinline autoplay muted loop poster="pt-pixel-poster">
+        <source src="video/pr-bg-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+<!--      <div class="main-image-holder">-->
+<!--        <div class="main-image"></div>-->
+<!--      </div>-->
     </div>
   </div>
 </section>
@@ -348,6 +359,19 @@
   <%- include('../includes/footer'); -%>
 </div>
 <%- include('../includes/default-scripts'); -%>
+<script>
+  const header = document.getElementById('header')
+  header.classList.add('header-transparent')
+  window.addEventListener('scroll',(event) => {
+    const scrollTop = document.documentElement.scrollTop;
+    if (scrollTop > 64) {
+      header.classList.remove('header-transparent');
+    } else {
+      header.classList.add('header-transparent')
+    }
+    console.log(document.documentElement.scrollTop)
+  })
+</script>
 
 </body>
 </html>
