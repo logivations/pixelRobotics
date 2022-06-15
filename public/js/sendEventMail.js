@@ -1,10 +1,11 @@
 
 function isAdditionalRequiredFieldsAreFilled() {
   const requiredFields = [...document.getElementsByClassName('required')].reduce((acc, mainRequiredFields) => {
-    if (acc.hasOwnProperty(mainRequiredFields.name)) {
-      acc[mainRequiredFields.name].push(mainRequiredFields)
+    const fieldName = mainRequiredFields.name.split('-')[0];
+    if (acc.hasOwnProperty(fieldName)) {
+      acc[fieldName].push(mainRequiredFields)
     } else {
-      acc[mainRequiredFields.name] = [mainRequiredFields]
+      acc[fieldName] = [mainRequiredFields]
     }
     return acc;
   }, {});
@@ -12,7 +13,8 @@ function isAdditionalRequiredFieldsAreFilled() {
     const arr = requiredFields[key];
     const isValid = arr.some((node) => node.checked !== undefined ? node.checked : !!node.value);
     if (!isValid) {
-      document.querySelector(`[name=${key}]`).scrollIntoView({block: "center", inline: "nearest"})
+      const nodeElement = document.querySelector(`[name=${key}]`) || document.querySelector(`[name=${key}-1]`);
+      nodeElement.scrollIntoView({block: "center", inline: "nearest"});
     }
     return isValid;
   })

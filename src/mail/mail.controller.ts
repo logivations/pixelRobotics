@@ -14,19 +14,14 @@ export class MailController {
   }
 
   @Post('subscribeEvent')
-  async subscribeEvent(
+  subscribeEvent(
     @Req() request: FastifyRequest,
-    @Res() response,
     @Body() subscriberData: any,
   ): Promise<SentMessageInfo> {
     const lang = getLangFromCookie(request);
-    try {
-      return this.mailService.subscribeToEvent(
-        JSON.parse(subscriberData),
-        lang,
-      );
-    } catch (err) {
-      throw new Error(err);
-    }
+    return this.mailService.subscribeToEvent(
+      JSON.parse(subscriberData),
+      lang,
+    );
   }
 }
