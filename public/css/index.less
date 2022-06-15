@@ -10,7 +10,7 @@
     left: 0;
     background: #180505;
     //background: #301201;
-    opacity: .7;
+    opacity: .5;
     width: 100%;
     height: 100%;
     z-index: -1;
@@ -69,11 +69,40 @@
         }
       }
       .full-video-btn {
+        padding: 48px 0;
+        width: fit-content;
         a {
           color: @white-color;
+          display: flex;
+          align-items: center;
+          span {
+            margin-right: 32px;
+          }
+          .play-btn-circle {
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background: rgba(255, 255, 255, .2);
+            width: 48px;
+            height: 48px;
+            transition: all .2s;
+          }
+          &:hover {
+            color: #cdcdcd;
+            .play-btn-circle {
+              //background: @white-color;
+              box-shadow: 0 4px 30px #4d4d4d;
+              img {
+                //filter: invert(37%) sepia(65%) saturate(5371%) hue-rotate(15deg) brightness(102%) contrast(98%);
+              }
+            }
+          }
         }
         img {
           max-width: 24px;
+          margin-left: 2px;
+          transition: all .2s;
         }
       }
     }
