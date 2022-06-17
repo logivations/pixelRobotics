@@ -10,28 +10,25 @@
   <div class="banner d-flex container-xxl container-md">
     <div class="">
       <div class="main-heading d-flex">
-        <h1>Vision-based Robotics</h1>
-        <p>Pixel Robotics uses AI, computer vision and robotics to automate pallet transportation with ease. Our robots work alongside humans and dynamically adapt to existing logistics processes.</p>
+        <h1 class="">Vision-based Robotics</h1>
+        <p class="">Pixel Robotics uses AI, computer vision and robotics to automate pallet transportation with ease. Our robots work alongside humans and dynamically adapt to existing logistics processes.</p>
         <div class="btn-container">
           <a href="/contact" class="btn-custom scroll-to">Contact us</a>
         </div>
         <div class="full-video-btn">
-          <a href="">
+          <button type="button" class="button-holder video-btn" data-bs-toggle="modal" data-src="video/202206_PixelRobotics_PixelPT_Presentation.mp4" data-bs-target="#PRModal">
             <span>Watch full video</span>
             <div class="play-btn-circle"><img src="images/icons/play-icon.svg" alt=""></div>
-          </a>
+          </button>
         </div>
       </div>
 
-      <video class="bg-video" playsinline autoplay muted loop poster="pt-pixel-poster">
-        <source src="video/pr-bg-video.mp4" type="video/mp4">
+      <video class="bg-video" playsinline autoplay muted loop poster="images/bg-video-screenshot.jpeg">
+        <source src="video/pr-bg-video-01.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-<!--      <div class="main-image-holder">-->
-<!--        <div class="main-image"></div>-->
-<!--      </div>-->
     </div>
-    <a href="#main" class='icon-scroll'><a/>
+    <a href="#main" class='icon-scroll'></a>
   </div>
 </section>
 <div id="main">
@@ -208,13 +205,6 @@
                 </div>
               </div>
             </div>
-            <!--                        <li><span class="bold-text">Max. Speed: </span><span>1.5 m/s</span></li>-->
-            <!--                        <li><span>Max. Lifting Weight: </span> 1,300 kg</li>-->
-            <!--                        <li><span>Lifting Height: </span> 300 mm (optional 900 mm)</li>-->
-            <!--                        <li><span>Dimensions: </span> 1,980 x 800 x 1,740 mm</li>-->
-            <!--                        <li><span>Turning Radius: </span> 1,650 mm</li>-->
-            <!--                        <li><span>Min. Aisle Width:</span> 1,000 mm</li>-->
-            <!--                        <li><span>Weight: </span> 550 kg</li>-->
           </div>
         </div>
       </div>
@@ -356,10 +346,26 @@
       </div>
     </div>
   </section>
-  <!--    </section>-->
+  <!-- </section> -->
   <%- include('../includes/footer'); -%>
 </div>
 <%- include('../includes/default-scripts'); -%>
+<!-- Video modal window -->
+<div class="modal fade" id="PRModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
+        </button>
+        <div class="ratio ratio-16x9">
+          <video id="PRModalVideo" class="embed-responsive-item" controls="controls" poster="images/pr-video-screenshot.png">
+            <source src="video/202206_PixelRobotics_PixelPT_Presentation.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
   const header = document.getElementById('header')
   header.classList.add('header-transparent')
@@ -372,6 +378,41 @@
     }
     console.log(document.documentElement.scrollTop)
   })
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+<script>
+  // gsap.registerPlugin(ScrollTrigger);
+  //
+  // gsap.to("h1", {
+  //   scrollTrigger: ".banner",
+  //   y: 0,
+  //   duration: .7,
+  //   delay: .5,
+  //   opacity: 1,
+  // });
+
+  /* video settings */
+  $(document).ready(() => {
+    let videoSrc;
+    $('.video-btn').click(function () {
+      videoSrc = $(this).data("src");
+    });
+    $('#PRModal').on('shown.bs.modal', () => {
+      $("#PRModalVideo").attr('src', videoSrc);
+    })
+    $('#PRModal').on('hide.bs.modal', () => {
+      $("#PRModalVideo").attr('src', videoSrc);
+    })
+    if ($(window).width() < 768) {
+      $("#header").removeClass("header-transparent");
+    }
+    else {
+      $("#header").addClass("header-transparent");
+    }
+  });
+  /* end video settings */
+
 </script>
 
 </body>

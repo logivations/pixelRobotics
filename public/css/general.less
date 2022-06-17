@@ -131,6 +131,8 @@ h1 {
   font-size: 4em;
   font-weight: 600;
   margin-bottom: 16px;
+  //transform: translate(0px, 48px);
+  //opacity: 0;
   @media @desktop-sm {
     font-size: 3em;
   }
@@ -167,6 +169,10 @@ h6 {
   &.header-transparent {
     background: transparent;
     box-shadow: none;
+    @media @tablet-md {
+      background: @white-color;
+      box-shadow: @custom-shadow;
+    }
     .pr-logo {
       width: 120px;
       height: 34px;
@@ -178,10 +184,16 @@ h6 {
       overflow: hidden;
       z-index: 1;
       display: flex;
+      @media @tablet-md {
+        background-image: url("../images/pixel-robotics-logo.svg");
+      }
     }
     li a, span {
       color: @white-color;
       transition: all .2s;
+      @media @tablet-md {
+        color: inherit;
+      }
       &:hover {
         color: @main-orange-color;
       }
@@ -257,7 +269,6 @@ h6 {
   .pr-logo {
     width: 120px;
     height: 34px;
-    background-image: url("../images/pr-logo-white.svg");
     background-image: url("../images/pixel-robotics-logo.svg");
     background-repeat: no-repeat;
     -webkit-background-size: 100%;
