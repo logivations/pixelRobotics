@@ -22,8 +22,7 @@
           </button>
         </div>
       </div>
-
-      <video class="bg-video" playsinline autoplay muted loop poster="images/bg-video-screenshot.jpeg">
+      <video class="bg-video" playsinline autoplay muted loop preload="metadata" poster="images/bg-video-screenshot.jpeg">
         <source src="video/pr-bg-video-01.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -358,7 +357,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
         </button>
         <div class="ratio ratio-16x9">
-          <video id="PRModalVideo" class="embed-responsive-item" controls="controls" poster="images/pr-video-screenshot.png">
+          <video id="PRModalVideo" class="embed-responsive-item" controls="controls" preload="metadata" poster="images/pr-video-screenshot.png">
             <source src="video/202206_PixelRobotics_PixelPT_Presentation.mp4" type="video/mp4">
           </video>
         </div>
@@ -376,7 +375,12 @@
     } else {
       header.classList.add('header-transparent')
     }
-    console.log(document.documentElement.scrollTop)
+
+    // if ($(window).width() < 768) {
+    //   header.classList.remove('header-transparent');
+    // } else {
+    //   header.classList.add('header-transparent');
+    // }
   })
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
@@ -404,12 +408,6 @@
     $('#PRModal').on('hide.bs.modal', () => {
       $("#PRModalVideo").attr('src', videoSrc);
     })
-    if ($(window).width() < 768) {
-      $("#header").removeClass("header-transparent");
-    }
-    else {
-      $("#header").addClass("header-transparent");
-    }
   });
   /* end video settings */
 
