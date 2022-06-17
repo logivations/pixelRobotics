@@ -70,8 +70,17 @@
         padding: 48px 0;
         width: fit-content;
         color: @white-color;
+        @media @mobile {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
         span {
           margin-right: 32px;
+          @media @mobile {
+            margin-right: 0;
+            margin-bottom: 16px;
+          }
         }
         .button-holder {
           background: none;
@@ -80,6 +89,12 @@
           color: @white-color;
           display: flex;
           align-items: center;
+          @media @mobile {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            flex-direction: column;
+          }
           .play-btn-circle {
             border-radius: 999px;
             display: flex;
@@ -166,6 +181,10 @@
       top: 85%;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3);
       border-radius: 25px;
+      @media @mobile {
+        top: inherit;
+        bottom: 25px;
+      }
     }
     .icon-scroll:before {
       content: '';
