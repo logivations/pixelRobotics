@@ -7,33 +7,41 @@
 <body>
 <section id="first-screen">
     <%- include('../includes/header.ejs', {hideHomeLink: true, activeTab: 'home', lang: 'DE_de'}); -%>
-    <div class="banner d-flex container-fluid">
-        <div class="">
+    <div class="banner d-flex container-xxl container-md">
+        <div>
             <div class="main-heading d-flex">
                 <h1>Vision-based Robotics</h1>
                 <p>Pixel Robotics kombiniert KI, Computer Vision und Robotik, um innerbetriebliche Palettentransporte zu automatisieren. Unsere Roboter arbeiten kooperativ mit den menschlichen Kollegen zusammen und passen sich dynamisch an bestehende Prozesse in der Intralogistik an.</p>
                 <div class="btn-container">
                     <a href="/contact" class="btn-custom scroll-to">Kontaktieren Sie uns</a>
                 </div>
+                <div class="full-video-btn">
+                    <button type="button" class="button-holder video-btn" data-bs-toggle="modal" data-src="video/202206_PixelRobotics_PixelPT_Presentation.mp4" data-bs-target="#PRModal">
+                        <span>Gesamtes Video abspielen</span>
+                        <div class="play-btn-circle"><img src="images/icons/play-icon.svg" alt=""></div>
+                    </button>
+                </div>
             </div>
-            <div class="main-image-holder">
-                <div class="main-image"></div>
-            </div>
+            <video class="bg-video" playsinline autoplay muted loop preload="metadata" poster="images/bg-video-screenshot.jpeg">
+                <source src="video/Homepage_Intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
+        <a href="#main" class='icon-scroll'></a>
     </div>
 </section>
 <div id="main">
     <section id="how-it-works" class="">
         <div class="container-xxl container-md">
             <div class="row">
-                <div class="col-lg-10 col-md-12 offset-lg-1 offset-0">
+                <div class="col-12">
                     <div class="hiw-wrapper">
                         <div class="title-holder text-center">
                             <h2>So funktioniert's</h2>
                             <h5><span class="bold-text">Der Enabler:</span> KI-Erfassungseinheiten an der Hallendecke</h5>
                         </div>
                         <div class="row fg-1ist">
-                            <div class="col-md-6 col-12">
+                            <div class="col-md-3 col-12">
                                 <div class="fg-item d-flex">
                                     <span class="hiw-number">1</span>
                                     <figure class="d-flex figure-holder">
@@ -46,7 +54,7 @@
                                     </figure>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-12">
+                            <div class="col-md-3 col-12">
                                 <div class="fg-item d-flex">
                                     <span class="hiw-number">2</span>
                                     <figure class="d-flex figure-holder">
@@ -59,7 +67,7 @@
                                     </figure>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-12">
+                            <div class="col-md-3 col-12">
                                 <div class="fg-item d-flex">
                                     <span class="hiw-number">3</span>
                                     <figure class="d-flex figure-holder">
@@ -72,7 +80,7 @@
                                     </figure>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-12">
+                            <div class="col-md-3 col-12">
                                 <div class="fg-item d-flex">
                                     <span class="hiw-number">4</span>
                                     <figure class="d-flex figure-holder">
@@ -348,6 +356,35 @@
 <%- include('../includes/de.footer.ejs'); -%>
 </div>
 <%- include('../includes/default-scripts'); -%>
+<!-- Video modal window -->
+<div class="modal fade" id="PRModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
+                </button>
+                <div class="ratio ratio-16x9">
+                    <video id="PRModalVideo" class="embed-responsive-item" controls="controls" preload="metadata" poster="images/pr-video-screenshot.png">
+                        <source src="video/202206_PixelRobotics_PixelPT_Presentation.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const header = document.getElementById('header')
+    header.classList.add('header-transparent')
+    window.addEventListener('scroll',(event) => {
+        const scrollTop = document.documentElement.scrollTop;
+        if (scrollTop > 64) {
+            header.classList.remove('header-transparent');
+        } else {
+            header.classList.add('header-transparent')
+        }
+    })
+</script>
+<script src="js/video.js"></script>
 
 </body>
 </html>
