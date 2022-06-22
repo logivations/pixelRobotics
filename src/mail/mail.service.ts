@@ -51,7 +51,7 @@ export class MailService {
         auth: { type: 'LOGIN', user, pass: password },
         tls: {
           rejectUnauthorized: false
-        }
+        },
       },
       {
         from: 'PixelRobotics <info@pixel-robotics.eu>',
