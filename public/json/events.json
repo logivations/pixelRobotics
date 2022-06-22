@@ -2,6 +2,7 @@
   "events": [
     {
       "id": 1001,
+      "visible": false,
       "title": {
         "EN_en": "Appointment at LogiMAT 2022",
         "DE_de": "Terminvereinbarung LogiMAT 2022"

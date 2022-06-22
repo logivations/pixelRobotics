@@ -9,6 +9,7 @@ export class CommonService {
 
   public getNews(lang: string) {
     return news.news
+      .filter((newsObj) => newsObj.visible)
       .map((newsObj) => {
         const title = newsObj.title[lang];
         const templateName = newsObj.templateName[lang];
@@ -24,7 +25,8 @@ export class CommonService {
   }
 
   public getEvents(lang: string) {
-    return events.events
+      return events.events
+      .filter((newsObj) => newsObj.visible)
       .map((newsObj) => {
         const title = newsObj.title[lang];
         const templateName = newsObj.templateName[lang];
