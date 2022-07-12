@@ -25,6 +25,25 @@
       "mailTo": "sales@pixel-robotics.eu",
       "subject": "Appointment to LogiMAT 2022",
       "emailTemplate": "subscribeLogimatEventTemplate.ejs"
+    }, {
+      "id": 1002,
+      "visible": true,
+      "title": {
+        "EN_en": "Lecture from Pixel Robotics at the digital networking days - Robotics",
+        "DE_de": "Lecture from Pixel Robotics at the digital networking days - Robotics"
+      },
+      "posterURL": "/images/newsAndEvents/digiNetworkDays.png",
+      "eventTime": {
+        "EN_en": "6th to 7th December 2022",
+        "DE_de": "6th to 7th December 2022"
+      },
+      "eventDate": "06.12.2022",
+      "eventPlace": "Online event",
+      "createdAt": "12.07.2022",
+      "templateName": {
+        "EN_en": "en.DigitalNetworkingDays.ejs",
+        "DE_de": "en.DigitalNetworkingDays.ejs"
+      }
     }
   ]
 }
