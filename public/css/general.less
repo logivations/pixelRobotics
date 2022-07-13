@@ -166,6 +166,20 @@ h6 {
   z-index: 100;
   padding: 15px 0;
   transition: .2s;
+
+  .pr-logo {
+    width: 120px;
+    height: 34px;
+    background-image: url("../images/pixel-robotics-logo.svg");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    text-indent: -99999px;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+  }
+
   &.header-transparent {
     background: transparent;
     box-shadow: none;
@@ -174,16 +188,7 @@ h6 {
       box-shadow: @custom-shadow;
     }
     .pr-logo {
-      width: 120px;
-      height: 34px;
       background-image: url("../images/pr-logo-white.svg");
-      background-repeat: no-repeat;
-      -webkit-background-size: 100%;
-      background-size: 100%;
-      text-indent: -99999px;
-      overflow: hidden;
-      z-index: 1;
-      display: flex;
       @media @tablet-md {
         background-image: url("../images/pixel-robotics-logo.svg");
       }
