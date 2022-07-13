@@ -13,10 +13,12 @@ export class CommonService {
       .map((newsObj) => {
         const title = newsObj.title[lang];
         const templateName = newsObj.templateName[lang];
+        const eventPlace = newsObj.eventPlace.hasOwnProperty(lang) ? newsObj.eventPlace[lang] : newsObj.eventPlace;
         return {
           ...newsObj,
           title,
           templateName,
+          eventPlace,
           eventDate: null,
           type: 'news',
         };
@@ -31,7 +33,8 @@ export class CommonService {
         const title = newsObj.title[lang];
         const templateName = newsObj.templateName[lang];
         const eventTime = newsObj.eventTime[lang];
-        return { ...newsObj, title, templateName, eventTime, type: 'event' };
+        const eventPlace = newsObj.eventPlace.hasOwnProperty(lang) ? newsObj.eventPlace[lang] : newsObj.eventPlace;
+        return { ...newsObj, title, templateName, eventTime, eventPlace, type: 'event' };
       })
       .sort((itemA, itemB) => sortByDate(itemA.createdAt, itemB.createdAt));
   }
