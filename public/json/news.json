@@ -2,6 +2,7 @@
   "news": [
     {
       "id": 2001,
+      "visible": true,
       "title": {
         "EN_en": "Pixel Robotics: Intelligent robots for pallet handling",
         "DE_de": "Pixel Robotics: Intelligente Roboter für den Palettenumschlag"
