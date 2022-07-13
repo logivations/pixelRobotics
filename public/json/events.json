@@ -2,6 +2,7 @@
   "events": [
     {
       "id": 1001,
+      "visible": false,
       "title": {
         "EN_en": "Appointment at LogiMAT 2022",
         "DE_de": "Terminvereinbarung LogiMAT 2022"
@@ -29,20 +30,23 @@
       "id": 1002,
       "visible": true,
       "title": {
-        "EN_en": "Lecture from Pixel Robotics at the digital networking days - Robotics",
-        "DE_de": "Lecture from Pixel Robotics at the digital networking days - Robotics"
+        "EN_en": "Presentation from Pixel Robotics at the digital networking days - Robotics",
+        "DE_de": "Vortrag von Pixel Robotics auf den digitalen Netzwerktagen - Robotik"
       },
       "posterURL": "/images/newsAndEvents/digiNetworkDays.png",
       "eventTime": {
         "EN_en": "6th to 7th December 2022",
-        "DE_de": "6th to 7th December 2022"
+        "DE_de": "Vom 06. bis 07. Dezember 2022"
       },
       "eventDate": "06.12.2022",
-      "eventPlace": "Online event",
+      "eventPlace": {
+        "EN_en": "Online event",
+        "DE_de": "Virtuelle Veranstaltung "
+      },
       "createdAt": "12.07.2022",
       "templateName": {
         "EN_en": "en.DigitalNetworkingDays.ejs",
-        "DE_de": "en.DigitalNetworkingDays.ejs"
+        "DE_de": "de.DigitalNetworkingDays.ejs"
       }
     }
   ]
